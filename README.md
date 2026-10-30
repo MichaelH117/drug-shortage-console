@@ -2,7 +2,7 @@
 
 A Foundry-style operations console on the **live public openFDA Drug Shortages API**. It keeps the daily history the FDA does not, matches shortage records to a hospital formulary across NDC formats, salts, brands and typos, and gives a pharmacist one ranked morning queue with role-checked actions, write-back and a hash-chained action log.
 
-> **Data honesty.** Shortage records are real public openFDA data. Riverbend Health (3 sites), its formulary, stock, users, tasks and all usage are **SYNTHETIC**. The demo history days are SYNTHETIC fixture snapshots. This is a portfolio project; it has not been deployed or used by a real pharmacy. Labels for match quality are team-drafted and **not yet reviewed by a pharmacist**.
+> **Data honesty.** Shortage records are real public openFDA data. Riverbend Health (3 sites), its formulary, stock, users, tasks and all usage are **SYNTHETIC**. The demo history days are SYNTHETIC fixture snapshots. This is a demonstration project; it has not been deployed or used by a real pharmacy. Labels for match quality are team-drafted and **not yet reviewed by a pharmacist**.
 
 **In 5 minutes:** [Executive one-pager](docs/EXECUTIVE_ONE_PAGER.md) · [Brief](docs/BRIEF.md) · [Case study](docs/CASE_STUDY.md) · [Flaw hunt](docs/FLAW_HUNT.md) · [Known issues](docs/KNOWN_ISSUES.md)
 
@@ -134,7 +134,7 @@ Or in one step: `sh run_demo.sh`. (The macOS/Linux commands have not been run by
 | [006](docs/team/adr/006-matcher-guards.md) | Matcher guards on NDC tiers (+ v2 addendum, round-3 conditions) | Accepted with conditions |
 | [007](docs/team/adr/007-baseline-snapshot-and-actionable-queue.md) | First snapshot is a baseline; actionable, ranked, capped queue | Accepted. **Supersedes** DESIGN T2 ("guardrail b = n/a until 2 live days") |
 
-## Senior-scope documents
+## Project documents
 
 | Document | What it answers |
 |---|---|

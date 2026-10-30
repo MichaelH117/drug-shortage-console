@@ -1,6 +1,6 @@
 # Drug Shortage Console: the operations app
 
-A Streamlit console over the ontology views. It is a **portfolio project**. **SYNTHETIC hospital, simulated users.** Shortage records are public openFDA data. Riverbend Health, its 3 sites, formulary, stock, users and tasks are fictional. The demo history days are SYNTHETIC fixture snapshots.
+A Streamlit console over the ontology views. It is a **demonstration project**. **SYNTHETIC hospital, simulated users.** Shortage records are public openFDA data. Riverbend Health, its 3 sites, formulary, stock, users and tasks are fictional. The demo history days are SYNTHETIC fixture snapshots.
 
 ```
 python -m pipeline.run --fixtures     # build data/demo/console.duckdb (offline)

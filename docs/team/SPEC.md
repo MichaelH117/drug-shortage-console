@@ -157,14 +157,14 @@ Actions are plain Python functions in one action layer. The UI and the tests cal
 - AC-7.5 The reused code is copied with a comment naming its source file. The tech lead decides whether to extract it into a shared library; no import across project folders.
 
 ### US-8 Success metric, baseline and guardrails
-*As a deployment strategist, I want to show the console improves the morning decision, without gaming a number.*
+*As a hospital stakeholder, I want to see that the console improves the morning decision, without gaming a number.*
 - AC-8.1 `docs/impact.md` defines the **primary metric**: *recall of affected formulary items surfaced in the morning queue*, measured on the gold set, compared with the **baseline** of manual name search (simulated as exact generic-name match, AC-4.4). Both numbers come from `reports/match_quality.json`, not typed in by hand.
 - AC-8.2 **Guardrails** with thresholds, each computed by code: (a) queue precision >= 0.90 (alert fatigue), (b) queue length on the latest real snapshot reported (if it is over 40 items, the doc says the queue is not usable as-is), (c) audit chain verify = OK, (d) zero actions executed by a role not allowed (from the audit log), (e) DQ checks pass rate.
 - AC-8.3 A secondary operational metric, *time from detection to first action per affected shortage*, is defined and computed from the audit log, and is clearly labeled as **measured on simulated demo usage only, not real users.**
 - AC-8.4 The doc lists at least 2 ways each metric could be gamed and which guardrail catches it.
 
 ### US-9 "How I'd deploy this at a hospital system" decomposition
-*As an interviewer or hospital stakeholder, I want to see how this becomes a real deployment.*
+*As a hospital stakeholder, I want to see how this becomes a real deployment.*
 - AC-9.1 `docs/decomposition.md` exists, at most about 3 pages, and covers: the problem broken into parts (data in, identity matching, decision workflow, audit/compliance, change management); real data sources it would replace the synthetic ones with (formulary/inventory from the ERP or pharmacy system, wholesaler allocations, ASHP list), each marked as an assumption; who owns each data source; rollout (one site and one shadow week, then all sites); training plan; what to measure in week 1, 4 and 12; top risks.
 - AC-9.2 It maps each part to the Foundry concept it stands in for (object type, link type, action type, submission criteria, writeback dataset, Workshop app) with a link to palantir.com/docs for each, and states plainly that this is an open-source stand-in, not Foundry.
 - AC-9.3 Every claim about real hospitals or vendors has a URL or is marked UNVERIFIED.
@@ -173,7 +173,7 @@ Actions are plain Python functions in one action layer. The UI and the tests cal
 
 ## 5. Why Streamlit for the app
 
-- Michael has shipped Streamlit before (QuantLab), so the build risk is low and he can explain every line in an interview.
+- Michael has shipped Streamlit before (QuantLab), so the build risk is low.
 - Python only: the action layer, ontology and app share one language and one test suite.
 - Forms, tables, sidebar user picker and page navigation are built in, which fits about 1 day of UI work.
 - **Accepted trade-offs** (go in an ADR and KNOWN_ISSUES): no real authentication (demo identity picker only); every click reruns the script, so state must come from the database and not from session memory; there is no multi-user concurrency story (a single-writer local database is fine for a demo, not for a hospital). Rejected options: FastAPI + React (too much for 2 days), Dash (no team experience), notebooks (not an operational app).
@@ -212,29 +212,14 @@ Actions are plain Python functions in one action layer. The UI and the tests cal
 | R10 | Non-idempotent loads create duplicate events | Medium / Medium | Run-twice test | AC-2.2 |
 | R11 | API rate limit or outage during the demo | Low / Medium | Disk cache; offline fixtures; stale banner | US-1, AC-5.4 |
 | R12 | Streamlit plus a single-writer local database lock errors | Medium / Low | One connection per action, short transactions; noted in KNOWN_ISSUES | US-6 |
-| R13 | Overclaiming in the README or resume ("used by pharmacists", "production") | Medium / High | Say "portfolio project, synthetic hospital, simulated users" (research section 5) | all |
+| R13 | Overclaiming in the README ("used by pharmacists", "production") | Medium / High | Say "demonstration project, synthetic hospital, simulated users" (research section 5) | all |
 | R14 | Scope creep past 2 days | High / Medium | Build order US-1 -> 2 -> 3 -> 4 -> 6 -> 7 -> 5 -> 8 -> 9; cut AC-5.6 video to screenshots and AC-2.4 to "refuse" first if late | all |
 
 ---
 
-## 8. Which job postings this proves skills for
+## 8. Foundry vocabulary sources
 
-**Deployment Strategist, New Grad - Warp Speed (Palantir, New York)** [jobs.lever.co/palantir/37780e70...](https://jobs.lever.co/palantir/37780e70-c7af-45e1-9be7-071df201c387)
-- "Work with Forward Deployed Engineers to integrate the data into a stable and extensible pipeline" -> US-1, US-2, US-3.
-- "Present the results of our work and proposals for future work to audiences ranging from analysts to C-suite executives" -> PR/FAQ, US-8 impact doc, US-9 decomposition.
-- "Lead training sessions to ensure that the product is meeting user needs" -> US-9 training and rollout plan.
-- "Extraordinary ability to confront open-ended problems in unstructured environments" -> persona-first framing; US-9 is a written decomposition answer.
-- "Experience with programming, scripting or statistical packages (e.g. Python, R, Matlab, SQL)" -> whole build.
-
-**Forward Deployed Software Engineer, New Grad - Commercial (Palantir, New York)** [jobs.lever.co/palantir/2e6b0ac8...](https://jobs.lever.co/palantir/2e6b0ac8-83e9-4be5-a3aa-cf319f751728)
-- "Build custom applications ... and production solutions engineered for a specific customer's reality" -> US-5, US-6.
-- "Wrestle with data at a scale that breaks assumptions" -> honestly, the scale is small (about 1,600 records/day); what "breaks assumptions" here is messy identity data (US-4, R2-R5), not volume. Say it that way.
-- "Collaborate with engineers to make architecture and design decisions" -> ADRs from the tech lead.
-- "Own relationships with stakeholders from the users in the weeds to the executives" -> persona, PR/FAQ, decomposition.
-
-Also relevant to pharma data roles: audit trail and data-integrity controls (US-7), reused from the vaccine-assay project. Interview mapping (research section 3.2, UNVERIFIED): US-9 = decomp round; a real matcher bug + postmortem = re-engineering story.
-
-Foundry concepts used in the vocabulary (object types, link types, action types, submission criteria, writeback) are from [palantir.com/docs ontology overview](https://www.palantir.com/docs/foundry/ontology/overview/), [action types](https://www.palantir.com/docs/foundry/action-types/overview/) and [submission criteria](https://www.palantir.com/docs/foundry/action-types/submission-criteria/), as summarized in `dev-team/research/portfolio-signals-2026-10-30.md`.
+Foundry concepts used in the vocabulary (object types, link types, action types, submission criteria, writeback) are from [palantir.com/docs ontology overview](https://www.palantir.com/docs/foundry/ontology/overview/), [action types](https://www.palantir.com/docs/foundry/action-types/overview/) and [submission criteria](https://www.palantir.com/docs/foundry/action-types/submission-criteria/).
 
 ---
 

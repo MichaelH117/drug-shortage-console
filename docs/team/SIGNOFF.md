@@ -16,7 +16,7 @@ Test run on record: **307 passed, 2 skipped (live API), 0 failed** (`docs/result
 
 ## 1. Verdict
 
-**ACCEPTED FOR THE PORTFOLIO DEMO, WITH EXCEPTIONS.** Of 44 acceptance criteria: **38 MET, 4 PARTIAL, 2 NOT MET.**
+**ACCEPTED FOR THE DEMO, WITH EXCEPTIONS.** Of 44 acceptance criteria: **38 MET, 4 PARTIAL, 2 NOT MET.**
 
 - **The matcher misses its recall target. AC-4.5 is NOT MET.**
   - On the newest blind set (v3), recall is **0.605** (26 of 43) against a target of 0.95.
@@ -125,7 +125,6 @@ Test run on record: **307 passed, 2 skipped (live API), 0 failed** (`docs/result
 | Real deployment / real users | **Clean.** The README says "has not been deployed or used by a real pharmacy". The one-pager says "Not deployed". Usage is labeled SYNTHETIC/SIMULATED. |
 | Clinical advice | **Clean in both docs.** Small app-side note: the Drug page's business question says "is there a **safe** substitute". Suggest "a candidate substitute", to match the "not clinical advice" text below it. |
 | Compliance | **Clean.** No GxP, Part 11, HIPAA or "validated" claims. The log is correctly called tamper-**evident**. |
-| Years / titles | **Clean.** "Two forward-deployed engineers" in "How it was built" describes agent seats, not Michael. Keep that title off the resume. |
 | Seen-set score as headline | **Clean in the README, the one-pager and the app.** The headline is v3 unseen (0.963 / 0.605). The gold score 0.9825 is labeled "seen, optimistic; regression check only". |
 
 Numbers I checked against the JSON (all match): 0.963 / 0.605 / 26 of 43 / 1 FP in 27; v2 0.957 / 0.936 (44 of 47); v1 0.980 / 0.877; fairer baseline 0.571 / 0.093 (v3) and 0.579 / 0.234 (v2); combinations 12/23 = 0.52; premixes 0/4; audit 14 rows; DQ 0.909; 307 / 0 / 2.
@@ -139,48 +138,3 @@ Numbers I checked against the JSON (all match): 0.963 / 0.605 / 26 of 43 / 1 FP 
 6. Minor:
    - Screenshot 04 shows 17 audit rows while the Metrics page and the JSON say 14. The screenshots were taken on a scratch copy after 3 manual clicks, which the README discloses.
    - On the Match Quality page, `combination_product` (1 positive, a variant tag) sits next to "Combination 23" (post-hoc category). A reviewer may ask why; one caption line would answer it.
-
----
-
-## 4. Interview talking points
-
-**Palantir, Deployment Strategist and FDSE**
-
-1. **Decomposition: start from the decision, not the data.**
-   - The user's question: "At 7:30, of the shortages that are new or worse since yesterday, which hit what we stock, and for each one do I approve a substitute, open a buyer task, or mark it no-action?"
-   - That question split the work into five parts: data in, identity matching, the decision workflow, audit, and change management. Each part solved a real constraint:
-     - the API keeps no history, so the console saves write-once daily snapshots with SCD2 history
-     - 20% of records have no `openfda` block, so a tier-3 match by ingredient, form and route is needed
-     - a hidden button is not a control, so the role and submission-criteria checks sit in the action layer
-   - **The decomposition story:** day one on live data put 663 events in a queue meant to hold 40. ADR 007 reframed day one:
-     - treat the first snapshot as a baseline
-     - show only actionable rows (Limited, Unavailable or To Be Discontinued, not Resolved)
-     - one row per formulary item
-     - the result was a 73-item onboarding worklist, with the daily queue measured from day two
-2. **Learning: the number went down and I reported it.**
-   - Blind recall went 0.877 (v1) -> 0.936 (v2) -> 0.605 (v3). v3 was scored on a harder blind set: 53% combination products.
-   - Splitting by product type showed why:
-     - single-ingredient recall stayed between 0.87 and 0.95
-     - combinations fell to 12 of 23
-     - premixed bags found 0 of 4
-   - Precision stayed between 0.957 and 0.983 on every set, so the matcher fails safe: a miss falls back to the pharmacist's normal review, while a false match would put a wrong substitute in front of her.
-   - We stopped tuning because v3 is now seen. Every round was scored once on a frozen, hashed set its author never opened.
-   - We also caught our own overclaim: the app briefly headlined the older 0.936, which became BUG-PE-01 and was fixed.
-3. **"Tell me about a project": a Foundry-style operational app with write-back, built on a live public API.**
-   - One YAML ontology (5 object types, 6 link types, 6 action types) drives the views and the action rules.
-   - "Approve substitute" is pharmacist-only and enforced server-side. A forced buyer approval is refused and logged.
-   - Edits go to append-only tables that survive every full rebuild.
-   - Two postmortems with numbers:
-     - **a real concurrency race:** 11 of 15 runs failed before the writer lock, 0 of 20 after, and removing the lock fails 5 of 5
-     - **a state-machine back door:** re-proposing undid an approval
-   - 307 tests pass offline.
-   - Be plain about scale: about 1,600 records a day. The hard part was messy identity data, not volume.
-
-**Pharma data and GxP-adjacent roles**
-
-- **Data integrity by design, without claiming compliance.**
-  - Every action attempt, including refusals, writes one row: who, role, reason, old and new value, outcome and UTC time.
-  - The rows are sha256 hash-chained. `verify` names the first edited row k. Checkpoints and an optional anchor catch deleted rows.
-  - Label sets are frozen by hash and versioned, never edited, like a locked validation dataset.
-  - This audit pattern is reused from the vaccine-assay project.
-  - Know the gap and say it: DuckDB makes the log tamper-**evident**, not tamper-proof. The Part 11 path is Postgres triggers + REVOKE, WORM storage for the anchor, and real SSO (KNOWN_ISSUES KI-09, KI-10).

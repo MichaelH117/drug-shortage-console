@@ -1,6 +1,6 @@
 # Drug Shortage Console: executive one-pager
 
-Portfolio project, 2026-10-30. Real public FDA shortage data; **SYNTHETIC** hospital, users and usage. Not deployed.
+Demonstration project, 2026-10-30. Real public FDA shortage data; **SYNTHETIC** hospital, users and usage. Not deployed.
 
 **The problem.** A 3-hospital pharmacy team must decide each morning which new or worsening FDA shortages hit drugs it stocks, and act. Today (assumed) that is a one-name-at-a-time search with no "since yesterday" and no record of who approved what.
 

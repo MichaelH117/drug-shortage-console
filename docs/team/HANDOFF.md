@@ -1,14 +1,13 @@
 # HANDOFF log: drug-shortage-console
 
 ## 2026-10-30 | product-owner (Deployment Strategist)
-- **Did:** Created the project folder and docs/team/. Wrote SPEC.md: verified facts about the openFDA Drug Shortages API, persona (Dana Ruiz, PharmD, shortage coordinator at the synthetic Riverbend Health) and her morning decision, PR/FAQ, ontology (5 object types, 6 links), 9 user stories with testable ACs, the Streamlit rationale, out of scope, 14 risks, the job-posting mapping, and 5 open decisions.
+- **Did:** Created the project folder and docs/team/. Wrote SPEC.md: verified facts about the openFDA Drug Shortages API, persona (Dana Ruiz, PharmD, shortage coordinator at the synthetic Riverbend Health) and her morning decision, PR/FAQ, ontology (5 object types, 6 links), 9 user stories with testable ACs, the Streamlit rationale, out of scope, 14 risks, and 5 open decisions.
 - **Files:** docs/team/SPEC.md (new), docs/team/HANDOFF.md (new).
 - **Checks run (live, 2026-10-30):**
   - `api.fda.gov/drug/shortages.json?limit=2` returned 1614 records total, `last_updated` 2026-10-29.
   - `count=status`: Current 1153, To Be Discontinued 442, Resolved 19.
   - `count=availability` returned typo values ("Unvailable", "Limited Availalbility").
   - `_missing_:openfda` matched 323 records.
-  - Fetched both Palantir postings and quoted them.
   - No code exists yet, so no tests were run.
 - **Open issues:**
   - The `openfda.package_ndc` vs top-level `package_ndc` mismatch was seen in 1 record only (UNVERIFIED).
@@ -303,8 +302,8 @@
   - ML-08 live run still pending.
 - **Next:** qa-engineer (review), tech-lead (decide whether to do a v4 round).
 
-## 2026-10-30 | principal-engineer (Principal Engineer / Engineering Director) | senior-scope pass + showcase README
-- **Did:** Wrote BRIEF, RISK_REGISTER (17 risks), KNOWN_ISSUES (17), FLAW_HUNT (14 failure modes, 5 planted bugs), 2 postmortems (concurrency race; re-propose undid approval), SCALE_AND_COST, OPERATING_MODEL (3-hospital deployment, also serves as US-9 via docs/decomposition.md), ROADMAP (v4 matcher + new blind set under Next), CASE_STUDY, EXECUTIVE_ONE_PAGER, the showcase README (results, 6 screenshots, 3 infographics, Mermaid, Foundry mapping, ADR table, Quickstart placeholder for devops). Matcher rounds documented as stopped at v3 (EM decision); headline is v3 unseen P 0.963 / R 0.605, never the seen gold score.
+## 2026-10-30 | principal-engineer (Principal Engineer / Engineering Director) | documentation pass + README
+- **Did:** Wrote BRIEF, RISK_REGISTER (17 risks), KNOWN_ISSUES (17), FLAW_HUNT (14 failure modes, 5 planted bugs), 2 postmortems (concurrency race; re-propose undid approval), SCALE_AND_COST, OPERATING_MODEL (3-hospital deployment, also serves as US-9 via docs/decomposition.md), ROADMAP (v4 matcher + new blind set under Next), CASE_STUDY, EXECUTIVE_ONE_PAGER, the README (results, 6 screenshots, 3 infographics, Mermaid, Foundry mapping, ADR table, Quickstart placeholder for devops). Matcher rounds documented as stopped at v3 (EM decision); headline is v3 unseen P 0.963 / R 0.605, never the seen gold score.
 - **Per-category recall (post hoc, by item text; list in docs/img/make_charts.py):** v3 single 14/16, combination 12/23, premix 0/4; v2 single 42/44, combination 2/3; v1 single 46/53, combination 4/4.
 - **Files:** README.md (new), docs/{BRIEF,RISK_REGISTER,KNOWN_ISSUES,FLAW_HUNT,POSTMORTEM_concurrency_race,POSTMORTEM_repropose_undoes_approval,SCALE_AND_COST,OPERATING_MODEL,ROADMAP,CASE_STUDY,EXECUTIVE_ONE_PAGER,decomposition}.md, docs/img/{make_charts.py,matcher_rounds.png,recall_by_category.png,day_one_queue.png}, docs/team/BUGS.md (3 bugs). No product code changed.
 - **Run outputs regenerated:** `python -m pipeline.run --fixtures --test` on the repo (exit 0) rewrote docs/results.json, reports/match_quality.json (now v3 matcher on the seen gold set, 0.9825/0.9825) and reports/impact_metrics.json; demo DB rebuilt (edits and audit kept). README results block filled by `pipeline.run.write_readme_results`.
@@ -343,7 +342,7 @@
   - the 6 screenshots in `docs/demo/`
   - TEST_PLAN, BUGS, REVIEW and the docs/ write-ups
   - test names, found by grep
-- **Verdict: ACCEPTED FOR THE PORTFOLIO DEMO, WITH EXCEPTIONS.** 38 MET, 4 PARTIAL (5.2, 8.2, 9.1, 9.3), 2 NOT MET:
+- **Verdict: ACCEPTED FOR THE DEMO, WITH EXCEPTIONS.** 38 MET, 4 PARTIAL (5.2, 8.2, 9.1, 9.3), 2 NOT MET:
   - **AC-4.5:** v3 unseen recall 0.605 vs the 0.95 target, precision 0.963
   - **AC-9.2:** no palantir.com/docs links and no "stand-in, not Foundry" statement
 - **Overclaim scan:** README and one-pager are clean on deployment, users, clinical advice, compliance and titles. Wording fixes needed:

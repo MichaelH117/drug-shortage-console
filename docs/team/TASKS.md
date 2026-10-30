@@ -96,7 +96,7 @@ The GxP seat is benched. Its audit.py pattern is reused through DE-08.
 |---|---|---|---|---|
 | PE-01 | `docs/decomposition.md` (US-9: parts, real data sources marked as assumptions, data owners, rollout with one site and a shadow week, training, week 1/4/12 measures, top risks, a Foundry concept map with palantir.com/docs links, the "open-source stand-in, not Foundry" statement, a URL or UNVERIFIED on every claim). | AC-9.1, 9.2, 9.3 | `docs/decomposition.md` | SPEC, DESIGN |
 | PE-02 | `docs/RISK_REGISTER.md` (SPEC R1-R14 plus DESIGN T1-T14, each with an owner and a status) and `docs/KNOWN_ISSUES.md` (no auth, single writer, DuckDB detect-not-prevent, team-labeled gold set, synthetic history days, openFDA not for clinical use). | SPEC R13 | listed files | TL-01 |
-| PE-03 | Showcase README pass: wording check against overclaiming (research section 5), results block, screenshots, a roadmap including the optional Developer Tier phase. | SPEC R13 | `README.md` (shared with OPS: PE owns the prose, OPS owns the quickstart section) | AE-05, AE-06 |
+| PE-03 | README pass: wording check against overclaiming (research section 5), results block, screenshots, a roadmap including the optional Developer Tier phase. | SPEC R13 | `README.md` (shared with OPS: PE owns the prose, OPS owns the quickstart section) | AE-05, AE-06 |
 
 ## devops-engineer (OPS), light duty
 

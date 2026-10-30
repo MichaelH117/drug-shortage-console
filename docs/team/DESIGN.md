@@ -1,6 +1,6 @@
 # DESIGN: Drug Shortage Operations Console
 
-Owner: Tech Lead / Solution Architect (also Product Engineer, Palantir preset). Status: v1.0, 2026-10-30.
+Owner: Tech Lead / Solution Architect (also Product Engineer). Status: v1.0, 2026-10-30.
 Input: SPEC.md (US-1 to US-9). Next: engineers build from TASKS.md.
 
 Decisions by the Engineering Manager (Michael can override):

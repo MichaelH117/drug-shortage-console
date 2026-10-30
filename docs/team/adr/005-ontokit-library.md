@@ -1,9 +1,9 @@
 # ADR 005: `ontokit`, an in-repo, domain-free library for ontology, actions, write-back and audit
 
-Status: Accepted 2026-10-30 (Tech Lead acting as Product Engineer; Michael may override). Covers AC-7.5 and the Palantir preset rule: "pull reusable parts into a library."
+Status: Accepted 2026-10-30 (Tech Lead acting as Product Engineer; Michael may override). Covers AC-7.5 and the team rule: "pull reusable parts into a library."
 
 ## Context
-At Palantir, a Dev builds one capability for many customers, and a Delta builds many capabilities for one customer. This project is a Delta-style deployment, but four parts are generic:
+A product team builds one capability for many customers, and a deployment team builds many capabilities for one customer. This project is a single-customer deployment, but four parts are generic:
 - the YAML ontology loader
 - the action runner with submission criteria
 - the hash-chained audit log
@@ -14,7 +14,7 @@ AC-7.5 forbids imports across project folders, and the vaccine project already h
 ## Options
 1. **An in-repo package, `ontokit/`.** It must not import `pipeline`, `console` or `app`, a test enforces that, and it can be lifted into its own repo later.
 2. **A separate shared repo** installed with `pip install -e ../ontokit`. This is a dependency across project folders, which goes against the intent of AC-7.5, and it means versioning work before there is a second user.
-3. **No library.** Everything goes in `console/`. This is the simplest, but it gives up the Product Engineer signal and mixes generic rules with domain rules.
+3. **No library.** Everything goes in `console/`. This is the simplest, but it mixes generic rules with domain rules.
 
 ## Choice
 Option 1. `ontokit` contains `ontology.py`, `actions.py`, `writeback.py` and `audit.py`. Domain code (criteria predicates, the six actions, NDC logic) stays in `console/` and `pipeline/`. `tests/test_ontokit_boundary.py` parses the imports in `ontokit/*.py` and fails on any import from `pipeline`, `console` or `app`.

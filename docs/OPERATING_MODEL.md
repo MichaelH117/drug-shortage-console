@@ -1,6 +1,6 @@
 # OPERATING MODEL: how I would deploy this at a 3-hospital system
 
-Owner: Principal Engineer. 2026-10-30. Written the way a deployment decomposition interview goes: clarify, decompose, integrate, roll out, run, measure. Riverbend Health is **SYNTHETIC**; this is a plan, not a record of a deployment. It also serves as the SPEC's `docs/decomposition.md` (US-9).
+Owner: Principal Engineer. 2026-10-30. Structure: clarify, decompose, integrate, roll out, run, measure. Riverbend Health is **SYNTHETIC**; this is a plan, not a record of a deployment. It also serves as the SPEC's `docs/decomposition.md` (US-9).
 
 ## 1. Clarify the problem before building
 | Question | Why it matters | v1 assumption |

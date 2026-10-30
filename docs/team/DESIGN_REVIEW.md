@@ -3,7 +3,7 @@
 2026-10-30, Design Lead. Step 4 of `dev-team/OVERNIGHT_PLAN.md`. This is a restyle only. Pipeline, matching, queries and actions are unchanged, and every number on screen still comes from the same `console.*` calls.
 
 ## Context (three lines)
-- **Who.** Hospital and independent pharmacists. The median age is about 41 and many are 50+. They often stand at a shared counter and get interrupted 5–20 times an hour (research/audience-data A2). The second audience is a Palantir interviewer judging craft.
+- **Who.** Hospital and independent pharmacists. The median age is about 41 and many are 50+. They often stand at a shared counter and get interrupted 5–20 times an hour (research/audience-data A2).
 - **What they must know.** Which shortages since yesterday hit drugs we stock, and which of them still need a decision.
 - **What they should do.** Open the top item, approve or reject a substitute, and open a task. Then get back to where they were after the next interruption.
 

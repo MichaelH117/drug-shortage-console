@@ -1,6 +1,6 @@
 # CASE STUDY: a Foundry-style drug shortage console on live openFDA data
 
-Portfolio project, built by a small agent-assisted team (product, tech lead, two forward-deployed engineers, analytics, QA, devops, principal engineer seats) on 2026-10-30. **Shortage records are real public openFDA data. The hospital, its formulary, stock, users, tasks and all usage are SYNTHETIC.** Nothing here was deployed or used by a real pharmacy.
+Demonstration project, built by a small agent-assisted team (product, tech lead, two forward-deployed engineers, analytics, QA, devops, principal engineer seats) on 2026-10-30. **Shortage records are real public openFDA data. The hospital, its formulary, stock, users, tasks and all usage are SYNTHETIC.** Nothing here was deployed or used by a real pharmacy.
 
 ## The problem
 A hospital shortage coordinator has to answer every morning: *which shortages that are new or worse since yesterday hit drugs we stock, and what do we do about each?* openFDA publishes current state only, one record per package NDC, with free-text availability ("Unvailable", "Limited Availalbility"), 20% of records lacking harmonized ids, and names that rarely match a formulary's spelling. A name search misses most of it: on the newest blind set, a base-name search finds **4 of 43** true matches (recall 0.093).
