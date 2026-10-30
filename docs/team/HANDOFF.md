@@ -336,3 +336,32 @@
 - **git:** `git init -b main`, one local commit. No remote, no push. Staged-file check: no `data/live`, no `*.duckdb`, no file over 500 KB, no secret patterns.
 - **Open:** (1) `console.simulate` before any build fails with a raw DuckDB "schema stage does not exist" error; a friendly message would help (owner: data-engineer). (2) BUGS.md still shows BUG-PE-01 Status OPEN although analytics-engineer fixed it (owner: qa-engineer). (3) FLAW_HUNT and SCALE_AND_COST keep 302 as the dated record of that run; not changed. (4) macOS/Linux commands not executed. (5) `ruff format` is not enforced (61 files would reformat).
 - **Next:** product-owner (demo sign-off).
+
+## 2026-10-30 | product-owner (Deployment Strategist) | demo sign-off
+- **Did:** Checked all 44 SPEC acceptance criteria against outputs only (I did not run the pipeline or the tests):
+  - `docs/results.json` and `reports/*.json`
+  - the 6 screenshots in `docs/demo/`
+  - TEST_PLAN, BUGS, REVIEW and the docs/ write-ups
+  - test names, found by grep
+- **Verdict: ACCEPTED FOR THE PORTFOLIO DEMO, WITH EXCEPTIONS.** 38 MET, 4 PARTIAL (5.2, 8.2, 9.1, 9.3), 2 NOT MET:
+  - **AC-4.5:** v3 unseen recall 0.605 vs the 0.95 target, precision 0.963
+  - **AC-9.2:** no palantir.com/docs links and no "stand-in, not Foundry" statement
+- **Overclaim scan:** README and one-pager are clean on deployment, users, clinical advice, compliance and titles. Wording fixes needed:
+  - "663 raw events" should be "matched events"
+  - "about 0.96 on all three" (v1 was 0.980)
+  - the README's "17 limits" (now 19)
+  - stale v2 baseline numbers in an impact.md bullet
+  - `reports/match_quality.json` shows the seen gold run as `"pass": true` with no seen label
+- **Files:** `docs/team/SIGNOFF.md` (new); `docs/team/BUGS.md` (BUG-PE-01 marked FIXED); `docs/KNOWN_ISSUES.md` (KI-17 marked resolved; KI-18 added: `console.simulate` before a build gives a raw DuckDB error; KI-19 added: the macOS/Linux quickstart has not been run).
+- **Checks:** reading only. Run on record: 307 passed, 2 skipped, 0 failed (`docs/results.json`). Every README and one-pager number matched the JSON except the 663/73 pair, which comes from ADR 007's live DB measurement and is in no report JSON.
+- **Open:** AC-9.2 fix plus the training plan and week 1/4/12 measures for AC-9.1 (principal-engineer); the wording fixes above (principal-engineer / devops-engineer); the label in `match_quality.json` (data-engineer). Michael's open items: review the gold and holdout labels (GP-024, GP-088) and approve the daily live pull (E4).
+- **Next:** Michael (approve the push), after the doc fixes, or as-is if he accepts the exceptions.
+
+## 2026-10-30, Engineering Manager: sign-off wording fixes
+- "663 raw events" changed to "663 matched events (from 1,614 raw records)" in the README and the one-pager.
+- Precision is now stated as "between 0.957 and 0.980" on all three blind sets (README, BRIEF, CASE_STUDY).
+- KNOWN_ISSUES count corrected from 17 to 19 in the README.
+- impact.md baseline now labels v2 and adds the v3 numbers.
+- reports/match_quality.json now has a set_label saying it is the SEEN gold set.
+- AC-9.2: the Foundry concept map now says it is a stand-in and links to palantir.com/docs/foundry.
+- AC-4.5 (recall 0.605 against 0.95) stays NOT MET on purpose; v4 is on the roadmap.

@@ -13,7 +13,7 @@ Portfolio project, 2026-10-30. Real public FDA shortage data; **SYNTHETIC** hosp
 | Matcher recall, newest blind set | **0.605** (26 of 43); target 0.95 **not met** |
 | Same, previous blind set (mostly single-ingredient drugs) | precision 0.957, recall 0.936 |
 | Name search on the newest set | recall 0.093 |
-| Day-one queue | 663 raw events reduced to a 73-item review list |
+| Day-one queue | 663 matched events (from 1,614 raw records) reduced to a 73-item review list |
 | Role violations executed | 0; audit chain verifies |
 | Tests | 307 passed, 0 failed, 2 skipped (live API) |
 

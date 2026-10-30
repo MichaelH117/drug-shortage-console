@@ -31,7 +31,7 @@ Recall by product type (post-hoc category from the item text; the list is in `do
 | v2 holdout | 42/44 = 0.95 | 2/3 = 0.67 | none in set |
 | v3 holdout | 14/16 = 0.88 | **12/23 = 0.52** | **0/4** |
 
-**Reading.** v1 and v2 were 93% and 94% single-ingredient. v3 was 53% combinations plus 4 premixes, and recall fell to 0.605. Single-ingredient recall stayed between 0.87 and 0.95. Precision held at about 0.96 on all three. The 17 v3 misses: about 5 multi-strength combinations, 4 premixes, 4 brands that appear nowhere in the FDA data, 1 brand-on-one-component bug, 3 small parsing gaps.
+**Reading.** v1 and v2 were 93% and 94% single-ingredient. v3 was 53% combinations plus 4 premixes, and recall fell to 0.605. Single-ingredient recall stayed between 0.87 and 0.95. Precision held between 0.957 and 0.980 on all three. The 17 v3 misses: about 5 multi-strength combinations, 4 premixes, 4 brands that appear nowhere in the FDA data, 1 brand-on-one-component bug, 3 small parsing gaps.
 
 **Why we stopped at v3.** The matcher fails safe. A miss leaves the item off the queue, and the coordinator's existing manual review still applies. A false match could put a wrong substitute in front of a pharmacist. Holding precision near 0.96 while recall is reported honestly as missed is the right trade for patient safety. Another round tuned on v3's errors would only be meaningful with a new blind set, so v4 fixes and a v4 set are on the [ROADMAP](ROADMAP.md). The gold set now scores 0.982, but that set drove the fixes, so it is a regression check, not a result.
 

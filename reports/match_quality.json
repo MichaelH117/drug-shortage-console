@@ -1756,5 +1756,6 @@
     "unlabeled_predictions": 14,
     "pass": false,
     "definition": "TEST_PLAN 6.2: base_name(name_raw) == base_name(generic_name), non-empty; no salts, brands, NDCs, routes, strengths or fuzzy matching"
-  }
+  },
+  "set_label": "gold set, SEEN during development (optimistic regression check only; the headline is the newest unseen holdout in match_quality_v3.json)"
 }

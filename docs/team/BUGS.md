@@ -22,7 +22,7 @@ QA-04 planted-bug proofs will be recorded here (PB-1 to PB-5 in TEST_PLAN.md sec
 - **Expected:** METRICS.md 1a: "Headline = the newest matcher scored once on a set its author never opened." That is now v3 on `holdout_v3` (P 0.963, R 0.605, `reports/match_quality_v3.json` `holdout_v3_unseen`).
 - **Actual:** headline is v2 on holdout_v2 (P 0.957, R 0.936). `console/metrics.py:47-87` `load_quality` only looks for `match_quality_v2.json`. Guardrail (a) is also computed from v2.
 - **Owner:** analytics-engineer. Fix: pick the newest `match_quality_v*.json` with an unseen block; show v2 and v1 as history. Re-render impact.md and retake screenshots 05/06.
-- **Status:** OPEN.
+- **Status:** FIXED 2026-10-30 (analytics-engineer). `console.metrics.load_quality` now picks the highest `reports/match_quality_vN.json` and its `*_unseen` block. The Metrics and Match Quality pages, `docs/impact.md` and `reports/impact_metrics.json` headline v3 on holdout_v3 (P 0.963 / R 0.605, FAIL vs 0.95), and guardrail (a) uses v3 (fp 1 of 27). Screenshots 05 and 06 were retaken. Test: `tests/test_metrics.py::test_newest_blind_round_is_headline_and_seen_is_labeled`. Verified at demo sign-off by reading `reports/impact_metrics.json` and `docs/demo/05_metrics.png` / `06_match_quality.png` (product-owner, 2026-10-30).
 
 ### BUG-PE-02 (2026-10-30, principal-engineer) S2: the auto-written results block reports a seen-set score with no "seen" label
 - **Steps:** `python -m pipeline.run --fixtures --test`; read `docs/results.json` `summary.match_quality` and the README block written by `pipeline/run.py::write_readme_results`.

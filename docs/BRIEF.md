@@ -33,7 +33,7 @@ No shortage prediction. No clinical substitution advice (candidates are mechanic
 | Guardrail (d) | Actions executed by a role that is not allowed | | 0 | 0 |
 | Guardrail (e) | DQ pass rate, latest snapshot | | 0.909, 0 FAIL | >= 0.80 and 0 FAIL |
 
-**How to read the primary metric.** Precision held at about 0.96 on all three unseen sets; recall moved from 0.94 to 0.61 when the set changed from mostly single-ingredient drugs to mostly combinations and premixes. The matcher fails **safe**: a miss means the item is not in the queue and the pharmacist's normal review catches it; a false match could put a wrong substitute in front of her. Per-category recall is in [CASE_STUDY](CASE_STUDY.md#what-the-matcher-can-and-cannot-do). The labels are team-drafted (qa-engineer); `reviewed_by` is pending on every row.
+**How to read the primary metric.** Precision held between 0.957 and 0.980 on all three unseen sets; recall moved from 0.94 to 0.61 when the set changed from mostly single-ingredient drugs to mostly combinations and premixes. The matcher fails **safe**: a miss means the item is not in the queue and the pharmacist's normal review catches it; a false match could put a wrong substitute in front of her. Per-category recall is in [CASE_STUDY](CASE_STUDY.md#what-the-matcher-can-and-cannot-do). The labels are team-drafted (qa-engineer); `reviewed_by` is pending on every row.
 
 ## Decision taken (2026-10-30, Engineering Manager)
 Stop the matcher rounds at v3. Ship with recall reported as missed. v4 fixes and a fresh blind set are on the [ROADMAP](ROADMAP.md).

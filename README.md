@@ -16,13 +16,13 @@ Every number below comes from a run output: `reports/match_quality_v1.json`, `_v
 | Matcher on the previous blind set (v2, mostly single-ingredient) | Precision 0.957, recall 0.936 (44 of 47) | `match_quality_v2.json` `holdout_unseen` |
 | Matcher v1 on the gold set (blind at the time) | Precision 0.980, recall 0.877 | `match_quality_v1.json` |
 | Base-name search (the fair baseline) on v3 / v2 | Recall 0.093 / 0.234; precision 0.571 / 0.579 | same files, `baseline_v2` |
-| Day-one queue on the live snapshot (2026-10-30) | 663 raw events reduced to a **73-item** baseline review list (ADR 007) | ADR 007, `docs/impact.md` |
+| Day-one queue on the live snapshot (2026-10-30) | 663 matched events (from 1,614 raw records) reduced to a **73-item** baseline review list (ADR 007) | ADR 007, `docs/impact.md` |
 | Guardrails (demo DB) | Audit chain OK (14 rows); 0 actions by a disallowed role (2 attempts refused and logged); DQ pass rate 0.909, 0 FAIL | `reports/impact_metrics.json` |
 | Tests | **307 passed, 0 failed**, 2 skipped (live API) | `docs/results.json` |
 | Concurrency race fix | 11 of 15 runs failed before; **0 of 20** after; removing the lock fails 5 of 5 | [postmortem](docs/POSTMORTEM_concurrency_race.md) |
 | Rebuild idempotency | 20 of 21 tables byte-identical on a second build; the 21st differs only by run id and timestamp; edits and audit survive | [FLAW_HUNT](docs/FLAW_HUNT.md) row 1 |
 
-**The decision behind the numbers.** Precision held at about 0.96 on all three blind sets. Recall depends on the mix: single-ingredient recall stayed between 0.87 and 0.95, combinations fell to 0.52 (12 of 23) and premixed bags to 0 of 4 on v3. The matcher fails **safe**: a miss leaves the item to the pharmacist's normal review, while a false match could put a wrong substitute in front of her. We stopped tuning at v3; v4 fixes and a new blind set are on the [roadmap](docs/ROADMAP.md). The gold set now scores 0.982, but that set drove the fixes, so it is a regression check and never the headline.
+**The decision behind the numbers.** Precision held between 0.957 and 0.980 on all three blind sets. Recall depends on the mix: single-ingredient recall stayed between 0.87 and 0.95, combinations fell to 0.52 (12 of 23) and premixed bags to 0 of 4 on v3. The matcher fails **safe**: a miss leaves the item to the pharmacist's normal review, while a false match could put a wrong substitute in front of her. We stopped tuning at v3; v4 fixes and a new blind set are on the [roadmap](docs/ROADMAP.md). The gold set now scores 0.982, but that set drove the fixes, so it is a regression check and never the headline.
 
 The app's Metrics and Match Quality pages headline the same v3 blind result (BUG-PE-01, fixed).
 
@@ -67,6 +67,8 @@ flowchart LR
 Pipeline-owned schemas are dropped and rebuilt every run; action-owned schemas (`ops`, `audit`) are never touched by the pipeline, so write-back survives every rebuild. Full design: [DESIGN.md](docs/team/DESIGN.md).
 
 ## Foundry concept to this repo
+
+> **Stand-in, not Foundry.** This repo is built with open-source tools (DuckDB, Python, Streamlit) to imitate Foundry concepts. It does not use Palantir software. Concept names follow Palantir's public documentation: https://www.palantir.com/docs/foundry/ (Ontology, object types, link types, action types).
 
 | Foundry concept | Here | Where |
 |---|---|---|
@@ -136,7 +138,7 @@ Or in one step: `sh run_demo.sh`. (The macOS/Linux commands have not been run by
 |---|---|
 | [BRIEF](docs/BRIEF.md) | User, decision, goals, non-goals, metric with baseline and guardrails |
 | [RISK_REGISTER](docs/RISK_REGISTER.md) | 17 risks with likelihood, impact, mitigation, owner, status |
-| [KNOWN_ISSUES](docs/KNOWN_ISSUES.md) | 17 honest limits and what would fix each |
+| [KNOWN_ISSUES](docs/KNOWN_ISSUES.md) | 19 honest limits and what would fix each |
 | [FLAW_HUNT](docs/FLAW_HUNT.md) | 14 failure modes checked, 5 planted bugs, 3 defects logged |
 | [POSTMORTEM: concurrency race](docs/POSTMORTEM_concurrency_race.md) | Flaky test, real race, writer lock, 0 of 20 |
 | [POSTMORTEM: re-propose undid approval](docs/POSTMORTEM_repropose_undoes_approval.md) | A state-machine back door in the role control |
