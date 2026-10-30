@@ -193,6 +193,9 @@ def _write_match_quality(paths: Paths) -> dict:
     from pipeline.evaluate import run_evaluation
 
     report = run_evaluation()
+    # Generated, so a rebuild can't drop it: this file is the SEEN gold set, never the headline.
+    report["set_label"] = ("gold set, SEEN during development (optimistic regression check only; "
+                           "the headline is the newest unseen holdout in match_quality_v3.json)")
     paths.reports.mkdir(parents=True, exist_ok=True)
     (paths.reports / "match_quality.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8",
                                                       newline="\n")
