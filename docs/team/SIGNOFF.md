@@ -176,7 +176,7 @@ Numbers I checked against the JSON (all match): 0.963 / 0.605 / 26 of 43 / 1 FP 
    - 307 tests pass offline.
    - Be plain about scale: about 1,600 records a day. The hard part was messy identity data, not volume.
 
-**Pfizer / Merck (pharma data and GxP-adjacent roles)**
+**Pharma data and GxP-adjacent roles**
 
 - **Data integrity by design, without claiming compliance.**
   - Every action attempt, including refusals, writes one row: who, role, reason, old and new value, outcome and UTC time.

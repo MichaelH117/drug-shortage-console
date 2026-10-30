@@ -232,7 +232,7 @@ Actions are plain Python functions in one action layer. The UI and the tests cal
 - "Collaborate with engineers to make architecture and design decisions" -> ADRs from the tech lead.
 - "Own relationships with stakeholders from the users in the weeds to the executives" -> persona, PR/FAQ, decomposition.
 
-Also relevant to the pharma targets (Pfizer, Merck): audit trail and data-integrity controls (US-7), reused from the vaccine-assay project. Interview mapping (research section 3.2, UNVERIFIED): US-9 = decomp round; a real matcher bug + postmortem = re-engineering story.
+Also relevant to pharma data roles: audit trail and data-integrity controls (US-7), reused from the vaccine-assay project. Interview mapping (research section 3.2, UNVERIFIED): US-9 = decomp round; a real matcher bug + postmortem = re-engineering story.
 
 Foundry concepts used in the vocabulary (object types, link types, action types, submission criteria, writeback) are from [palantir.com/docs ontology overview](https://www.palantir.com/docs/foundry/ontology/overview/), [action types](https://www.palantir.com/docs/foundry/action-types/overview/) and [submission criteria](https://www.palantir.com/docs/foundry/action-types/submission-criteria/), as summarized in `dev-team/research/portfolio-signals-2026-10-30.md`.
 
