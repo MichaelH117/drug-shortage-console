@@ -1,0 +1,87 @@
+item_id,ndc_raw,name_raw,strength_raw,dosage_form_raw,route_raw,is_synthetic
+QG-001,72888-152-01,Clonazepam,0.5 mg,Tablet,Oral,true
+QG-002,72888-0152-30,Clonazepam,0.5 mg,Tablet,Oral,true
+QG-003,72888015201,Clonazepam,0.5 mg,Tablet,Oral,true
+QG-004,0409-6102-04,Furosemide,10 mg/mL,Injection,Intravenous,true
+QG-005,0409-6102-25,Furosemide,20 mg/2 mL,Injection,Intravenous,true
+QG-006,63323-280-02,Furosemide,10 mg/mL,Injection,Intravenous,true
+QG-007,0054-3294-46,Furosemide,10 mg/mL,Oral Solution,Oral,true
+QG-008,61703-339-22,Carboplatin,10 mg/mL,Injection,Intravenous,true
+QG-009,61703-0339-56,Carboplatin,600 mg/60 mL,Injection,Intravenous,true
+QG-010,,  carboplatin  INJ,10mg/ml,injection,iv,true
+QG-011,,Victoza pen,6 mg/mL,Injection,Subcutaneous,true
+QG-012,0169-4060-13,Liraglutide,6 mg/mL,Injection,Subcutaneous,true
+QG-013,13668-354-90,Nebivolol Hydrochloride,5 mg,Tablet,Oral,true
+QG-014,,Nebivolol,5 mg,Tablet,Oral,true
+QG-015,13668-0354-30,Nebivolol HCl,5 mg,Tablet,Oral,true
+QG-016,49884-125-91,Everolimus,5 mg,Tablet,Oral,true
+QG-017,,everolimus,5mg,tab,,true
+QG-018,43547-411-09,Quinapril Hydrochloride,10 mg,Tablet,Oral,true
+QG-019,65862-618-90,Quinapril,10 mg,Tablet,Oral,true
+QG-020,62135-668-90,Quinapril/Hydrochlorothiazide,20 mg/12.5 mg,Tablet,Oral,true
+QG-021,,Quinapril HCl and Hydrochlorothiazide,20-12.5 mg,Tablet,Oral,true
+QG-022,0591-0347-01,Microzide,12.5 mg,Capsule,Oral,true
+QG-023,0093-2401-01,Hydroxychloroquine Sulfate,200 mg,Tablet,Oral,true
+QG-024,,Hydroxychloroqine,200mg,Tablet,Oral,true
+QG-025,60951-602-85,Oxycodone and Acetaminophen,5 mg/325 mg,Tablet,Oral,true
+QG-026,60951-0602-70,Acetaminophen; Oxycodone Hydrochloride,325 mg; 5 mg,Tablet,Oral,true
+QG-027,0832-0273-11,Morphine Sulfate,15 mg,Tablet,Oral,true
+QG-028,0574-7114-12,Morphine Sulfate,20 mg,Suppository,Rectal,true
+QG-029,0574-7224-06,Hydromorphone Hydrochloride,3 mg,Suppository,Rectal,true
+QG-030,0378-6860-77,Lisdexamfetamine Dimesylate,70 mg,Capsule,Oral,true
+QG-031,60505-4745-1,Lisdexamfetamine Dimesylate,70 mg,Capsule,Oral,true
+QG-032,0068-0597-01,Rifadin IV,600 mg,Injection,Intravenous,true
+QG-033,67457-445-60,Rifampin,600 mg,Injection,Intravenous,true
+QG-034,42806-799-30,Rifampin,300 mg,Capsule,Oral,true
+QG-035,0378-1134-01,Ketorolac Tromethamine,10 mg,Tablet,Oral,true
+QG-036,45963-676-96,Metoprolol Succinate,50 mg,"Tablet, Extended Release",Oral,true
+QG-037,,METOPROLOL SUCCINATE  ER,50MG,"TABLET, EXTENDED RELEASE",ORAL,true
+QG-038,0378-0167-02,Doxycycline Hyclate,100 mg,Tablet,Oral,true
+QG-039,0025-1001-31,Aldactone,25 mg,Tablet,Oral,true
+QG-040,,Spironolactone,25 mg,Tablet,Oral,true
+QG-041,76045-0210-10,Dexamethasone Sodium Phosphate,4 mg/mL,Injection,Intravenous,true
+QG-042,,Dexamethasone,4 mg/mL,Injection,Intravenous,true
+QG-043,73293-0001-2,Lidocaine Hydrochloride,10 mg/mL,Injection,Intravenous,true
+QG-044,65282-1605-1,Lidocaine Hydrochloride,10 mg/mL,Injection,Infiltration,true
+QG-045,0378-5814-77,Valsartan,160 mg,Tablet,Oral,true
+QG-046,0009-0395-14,Cleocin HCl,300 mg,Capsule,Oral,true
+QG-047,,Clindamycin,300 mg,Capsule,Oral,true
+QG-048,0093-9364-01,Diabeta,5 mg,Tablet,Oral,true
+QG-049,72888-152-30,Clonazapam,0.5mg,Tablet,Oral,true
+QG-050,6332328002,FUROSEMIDE,10MG/ML,INJ,IV,true
+QG-051,72888-153-01,Clonazepam,1 mg,Tablet,Oral,true
+QG-052,0378-6855-77,Lisdexamfetamine Dimesylate,20 mg,Capsule,Oral,true
+QG-054,0832-0274-11,Morphine Sulfate,30 mg,Tablet,Oral,true
+QG-055,,Hydroxyzine Hydrochloride,25 mg,Tablet,Oral,true
+QG-057,,Oxycodone Hydrochloride,5 mg,Tablet,Oral,true
+QG-058,,Acetaminophen,325 mg,Tablet,Oral,true
+QG-059,,Doxycycline Hyclate,100 mg,"Tablet, Delayed Release",Oral,true
+QG-060,,Metoprolol Tartrate,50 mg,Tablet,Oral,true
+QG-061,42806-801-01,Rifampin,150 mg,Capsule,Oral,true
+QG-062,0378-5815-77,Valsartan,320 mg,Tablet,Oral,true
+QG-063,0591-5543-01,Allopurinol,100 mg,Tablet,Oral,true
+QG-064,0093-0832-05,Clonazepam,0.5 mg,Tablet,Oral,true
+QG-065,00378-1134-01,Glyburide,5 mg,Tablet,Oral,true
+QG-066,00025-1001-31,Allopurinol,300 mg,Tablet,Oral,true
+QG-067,3785-814-77,Valsartan,160 mg,Tablet,Oral,true
+QG-068,,Ketorolac Tromethamine,30 mg/mL,Injection,Intravenous,true
+QG-069,,Heparin Sodium,"5,000 units/mL",Injection,Subcutaneous,true
+QG-071,,Amoxicillin,500 mg,Capsule,Oral,true
+QG-072,,Sodium Chloride 0.9%,1000 mL,Injection,Intravenous,true
+QG-073,,Ondansetron,4 mg/2 mL,Injection,Intravenous,true
+QG-074,,Lidocaine HCl and Epinephrine,"1%; 1:100,000",Injection,Infiltration,true
+QG-075,,Lidocaine,5%,Patch,Topical,true
+QG-076,13668-355-90,Nebivolol Hydrochloride,10 mg,Tablet,Oral,true
+QG-077,,Everolimus,0.25 mg,Tablet,Oral,true
+QG-078,,Dexamethasone,4 mg,Tablet,Oral,true
+QG-079,0169-2800-15,Saxenda,6 mg/mL,Injection,Subcutaneous,true
+QG-080,,Clonidine Hydrochloride,0.1 mg,Tablet,Oral,true
+QG-081,,Cisplatin,1 mg/mL,Injection,Intravenous,true
+QG-082,0093240101,Hydroxychloroquine Sulfate,200 mg,Tablet,Oral,true
+QG-083,4596367696,Metoprolol Succinate ER,50 mg,"Tablet, Extended Release",Oral,true
+QG-084,,  quinapril hcl  ,10MG, tab ,po,true
+QG-085,,Rifampin,300 mg,Capsule,Oral,true
+QG-086,,Furosemid,10 mg/mL,Injection,Intravenous,true
+QG-087,,Clonazepam ODT,0.5 mg,"Tablet, Orally Disintegrating",Oral,true
+QG-089,76329-3390-1,Lidocaine Hydrochloride,20 mg/mL,Injection,Intravenous,true
+QG-088,0409-1005-20,Heparin Sodium,2 units/mL,Injection,Intravenous,true

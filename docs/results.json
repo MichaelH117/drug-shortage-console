@@ -1,0 +1,181 @@
+{
+  "summary": {
+    "run_id": "run-35e141f54e33",
+    "mode": "demo",
+    "seed": 42,
+    "matching": {
+      "formulary_items": 177,
+      "drugs": 201,
+      "matches": 83,
+      "baseline_matches": 0,
+      "substitute_candidates": 41,
+      "brand_map": 15
+    },
+    "ontology_problems": [],
+    "snapshots": [
+      {
+        "date": "2026-10-28",
+        "folder": "SYNTHETIC_D1",
+        "source": "SYNTHETIC_fixture",
+        "records": 75
+      },
+      {
+        "date": "2026-10-29",
+        "folder": "SYNTHETIC_D2",
+        "source": "SYNTHETIC_fixture",
+        "records": 76
+      },
+      {
+        "date": "2026-10-30",
+        "folder": "SYNTHETIC_D3",
+        "source": "SYNTHETIC_fixture",
+        "records": 78
+      }
+    ],
+    "skipped_snapshots": [],
+    "latest_snapshot": "2026-10-30",
+    "meta_last_updated": "2026-10-29",
+    "change_counts_latest": {
+      "DROPPED": 1,
+      "IMPROVED": 2,
+      "NEW": 3,
+      "RESOLVED": 1,
+      "UNCHANGED": 66,
+      "WORSENED": 4
+    },
+    "dq": {
+      "PASS": 26,
+      "SKIPPED": 2,
+      "WARN": 5
+    },
+    "dq_fail": [],
+    "generator_detection": {
+      "note": "generator-based (known injected variants), not the QA gold set",
+      "positives": 78,
+      "detected": 73,
+      "recall": 0.9359,
+      "negatives": 99,
+      "false_matches": 0,
+      "by_variant": {
+        "alt_manufacturer": {
+          "items": 10,
+          "detected": 8,
+          "false_matches": 0
+        },
+        "diff_route": {
+          "items": 12,
+          "detected": 0,
+          "false_matches": 0
+        },
+        "diff_strength": {
+          "items": 12,
+          "detected": 0,
+          "false_matches": 0
+        },
+        "filler": {
+          "items": 75,
+          "detected": 0,
+          "false_matches": 0
+        },
+        "name_brand": {
+          "items": 5,
+          "detected": 5,
+          "false_matches": 0
+        },
+        "name_case_whitespace": {
+          "items": 9,
+          "detected": 8,
+          "false_matches": 0
+        },
+        "name_salt": {
+          "items": 6,
+          "detected": 5,
+          "false_matches": 0
+        },
+        "ndc_11digit": {
+          "items": 9,
+          "detected": 9,
+          "false_matches": 0
+        },
+        "ndc_5_4_2_hyphen": {
+          "items": 14,
+          "detected": 13,
+          "false_matches": 0
+        },
+        "ndc_as_listed": {
+          "items": 10,
+          "detected": 10,
+          "false_matches": 0
+        },
+        "ndc_leading_zero_error": {
+          "items": 3,
+          "detected": 3,
+          "false_matches": 0
+        },
+        "ndc_other_package": {
+          "items": 12,
+          "detected": 12,
+          "false_matches": 0
+        }
+      }
+    },
+    "match_quality": {
+      "holdout_unseen": {
+        "version": "v3",
+        "file": "reports/match_quality_v3.json",
+        "section": "holdout_v3_unseen",
+        "pairs": 90,
+        "matcher": {
+          "precision": 0.963,
+          "recall": 0.6047,
+          "f1": 0.7429
+        },
+        "baseline": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "gold_seen": {
+        "label": "seen, optimistic (regression check only)",
+        "matcher": {
+          "precision": 0.9825,
+          "recall": 0.9825,
+          "f1": 0.9825
+        },
+        "baseline": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "gold_hash_ok": true
+      }
+    }
+  },
+  "tables": {
+    "core.change_feed": 225,
+    "core.dq_results": 33,
+    "core.drug": 201,
+    "core.formulary_item_norm": 177,
+    "core.formulary_match": 83,
+    "core.formulary_match_baseline": 0,
+    "core.shortage_event": 78,
+    "core.shortage_history": 96,
+    "core.substitute_candidate": 41,
+    "seed.app_user": 8,
+    "seed.facility": 3,
+    "seed.facility_stock": 320,
+    "seed.formulary_item": 177,
+    "seed.variant_manifest": 177,
+    "stage.shortage_record": 223,
+    "stage.snapshot": 3
+  },
+  "tests": {
+    "passed": 307,
+    "failed": 0,
+    "skipped": 2,
+    "error": 0,
+    "summary": "307 passed, 2 skipped in 76.61s (0:01:16)",
+    "date": "2026-10-30"
+  }
+}

@@ -1,0 +1,28 @@
+# HAND-WRITTEN answer key for AC-2.3 (data-engineer, DE-02), written before pipeline/changes.py existed.
+# Source of the planted changes: PLANTS in tests/fixtures/build_fixtures.py (SYNTHETIC days; the records are real).
+# Rules are DESIGN 3.5 row numbers. Every event NOT listed for a snapshot_date is UNCHANGED, including:
+#   2026-10-29 0574-7224-06 Available -> Unknown text (rule 7 + a dq_results row), 75987-050-07 reason-only change,
+#   2026-10-30 0832-0273-11 update_date-only change (both still give a new SCD2 version).
+# 2026-10-28 (SYNTHETIC_D1) is the first snapshot, so every event there is NEW (rule 2).
+# Read with pandas.read_csv(path, comment='#', dtype=str).
+snapshot_date,package_ndc,initial_posting_date,change_type,rule,note
+2026-10-29,44567-600-04,04/10/2020,NEW,2,absent D1
+2026-10-29,70121-2537-6,10/20/2026,NEW,2,absent D1 (5-4-1 NDC; no openfda)
+2026-10-29,0093-7767-24,03/02/2026,DROPPED,1,present D1 absent D2
+2026-10-29,0641-6024-10,12/20/2023,WORSENED,5,Available -> Limited
+2026-10-29,0409-1893-01,10/31/2017,WORSENED,5,Limited -> Unavailable
+2026-10-29,62037-710-01,11/21/2025,WORSENED,4,Resolved -> To Be Discontinued (reopened)
+2026-10-29,0009-0395-14,02/25/2026,WORSENED,5,status Current -> To Be Discontinued
+2026-10-29,0641-0121-25,11/03/2017,IMPROVED,6,Unavailable -> Available
+2026-10-29,0487-9901-30,10/25/2022,RESOLVED,3,Current Limited -> Resolved
+2026-10-30,0409-2634-50,10/31/2017,NEW,2,absent D1 and D2
+2026-10-30,0338-3612-50,03/21/2023,NEW,2,absent D1 and D2
+2026-10-30,63323-452-01,10/31/2017,NEW,2,absent D1 and D2
+2026-10-30,49884-125-91,01/06/2026,DROPPED,1,present D2 absent D3
+2026-10-30,0641-6024-10,12/20/2023,WORSENED,5,Limited -> Unavailable
+2026-10-30,0574-7224-06,07/23/2026,WORSENED,5,status Current -> To Be Discontinued (prev availability was Unknown)
+2026-10-30,0409-3793-01,03/26/2018,WORSENED,5,Available -> Unavailable
+2026-10-30,16729-500-08,04/07/2020,WORSENED,5,Limited -> Unavailable
+2026-10-30,0378-6860-77,07/14/2023,IMPROVED,6,Unavailable -> Available
+2026-10-30,23155-473-41,04/07/2020,IMPROVED,6,Unavailable -> Available
+2026-10-30,64980-642-03,10/25/2022,RESOLVED,3,Current Unavailable -> Resolved

@@ -1,0 +1,1750 @@
+{
+ "meta": {
+  "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+  "last_updated": "2026-10-29",
+  "license": "https://open.fda.gov/license/",
+  "qa_note": "Real public openFDA drug/shortages records, verbatim, selected by qa-engineer for the gold set. One pull of limit=1000 on 2026-10-30; meta.results is from that page, not this file.",
+  "results": {
+   "limit": 1000,
+   "skip": 0,
+   "total": 1614
+  },
+  "terms": "https://open.fda.gov/terms/"
+ },
+ "results": [
+  {
+   "availability": "Available",
+   "company_name": "Rubicon Research Private Limited",
+   "contact_info": "sales@advagenpharma.com",
+   "dosage_form": "Tablet",
+   "generic_name": "Clonazepam Tablet",
+   "initial_posting_date": "03/10/2023",
+   "openfda": {
+    "application_number": [
+     "ANDA075468"
+    ],
+    "brand_name": [
+     "CLONAZEPAM"
+    ],
+    "generic_name": [
+     "CLONAZEPAM"
+    ],
+    "manufacturer_name": [
+     "Advagen Pharma Ltd"
+    ],
+    "nui": [
+     "N0000175694",
+     "M0002356"
+    ],
+    "package_ndc": [
+     "72888-497-01",
+     "72888-497-02",
+     "72888-497-03",
+     "72888-497-04",
+     "72888-152-30",
+     "72888-152-01",
+     "72888-152-05",
+     "72888-152-00",
+     "72888-153-30",
+     "72888-153-01",
+     "72888-153-05",
+     "72888-153-00",
+     "72888-154-30",
+     "72888-154-01",
+     "72888-154-05",
+     "72888-154-00"
+    ],
+    "pharm_class_cs": [
+     "Benzodiazepines [CS]"
+    ],
+    "pharm_class_epc": [
+     "Benzodiazepine [EPC]"
+    ],
+    "product_ndc": [
+     "72888-152",
+     "72888-497",
+     "72888-153",
+     "72888-154"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "197527",
+     "197528",
+     "197529",
+     "204892"
+    ],
+    "spl_id": [
+     "5510f17b-a980-f412-e063-6394a90ae1c4"
+    ],
+    "spl_set_id": [
+     "30d674f9-f1b3-4c2d-a8e9-3bc8e476f1ec"
+    ],
+    "substance_name": [
+     "CLONAZEPAM"
+    ],
+    "unii": [
+     "5PE9FDE8GB"
+    ]
+   },
+   "package_ndc": "72888-152-01",
+   "presentation": "Clonazepam, Tablet, .5 mg (NDC 72888-152-01)",
+   "related_info": "Marketed by Advagen Pharma Ltd.",
+   "status": "Current",
+   "therapeutic_category": [
+    "Neurology",
+    "Pediatric",
+    "Psychiatry"
+   ],
+   "update_date": "06/01/2026",
+   "update_type": "Reverified"
+  },
+  {
+   "availability": "Available",
+   "company_name": "Prinston Pharmaceutical, Inc.",
+   "contact_info": "For orders, Solco Healthcare 866-931-9829",
+   "dosage_form": "Tablet",
+   "generic_name": "Clonazepam Tablet",
+   "initial_posting_date": "03/10/2023",
+   "openfda": {
+    "application_number": [
+     "ANDA077856"
+    ],
+    "brand_name": [
+     "CLONAZEPAM"
+    ],
+    "generic_name": [
+     "CLONAZEPAM"
+    ],
+    "manufacturer_name": [
+     "Solco Healthcare LLC"
+    ],
+    "nui": [
+     "N0000175694",
+     "M0002356"
+    ],
+    "package_ndc": [
+     "43547-406-10",
+     "43547-406-50",
+     "43547-406-11",
+     "43547-407-10",
+     "43547-407-50",
+     "43547-407-11",
+     "43547-408-10",
+     "43547-408-50"
+    ],
+    "pharm_class_cs": [
+     "Benzodiazepines [CS]"
+    ],
+    "pharm_class_epc": [
+     "Benzodiazepine [EPC]"
+    ],
+    "product_ndc": [
+     "43547-408",
+     "43547-406",
+     "43547-407"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "197527",
+     "197528",
+     "197529"
+    ],
+    "spl_id": [
+     "dc17b9d4-2890-4f6c-8476-daa39d0cbc9c"
+    ],
+    "spl_set_id": [
+     "4acbb7a9-4db5-4497-b8db-9f358b3f6fb4"
+    ],
+    "substance_name": [
+     "CLONAZEPAM"
+    ],
+    "unii": [
+     "5PE9FDE8GB"
+    ]
+   },
+   "package_ndc": "43547-408-10",
+   "presentation": "Clonazepam, Tablet, 2 mg (NDC 43547-408-10)",
+   "related_info": "Marketed by Solco Healthcare",
+   "status": "Current",
+   "therapeutic_category": [
+    "Neurology",
+    "Pediatric",
+    "Psychiatry"
+   ],
+   "update_date": "09/02/2026",
+   "update_type": "Reverified"
+  },
+  {
+   "availability": "Available",
+   "company_name": "Hospira, Inc., a Pfizer Company",
+   "contact_info": "844-646-4398",
+   "dosage_form": "Injection",
+   "generic_name": "Furosemide Injection",
+   "initial_posting_date": "04/07/2020",
+   "openfda": {
+    "application_number": [
+     "NDA018667"
+    ],
+    "brand_name": [
+     "FUROSEMIDE"
+    ],
+    "generic_name": [
+     "FUROSEMIDE"
+    ],
+    "manufacturer_name": [
+     "Hospira, Inc."
+    ],
+    "nui": [
+     "N0000175366",
+     "N0000175590"
+    ],
+    "package_ndc": [
+     "0409-6102-35",
+     "0409-6102-25",
+     "0409-6102-36",
+     "0409-6102-26",
+     "0409-6102-37",
+     "0409-6102-27",
+     "0409-6102-19",
+     "0409-6102-02",
+     "0409-6102-18",
+     "0409-6102-04",
+     "0409-6102-20",
+     "0409-6102-10"
+    ],
+    "pharm_class_epc": [
+     "Loop Diuretic [EPC]"
+    ],
+    "pharm_class_pe": [
+     "Increased Diuresis at Loop of Henle [PE]"
+    ],
+    "product_ndc": [
+     "0409-6102"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "INTRAMUSCULAR",
+     "INTRAVENOUS"
+    ],
+    "rxcui": [
+     "1719286",
+     "1719290",
+     "1719291"
+    ],
+    "spl_id": [
+     "e598e8a6-c854-48f5-a412-fb6a6783774a",
+     "981d5143-60cd-4987-9b47-dec24c10de42"
+    ],
+    "spl_set_id": [
+     "aaced7a8-c3d7-4d66-8c07-aa407b8b3f35",
+     "39fd32f2-6bb7-4a65-d298-e48d26bc80c7"
+    ],
+    "substance_name": [
+     "FUROSEMIDE"
+    ],
+    "unii": [
+     "7LXU5N7ZO5"
+    ]
+   },
+   "package_ndc": "0409-6102-04",
+   "presentation": "Furosemide, Injection, 40 mg/4 mL (10 mg/1 mL) (NDC 0409-6102-04)",
+   "status": "Current",
+   "therapeutic_category": [
+    "Cardiovascular"
+   ],
+   "update_date": "10/21/2026",
+   "update_type": "Reverified"
+  },
+  {
+   "availability": "Available",
+   "company_name": "Hikma Pharmaceuticals USA, Inc.",
+   "contact_info": "800-631-2174",
+   "dosage_form": "Oral Solution",
+   "generic_name": "Furosemide Oral Solution",
+   "initial_posting_date": "03/31/2026",
+   "openfda": {
+    "application_number": [
+     "ANDA070434"
+    ],
+    "brand_name": [
+     "FUROSEMIDE"
+    ],
+    "generic_name": [
+     "FUROSEMIDE"
+    ],
+    "manufacturer_name": [
+     "Hikma Pharmaceuticals USA Inc."
+    ],
+    "nui": [
+     "N0000175366",
+     "N0000175590"
+    ],
+    "package_ndc": [
+     "0054-4297-31",
+     "0054-4297-25",
+     "0054-8297-25",
+     "0054-4299-31",
+     "0054-4299-25",
+     "0054-8299-25",
+     "0054-4301-29",
+     "0054-4301-25",
+     "0054-8301-25",
+     "0054-3298-63",
+     "0054-3294-50",
+     "0054-3294-46"
+    ],
+    "pharm_class_epc": [
+     "Loop Diuretic [EPC]"
+    ],
+    "pharm_class_pe": [
+     "Increased Diuresis at Loop of Henle [PE]"
+    ],
+    "product_ndc": [
+     "0054-3294",
+     "0054-4297",
+     "0054-8297",
+     "0054-4299",
+     "0054-8299",
+     "0054-4301",
+     "0054-8301",
+     "0054-3298"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "197730",
+     "197731",
+     "197732",
+     "310429",
+     "313988"
+    ],
+    "spl_id": [
+     "bc62ddda-7639-4090-99f0-7dd4d13518f3"
+    ],
+    "spl_set_id": [
+     "9e493331-dddd-496e-abf8-61747fb67aba"
+    ],
+    "substance_name": [
+     "FUROSEMIDE"
+    ],
+    "unii": [
+     "7LXU5N7ZO5"
+    ]
+   },
+   "package_ndc": "0054-3294-46",
+   "presentation": "Furosemide, Oral Solution, 10 mg/1 mL (NDC 0054-3294-46)",
+   "status": "Current",
+   "therapeutic_category": [
+    "Cardiovascular"
+   ],
+   "update_date": "10/27/2026",
+   "update_type": "Revised"
+  },
+  {
+   "availability": "Limited Availability",
+   "company_name": "Hospira, Inc., a Pfizer Company",
+   "contact_info": "844-646-4398",
+   "dosage_form": "Injection",
+   "generic_name": "Carboplatin Injection",
+   "initial_posting_date": "04/28/2023",
+   "openfda": {
+    "application_number": [
+     "ANDA076517"
+    ],
+    "brand_name": [
+     "CARBOPLATIN"
+    ],
+    "generic_name": [
+     "CARBOPLATIN"
+    ],
+    "manufacturer_name": [
+     "Hospira, Inc."
+    ],
+    "nui": [
+     "N0000175413",
+     "N0000175073"
+    ],
+    "package_ndc": [
+     "61703-339-18",
+     "61703-339-22",
+     "61703-339-50",
+     "61703-339-56"
+    ],
+    "pharm_class_epc": [
+     "Platinum-based Drug [EPC]"
+    ],
+    "product_ndc": [
+     "61703-339"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "INTRAVENOUS"
+    ],
+    "rxcui": [
+     "597195"
+    ],
+    "spl_id": [
+     "0ddf4411-7138-412a-908a-fadf22bdfb79"
+    ],
+    "spl_set_id": [
+     "c3ae9880-44bb-4f4e-93d8-8a5e21708a30"
+    ],
+    "substance_name": [
+     "CARBOPLATIN"
+    ],
+    "unii": [
+     "BG3F62OND5"
+    ]
+   },
+   "package_ndc": "61703-339-22",
+   "presentation": "Carboplatin, Injection, 150 mg/15 mL (10 mg/mL) (NDC 61703-339-22)",
+   "related_info": "Limited Supply Available. Next Delivery: November 2026; Estimated Recovery: December 2026; Shortage per Manufacturer: Manufacturing Delay",
+   "shortage_reason": "Other",
+   "status": "Current",
+   "therapeutic_category": [
+    "Oncology"
+   ],
+   "update_date": "10/21/2026",
+   "update_type": "Revised"
+  },
+  {
+   "availability": "Limited Availability",
+   "company_name": "Novo Nordisk, Inc.",
+   "contact_info": "833-493-4689",
+   "dosage_form": "Injection",
+   "generic_name": "Liraglutide Injection",
+   "initial_posting_date": "07/18/2023",
+   "openfda": {
+    "application_number": [
+     "NDA022341"
+    ],
+    "brand_name": [
+     "VICTOZA"
+    ],
+    "generic_name": [
+     "LIRAGLUTIDE"
+    ],
+    "manufacturer_name": [
+     "Novo Nordisk"
+    ],
+    "nui": [
+     "N0000178480",
+     "M0160181",
+     "N0000020058"
+    ],
+    "package_ndc": [
+     "0169-4060-13",
+     "0169-4060-12",
+     "0169-4060-90",
+     "0169-4060-97",
+     "0169-4060-98",
+     "0169-4060-99"
+    ],
+    "pharm_class_cs": [
+     "Glucagon-Like Peptide 1 [CS]"
+    ],
+    "pharm_class_epc": [
+     "GLP-1 Receptor Agonist [EPC]"
+    ],
+    "pharm_class_moa": [
+     "Glucagon-like Peptide-1 (GLP-1) Agonists [MoA]"
+    ],
+    "product_ndc": [
+     "0169-4060"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "SUBCUTANEOUS"
+    ],
+    "rxcui": [
+     "897122",
+     "897126"
+    ],
+    "spl_id": [
+     "0d10d10e-0fe0-47ee-b9da-628e34907e98"
+    ],
+    "spl_set_id": [
+     "5a9ef4ea-c76a-4d34-a604-27c5b505f5a4"
+    ],
+    "substance_name": [
+     "LIRAGLUTIDE"
+    ],
+    "unii": [
+     "839I73S42A"
+    ]
+   },
+   "package_ndc": "0169-4060-12",
+   "presentation": "Victoza, Injection, 6 mg/1 mL (NDC 0169-4060-12)",
+   "related_info": "Estimated shortage duration: TBD",
+   "shortage_reason": "Delay in shipping of the drug",
+   "status": "Current",
+   "therapeutic_category": [
+    "Endocrinology/Metabolism"
+   ],
+   "update_date": "09/22/2026",
+   "update_type": "Reverified"
+  },
+  {
+   "company_name": "Torrent Pharmaceuticals Limited",
+   "contact_info": "908-280-3333",
+   "discontinued_date": "03/25/2026",
+   "dosage_form": "Tablet",
+   "generic_name": "Nebivolol Hydrochloride Tablet",
+   "initial_posting_date": "03/25/2026",
+   "package_ndc": "13668-354-90",
+   "presentation": "Nebivolol Hydrochloride, Tablet, 5 mg (NDC 13668-354-90)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Cardiovascular"
+   ],
+   "update_date": "03/25/2026",
+   "update_type": "New"
+  },
+  {
+   "company_name": "Endo Pharmaceuticals, Inc.",
+   "contact_info": "800-828-9393",
+   "discontinued_date": "01/06/2026",
+   "dosage_form": "Tablet",
+   "generic_name": "Everolimus Tablet",
+   "initial_posting_date": "01/06/2026",
+   "package_ndc": "49884-125-91",
+   "presentation": "Everolimus, Tablet, 5 mg (NDC 49884-125-91)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Transplant"
+   ],
+   "update_date": "01/06/2026",
+   "update_type": "New"
+  },
+  {
+   "availability": "Unavailable",
+   "company_name": "Solco Healthcare US, LLC",
+   "contact_info": "866-931-9829",
+   "dosage_form": "Tablet",
+   "generic_name": "Quinapril Hydrochloride Tablet",
+   "initial_posting_date": "01/19/2023",
+   "openfda": {
+    "application_number": [
+     "ANDA205823"
+    ],
+    "brand_name": [
+     "QUINAPRIL"
+    ],
+    "generic_name": [
+     "QUINAPRIL"
+    ],
+    "manufacturer_name": [
+     "Solco Healthcare US, LLC"
+    ],
+    "package_ndc": [
+     "43547-410-09",
+     "43547-411-09",
+     "43547-412-09",
+     "43547-413-09"
+    ],
+    "product_ndc": [
+     "43547-411",
+     "43547-410",
+     "43547-412",
+     "43547-413"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "312748",
+     "312749",
+     "312750",
+     "314203"
+    ],
+    "spl_id": [
+     "b8f1731a-cbac-4f64-a8d4-320b80b335e1"
+    ],
+    "spl_set_id": [
+     "cd46691d-5593-4a9f-a937-999c6803e312"
+    ],
+    "substance_name": [
+     "QUINAPRIL HYDROCHLORIDE"
+    ],
+    "unii": [
+     "33067B3N2M"
+    ]
+   },
+   "package_ndc": "43547-411-09",
+   "presentation": "Quinapril Hydrochloride, Tablet, 10 mg (NDC 43547-411-09)",
+   "related_info": "Not available. Long-term backorder for all NDCs. No estimated release date at this time.",
+   "shortage_reason": "Shortage of an active ingredient",
+   "status": "Current",
+   "therapeutic_category": [
+    "Cardiovascular"
+   ],
+   "update_date": "06/29/2026",
+   "update_type": "Reverified"
+  },
+  {
+   "availability": "Available",
+   "company_name": "Chartwell Molecular Holdings LLC",
+   "contact_info": "845-268-5000 x 510 or Chartwell Customer service at cs@chartwellpharma.com",
+   "dosage_form": "Tablet",
+   "generic_name": "Quinapril/Hydrochlorothiazide Tablet",
+   "initial_posting_date": "01/19/2023",
+   "openfda": {
+    "application_number": [
+     "ANDA076374"
+    ],
+    "brand_name": [
+     "QUINAPRIL AND HYDROCHLOROTHIAZIDE"
+    ],
+    "generic_name": [
+     "QUINAPRIL AND HYDROCHLOROTHIAZIDE"
+    ],
+    "manufacturer_name": [
+     "Chartwell RX, LLC"
+    ],
+    "nui": [
+     "N0000175359",
+     "N0000175419",
+     "M0471776"
+    ],
+    "package_ndc": [
+     "62135-667-90",
+     "62135-668-90",
+     "62135-669-90"
+    ],
+    "pharm_class_cs": [
+     "Thiazides [CS]"
+    ],
+    "pharm_class_epc": [
+     "Thiazide Diuretic [EPC]"
+    ],
+    "pharm_class_pe": [
+     "Increased Diuresis [PE]"
+    ],
+    "product_ndc": [
+     "62135-668",
+     "62135-667",
+     "62135-669"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "310796",
+     "310797",
+     "310809"
+    ],
+    "spl_id": [
+     "0c3f4504-d57e-aa79-e063-6294a90ad5b8"
+    ],
+    "spl_set_id": [
+     "2eae533f-d0af-47e8-a1f2-94bc8cc89b5a"
+    ],
+    "substance_name": [
+     "QUINAPRIL HYDROCHLORIDE",
+     "HYDROCHLOROTHIAZIDE"
+    ],
+    "unii": [
+     "0J48LPH2TH",
+     "33067B3N2M"
+    ]
+   },
+   "package_ndc": "62135-668-90",
+   "presentation": "Quinapril/Hydrochlorothiazide, Tablet, 12.5 mg; 20 mg (NDC 62135-668-90)",
+   "status": "Current",
+   "therapeutic_category": [
+    "Cardiovascular"
+   ],
+   "update_date": "10/02/2026",
+   "update_type": "Reverified"
+  },
+  {
+   "company_name": "Teva Pharmaceuticals USA, Inc.",
+   "contact_info": "800-545-8800",
+   "discontinued_date": "11/19/2025",
+   "dosage_form": "Capsule",
+   "generic_name": "Hydrochlorothiazide Capsule",
+   "initial_posting_date": "11/19/2025",
+   "package_ndc": "0591-0347-01",
+   "presentation": "Microzide, Capsule, 12.5 mg (NDC 0591-0347-01)",
+   "related_info": "A business decision was made to discontinue manufacture of the drug.",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Cardiovascular"
+   ],
+   "update_date": "11/19/2025",
+   "update_type": "New"
+  },
+  {
+   "company_name": "Teva Pharmaceuticals USA, Inc.",
+   "contact_info": "800-545-8800",
+   "discontinued_date": "01/05/2026",
+   "dosage_form": "Tablet",
+   "generic_name": "Hydroxychloroquine Sulfate Tablet",
+   "initial_posting_date": "01/05/2026",
+   "openfda": {
+    "application_number": [
+     "ANDA040081"
+    ],
+    "brand_name": [
+     "HYDROXYCHLOROQUINE SULFATE"
+    ],
+    "generic_name": [
+     "HYDROXYCHLOROQUINE SULFATE"
+    ],
+    "manufacturer_name": [
+     "Teva Pharmaceuticals USA, Inc."
+    ],
+    "package_ndc": [
+     "0093-2401-01"
+    ],
+    "product_ndc": [
+     "0093-2401"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "979092"
+    ],
+    "spl_id": [
+     "0c6c28a5-e86f-4643-bb22-f7eb5b1f440d"
+    ],
+    "spl_set_id": [
+     "5f3e49b2-dc11-40a9-b366-c88e36a471e5"
+    ],
+    "substance_name": [
+     "HYDROXYCHLOROQUINE SULFATE"
+    ],
+    "unii": [
+     "8Q2869CNVH"
+    ]
+   },
+   "package_ndc": "0093-2401-01",
+   "presentation": "Hydroxychloroquine Sulfate, Tablet, 200 mg (NDC 0093-2401-01)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Anti-Infective",
+    "Other",
+    "Rheumatology"
+   ],
+   "update_date": "01/05/2026",
+   "update_type": "New"
+  },
+  {
+   "company_name": "Endo Pharmaceuticals, Inc.",
+   "contact_info": "800-828-9393",
+   "discontinued_date": "11/03/2025",
+   "dosage_form": "Tablet",
+   "generic_name": "Acetaminophen; Oxycodone Hydrochloride Tablet",
+   "initial_posting_date": "11/03/2025",
+   "openfda": {
+    "application_number": [
+     "ANDA040330"
+    ],
+    "brand_name": [
+     "ENDOCET"
+    ],
+    "generic_name": [
+     "OXYCODONE AND ACETAMINOPHEN"
+    ],
+    "manufacturer_name": [
+     "Par Health USA, LLC"
+    ],
+    "package_ndc": [
+     "60951-602-70",
+     "60951-602-85",
+     "60951-700-70",
+     "60951-712-70",
+     "60951-701-70"
+    ],
+    "product_ndc": [
+     "60951-602",
+     "60951-700",
+     "60951-712",
+     "60951-701"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "1049214",
+     "1049216",
+     "1049221",
+     "1049223",
+     "1049225",
+     "1049227",
+     "1049635",
+     "1487288"
+    ],
+    "spl_id": [
+     "a8475489-982f-4080-9565-7948155d9abb"
+    ],
+    "spl_set_id": [
+     "944d3e60-7eee-11de-a413-0002a5d5c51b"
+    ],
+    "substance_name": [
+     "OXYCODONE HYDROCHLORIDE",
+     "ACETAMINOPHEN"
+    ],
+    "unii": [
+     "362O9ITL9D",
+     "C1ENJ2TE6C"
+    ]
+   },
+   "package_ndc": "60951-602-85",
+   "presentation": "Acetaminophen; Oxycodone Hydrochloride, Tablet, 325 mg; 5 mg (NDC 60951-602-85)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Analgesia/Addiction"
+   ],
+   "update_date": "11/03/2025",
+   "update_type": "New"
+  },
+  {
+   "company_name": "Upsher-Smith Laboratories, LLC",
+   "contact_info": "763-315-2000",
+   "discontinued_date": "12/22/2025",
+   "dosage_form": "Tablet",
+   "generic_name": "Morphine Sulfate Tablet",
+   "initial_posting_date": "12/22/2025",
+   "openfda": {
+    "application_number": [
+     "ANDA210610"
+    ],
+    "brand_name": [
+     "MORPHINE SULFATE"
+    ],
+    "generic_name": [
+     "MORPHINE SULFATE"
+    ],
+    "manufacturer_name": [
+     "Upsher-Smith Laboratories, LLC"
+    ],
+    "package_ndc": [
+     "0832-0273-11",
+     "0832-0274-11"
+    ],
+    "product_ndc": [
+     "0832-0273",
+     "0832-0274"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "892582",
+     "892672"
+    ],
+    "spl_id": [
+     "46a682fc-0430-5a66-e063-6294a90a6179"
+    ],
+    "spl_set_id": [
+     "5ceb3205-2f8d-4ba3-9f27-dc328bab4fa1"
+    ],
+    "substance_name": [
+     "MORPHINE SULFATE"
+    ],
+    "unii": [
+     "X3P646A2J0"
+    ]
+   },
+   "package_ndc": "0832-0273-11",
+   "presentation": "Morphine Sulfate, Tablet, 15 mg (NDC 0832-0273-11)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Analgesia/Addiction"
+   ],
+   "update_date": "12/22/2025",
+   "update_type": "New"
+  },
+  {
+   "company_name": "Padagis US LLC",
+   "contact_info": "(800) 775-2054",
+   "discontinued_date": "07/23/2026",
+   "dosage_form": "Suppository",
+   "generic_name": "Morphine Sulfate Suppository",
+   "initial_posting_date": "07/23/2026",
+   "openfda": {
+    "brand_name": [
+     "MORPHINE SULFATE"
+    ],
+    "generic_name": [
+     "MORPHINE SULFATE"
+    ],
+    "manufacturer_name": [
+     "Padagis US LLC"
+    ],
+    "package_ndc": [
+     "0574-7110-12",
+     "0574-7112-12",
+     "0574-7114-12",
+     "0574-7116-12"
+    ],
+    "product_ndc": [
+     "0574-7114",
+     "0574-7110",
+     "0574-7112",
+     "0574-7116"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "RECTAL"
+    ],
+    "rxcui": [
+     "892516",
+     "892603",
+     "892678",
+     "894807"
+    ],
+    "spl_id": [
+     "fa18ac09-a625-47aa-8cde-7051dc4d0c49"
+    ],
+    "spl_set_id": [
+     "649d731b-962a-45df-b043-7e0781e8a530"
+    ],
+    "substance_name": [
+     "MORPHINE SULFATE"
+    ],
+    "unii": [
+     "X3P646A2J0"
+    ]
+   },
+   "package_ndc": "0574-7114-12",
+   "presentation": "Morphine Sulfate, Suppository, 20 mg (NDC 0574-7114-12)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Analgesia/Addiction"
+   ],
+   "update_date": "07/23/2026",
+   "update_type": "New"
+  },
+  {
+   "company_name": "Padagis US LLC",
+   "contact_info": "(800) 775-2054",
+   "discontinued_date": "07/23/2026",
+   "dosage_form": "Suppository",
+   "generic_name": "Hydromorphone Hydrochloride Suppository",
+   "initial_posting_date": "07/23/2026",
+   "openfda": {
+    "brand_name": [
+     "HYDROMORPHONE HYDROCHLORIDE"
+    ],
+    "generic_name": [
+     "HYDROMORPHONE HYDROCHLORIDE"
+    ],
+    "manufacturer_name": [
+     "Padagis US LLC"
+    ],
+    "package_ndc": [
+     "0574-7224-06"
+    ],
+    "product_ndc": [
+     "0574-7224"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "RECTAL"
+    ],
+    "rxcui": [
+     "897749"
+    ],
+    "spl_id": [
+     "8c369b50-cf2a-4e30-a31c-ccf5f49ab920"
+    ],
+    "spl_set_id": [
+     "1bfbba46-1979-4797-a29e-d67718131686"
+    ],
+    "substance_name": [
+     "HYDROMORPHONE HYDROCHLORIDE"
+    ],
+    "unii": [
+     "L960UP2KRW"
+    ]
+   },
+   "package_ndc": "0574-7224-06",
+   "presentation": "Hydromorphone Hydrochloride, Suppository, 3 mg (NDC 0574-7224-06)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Analgesia/Addiction"
+   ],
+   "update_date": "07/23/2026",
+   "update_type": "New"
+  },
+  {
+   "availability": "Available",
+   "company_name": "Mylan Pharmaceuticals Inc., a Viatris Company",
+   "contact_info": "800-796-9526",
+   "dosage_form": "Capsule",
+   "generic_name": "Lisdexamfetamine Dimesylate Capsule",
+   "initial_posting_date": "07/14/2023",
+   "openfda": {
+    "application_number": [
+     "ANDA202835"
+    ],
+    "brand_name": [
+     "LISDEXAMFETAMINE DIMESYLATE"
+    ],
+    "generic_name": [
+     "LISDEXAMFETAMINE"
+    ],
+    "manufacturer_name": [
+     "Mylan Pharmaceuticals Inc."
+    ],
+    "package_ndc": [
+     "0378-6854-77",
+     "0378-6855-77",
+     "0378-6856-77",
+     "0378-6857-77",
+     "0378-6858-77",
+     "0378-6859-77",
+     "0378-6860-77"
+    ],
+    "product_ndc": [
+     "0378-6860",
+     "0378-6854",
+     "0378-6855",
+     "0378-6856",
+     "0378-6857",
+     "0378-6858",
+     "0378-6859"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "854830",
+     "854834",
+     "854838",
+     "854842",
+     "854846",
+     "854850",
+     "1593856"
+    ],
+    "spl_id": [
+     "6e77cd71-95ae-4fa8-830b-ab62b714e4b9"
+    ],
+    "spl_set_id": [
+     "efbde0f6-b848-4664-b741-c6c630e66108"
+    ],
+    "substance_name": [
+     "LISDEXAMFETAMINE DIMESYLATE"
+    ],
+    "unii": [
+     "SJT761GEGS"
+    ]
+   },
+   "package_ndc": "0378-6860-77",
+   "presentation": "Lisdexamfetamine Dimesylate, Capsule, 70 mg (NDC 0378-6860-77)",
+   "status": "Current",
+   "therapeutic_category": [
+    "Psychiatry"
+   ],
+   "update_date": "10/19/2026",
+   "update_type": "Reverified"
+  },
+  {
+   "availability": "Unavailable",
+   "company_name": "Sanofi-Aventis U.S. LLC",
+   "contact_info": "800-633-1610",
+   "dosage_form": "Injection",
+   "generic_name": "Rifampin Injection",
+   "initial_posting_date": "02/17/2021",
+   "package_ndc": "0068-0597-01",
+   "presentation": "Rifadin, Injection, 600 mg (NDC 0068-0597-01)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "related_info_link": "https://www.accessdata.fda.gov/scripts/drugshortages/dsp_ActiveIngredientDetails.cfm?AI=Rifampin%20Injection&st=d",
+   "shortage_reason": "Discontinuation of the manufacture of the drug",
+   "status": "Current",
+   "therapeutic_category": [
+    "Anti-Infective"
+   ],
+   "update_date": "09/18/2026",
+   "update_type": "Reverified"
+  },
+  {
+   "availability": "Unavailable",
+   "company_name": "Epic Pharma, LLC",
+   "contact_info": "(718) 276-8600 ext. 3",
+   "dosage_form": "Capsule",
+   "generic_name": "Rifampin Capsule",
+   "initial_posting_date": "12/22/2021",
+   "openfda": {
+    "application_number": [
+     "ANDA064150"
+    ],
+    "brand_name": [
+     "RIFAMPIN"
+    ],
+    "generic_name": [
+     "RIFAMPIN"
+    ],
+    "manufacturer_name": [
+     "EPIC PHARMA, LLC"
+    ],
+    "nui": [
+     "N0000175500",
+     "M0019113"
+    ],
+    "package_ndc": [
+     "42806-801-30",
+     "42806-801-01",
+     "42806-799-30",
+     "42806-799-60",
+     "42806-799-01",
+     "42806-799-05"
+    ],
+    "pharm_class_cs": [
+     "Rifamycins [CS]"
+    ],
+    "pharm_class_epc": [
+     "Rifamycin Antibacterial [EPC]"
+    ],
+    "product_ndc": [
+     "42806-799",
+     "42806-801"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "198201",
+     "198202"
+    ],
+    "spl_id": [
+     "a4ac02e8-68ac-4e79-8ca5-0939dd002c87"
+    ],
+    "spl_set_id": [
+     "0391f1e1-70d4-4b15-8b58-055bb6a385b8"
+    ],
+    "substance_name": [
+     "RIFAMPIN"
+    ],
+    "unii": [
+     "VJT6J7R4TR"
+    ]
+   },
+   "package_ndc": "42806-799-30",
+   "presentation": "Rifampin, Capsule, 300 mg (NDC 42806-799-30)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "shortage_reason": "Discontinuation of the manufacture of the drug",
+   "status": "Current",
+   "therapeutic_category": [
+    "Anti-Infective"
+   ],
+   "update_date": "10/23/2026",
+   "update_type": "Reverified"
+  },
+  {
+   "company_name": "Mylan Pharmaceuticals Inc., a Viatris Company",
+   "contact_info": "877-446-3679",
+   "discontinued_date": "04/20/2026",
+   "dosage_form": "Tablet",
+   "generic_name": "Ketorolac Tromethamine Tablet",
+   "initial_posting_date": "04/20/2026",
+   "openfda": {
+    "application_number": [
+     "ANDA074761"
+    ],
+    "brand_name": [
+     "KETOROLAC TROMETHAMINE"
+    ],
+    "generic_name": [
+     "KETOROLAC TROMETHAMINE"
+    ],
+    "manufacturer_name": [
+     "Mylan Pharmaceuticals Inc."
+    ],
+    "package_ndc": [
+     "0378-1134-01"
+    ],
+    "product_ndc": [
+     "0378-1134"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "834022"
+    ],
+    "spl_id": [
+     "fa08c7fb-128c-4b41-acac-de47c51a36c7"
+    ],
+    "spl_set_id": [
+     "2837a082-3a34-6f81-5e43-45a70295686b"
+    ],
+    "substance_name": [
+     "KETOROLAC TROMETHAMINE"
+    ],
+    "unii": [
+     "4EVE5946BQ"
+    ]
+   },
+   "package_ndc": "0378-1134-01",
+   "presentation": "Ketorolac Tromethamine, Tablet, 10 mg (NDC 0378-1134-01)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Analgesia/Addiction"
+   ],
+   "update_date": "04/20/2026",
+   "update_type": "New"
+  },
+  {
+   "company_name": "Teva Pharmaceuticals USA, Inc.",
+   "contact_info": "800-545-8800",
+   "discontinued_date": "08/31/2026",
+   "dosage_form": "Tablet",
+   "generic_name": "Metoprolol Succinate Tablet, Extended Release",
+   "initial_posting_date": "08/31/2026",
+   "openfda": {
+    "application_number": [
+     "ANDA204161"
+    ],
+    "brand_name": [
+     "METOPROLOL SUCCINATE"
+    ],
+    "generic_name": [
+     "METOPROLOL SUCCINATE"
+    ],
+    "manufacturer_name": [
+     "Actavis Pharma, Inc."
+    ],
+    "package_ndc": [
+     "45963-709-11",
+     "45963-709-96",
+     "45963-676-11",
+     "45963-676-96",
+     "45963-677-11",
+     "45963-677-96",
+     "45963-678-11"
+    ],
+    "product_ndc": [
+     "45963-676",
+     "45963-709",
+     "45963-677",
+     "45963-678"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "866412",
+     "866419",
+     "866427",
+     "866436"
+    ],
+    "spl_id": [
+     "a7e9a234-a8a6-4afe-ba8e-d569772bc39a"
+    ],
+    "spl_set_id": [
+     "b798601e-a369-4c8b-8235-08900e1b751d"
+    ],
+    "substance_name": [
+     "METOPROLOL SUCCINATE"
+    ],
+    "unii": [
+     "TH25PD4CCB"
+    ]
+   },
+   "package_ndc": "45963-676-96",
+   "presentation": "Metoprolol Succinate, Tablet, Extended Release, 50 mg (NDC 45963-676-96)",
+   "related_info": "A business decision was made to discontinue manufacture of the drug.",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Cardiovascular"
+   ],
+   "update_date": "08/31/2026",
+   "update_type": "New"
+  },
+  {
+   "company_name": "Mylan Pharmaceuticals Inc., a Viatris Company",
+   "contact_info": "800-796-9526",
+   "discontinued_date": "01/12/2026",
+   "dosage_form": "Tablet",
+   "generic_name": "Doxycycline Hyclate Tablet",
+   "initial_posting_date": "01/12/2026",
+   "package_ndc": "0378-0167-02",
+   "presentation": "Doxycycline Hyclate, Tablet, 100 mg (NDC 0378-0167-02)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Anti-Infective"
+   ],
+   "update_date": "01/12/2026",
+   "update_type": "New"
+  },
+  {
+   "company_name": "Teva Pharmaceuticals USA, Inc.",
+   "contact_info": "800-545-8800",
+   "discontinued_date": "07/30/2026",
+   "dosage_form": "Tablet",
+   "generic_name": "Doxycycline Hyclate Tablet, Delayed Release",
+   "initial_posting_date": "07/30/2026",
+   "openfda": {
+    "application_number": [
+     "ANDA090134"
+    ],
+    "brand_name": [
+     "DOXYCYCLINE HYCLATE"
+    ],
+    "generic_name": [
+     "DOXYCYCLINE HYCLATE"
+    ],
+    "manufacturer_name": [
+     "Actavis Pharma, Inc."
+    ],
+    "package_ndc": [
+     "0591-4550-22",
+     "0591-4575-60"
+    ],
+    "product_ndc": [
+     "0591-4550",
+     "0591-4575"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "1423080",
+     "1653433"
+    ],
+    "spl_id": [
+     "304ae0bb-5f05-4389-8952-5a99391b8047"
+    ],
+    "spl_set_id": [
+     "c2b08332-3256-4658-965a-ede3d973a388"
+    ],
+    "substance_name": [
+     "DOXYCYCLINE HYCLATE"
+    ],
+    "unii": [
+     "19XTS3T51U"
+    ]
+   },
+   "package_ndc": "0591-4550-22",
+   "presentation": "Doxycycline Hyclate, Tablet, Delayed Release, 50 mg (NDC 0591-4550-22)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Anti-Infective"
+   ],
+   "update_date": "07/30/2026",
+   "update_type": "New"
+  },
+  {
+   "company_name": "Pfizer Inc.",
+   "contact_info": "800-533-4535",
+   "discontinued_date": "12/10/2025",
+   "dosage_form": "Tablet",
+   "generic_name": "Spironolactone Tablet",
+   "initial_posting_date": "12/10/2025",
+   "openfda": {
+    "application_number": [
+     "NDA012151"
+    ],
+    "brand_name": [
+     "ALDACTONE"
+    ],
+    "generic_name": [
+     "SPIRONOLACTONE"
+    ],
+    "manufacturer_name": [
+     "Pfizer Laboratories Div Pfizer Inc"
+    ],
+    "nui": [
+     "N0000175557",
+     "N0000011310"
+    ],
+    "package_ndc": [
+     "0025-1001-31",
+     "0025-1041-31",
+     "0025-1031-31"
+    ],
+    "pharm_class_epc": [
+     "Aldosterone Antagonist [EPC]"
+    ],
+    "pharm_class_moa": [
+     "Aldosterone Antagonists [MoA]"
+    ],
+    "product_ndc": [
+     "0025-1001",
+     "0025-1041",
+     "0025-1031"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "198222",
+     "198223",
+     "200817",
+     "200820",
+     "200825",
+     "313096"
+    ],
+    "spl_id": [
+     "22946678-dcad-4518-9bc6-cbdf51a38c16"
+    ],
+    "spl_set_id": [
+     "0fed2822-3a03-4b64-9857-c682fcd462bc"
+    ],
+    "substance_name": [
+     "SPIRONOLACTONE"
+    ],
+    "unii": [
+     "27O7W4T232"
+    ]
+   },
+   "package_ndc": "0025-1001-31",
+   "presentation": "Aldactone, Tablet, 25 mg (NDC 0025-1001-31)",
+   "related_info": "Discontinuation of the manufacture of the drug.",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Cardiovascular"
+   ],
+   "update_date": "12/10/2025",
+   "update_type": "New"
+  },
+  {
+   "availability": "Available",
+   "company_name": "Fresenius Kabi USA, LLC",
+   "contact_info": "888-386-1300",
+   "dosage_form": "Injection",
+   "generic_name": "Dexamethasone Sodium Phosphate Injection",
+   "initial_posting_date": "02/08/2019",
+   "package_ndc": "76045-0210-10",
+   "presentation": "Dexamethasone Sodium Phosphate, Injection, 4 mg/1 mL (NDC 76045-0210-10)",
+   "related_info": "Checkwholesalers for inventory",
+   "status": "Current",
+   "therapeutic_category": [
+    "Dermatology",
+    "Endocrinology/Metabolism",
+    "Gastroenterology",
+    "Hematology",
+    "Neurology",
+    "Oncology",
+    "Ophthalmology",
+    "Other",
+    "Pulmonary/Allergy",
+    "Rheumatology"
+   ],
+   "update_date": "10/15/2026",
+   "update_type": "Reverified"
+  },
+  {
+   "availability": "Unavailable",
+   "company_name": "Huons Co., Ltd. (South Korea)",
+   "contact_info": "intbiz@huons.com",
+   "dosage_form": "Injection",
+   "generic_name": "Lidocaine Hydrochloride Injection",
+   "initial_posting_date": "07/14/2018",
+   "openfda": {
+    "application_number": [
+     "ANDA212821"
+    ],
+    "brand_name": [
+     "LIDOCAINE HYDROCHLORIDE"
+    ],
+    "generic_name": [
+     "LIDOCAINE HYDROCHLORIDE"
+    ],
+    "manufacturer_name": [
+     "Huons Co., Ltd."
+    ],
+    "package_ndc": [
+     "73293-0004-1",
+     "73293-0004-2",
+     "73293-0005-1",
+     "73293-0005-2",
+     "73293-0001-1",
+     "73293-0001-2",
+     "73293-0003-1",
+     "73293-0003-2"
+    ],
+    "product_ndc": [
+     "73293-0001",
+     "73293-0004",
+     "73293-0005",
+     "73293-0003"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "INTRAVENOUS"
+    ],
+    "rxcui": [
+     "1010033",
+     "1010671",
+     "1737566",
+     "1737761"
+    ],
+    "spl_id": [
+     "4711fd53-dad3-f117-e063-6394a90a8d3d"
+    ],
+    "spl_set_id": [
+     "8ec2d256-fc4f-44f6-bee2-eef2bf3bf580"
+    ],
+    "substance_name": [
+     "LIDOCAINE HYDROCHLORIDE"
+    ],
+    "unii": [
+     "V13007Z41A"
+    ]
+   },
+   "package_ndc": "73293-0001-2",
+   "presentation": "Lidocaine Hydrochloride, Injection, 10 mg/1 mL (NDC 73293-0001-2)",
+   "related_info": "Estimated recovery: TBD",
+   "shortage_reason": "Demand increase for the drug",
+   "status": "Current",
+   "therapeutic_category": [
+    "Anesthesia"
+   ],
+   "update_date": "07/30/2026",
+   "update_type": "Reverified"
+  },
+  {
+   "availability": "Available",
+   "company_name": "Hospira, Inc., a Pfizer Company",
+   "contact_info": "844-646-4398",
+   "dosage_form": "Injection",
+   "generic_name": "Heparin Sodium Injection",
+   "initial_posting_date": "11/14/2017",
+   "openfda": {
+    "application_number": [
+     "NDA018916"
+    ],
+    "brand_name": [
+     "HEPARIN SODIUM"
+    ],
+    "generic_name": [
+     "HEPARIN SODIUM"
+    ],
+    "manufacturer_name": [
+     "Hospira, Inc."
+    ],
+    "package_ndc": [
+     "0409-7620-13",
+     "0409-7620-03",
+     "0409-7620-49",
+     "0409-7620-59",
+     "0409-1005-01",
+     "0409-1005-20",
+     "0409-2222-01",
+     "0409-2222-12"
+    ],
+    "product_ndc": [
+     "0409-1005",
+     "0409-7620",
+     "0409-2222"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "INTRAVENOUS"
+    ],
+    "rxcui": [
+     "1658690",
+     "1658691",
+     "1658692"
+    ],
+    "spl_id": [
+     "ecaae7d2-a76e-4eca-b045-6c88d7c2ab8f"
+    ],
+    "spl_set_id": [
+     "32e34077-aff1-4ec7-f9b0-b8e240768fb8"
+    ],
+    "substance_name": [
+     "HEPARIN SODIUM"
+    ],
+    "unii": [
+     "ZZ45AB24CA"
+    ]
+   },
+   "package_ndc": "0409-1005-20",
+   "presentation": "Heparin Sodium, Injection, 1,000 Units/500 mL (2 Units/mL) (NDC 0409-1005-20)",
+   "status": "Current",
+   "therapeutic_category": [
+    "Hematology"
+   ],
+   "update_date": "10/21/2026",
+   "update_type": "Reverified"
+  },
+  {
+   "company_name": "Mylan Pharmaceuticals Inc., a Viatris Company",
+   "contact_info": "800-796-9526",
+   "discontinued_date": "11/19/2025",
+   "dosage_form": "Tablet",
+   "generic_name": "Valsartan Tablet",
+   "initial_posting_date": "11/19/2025",
+   "package_ndc": "0378-5814-77",
+   "presentation": "Valsartan, Tablet, 160 mg (NDC 0378-5814-77)",
+   "related_info": "A business decision was made to discontinue manufacture of the drug.",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Cardiovascular"
+   ],
+   "update_date": "11/19/2025",
+   "update_type": "New"
+  },
+  {
+   "company_name": "Pfizer Inc.",
+   "contact_info": "844-646-4398",
+   "discontinued_date": "02/25/2026",
+   "dosage_form": "Capsule",
+   "generic_name": "Clindamycin Hydrochloride Capsule",
+   "initial_posting_date": "02/25/2026",
+   "package_ndc": "0009-0395-14",
+   "presentation": "Cleocin Hydrochloride, Capsule, 300 mg (NDC 0009-0395-14)",
+   "related_info": "Discontinuation of the manufacture of the drug",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Anti-Infective"
+   ],
+   "update_date": "02/25/2026",
+   "update_type": "New"
+  },
+  {
+   "company_name": "Sanofi-Aventis U.S. LLC",
+   "contact_info": "800-633-1610",
+   "discontinued_date": "08/10/2026",
+   "dosage_form": "Tablet",
+   "generic_name": "Glyburide Tablet",
+   "initial_posting_date": "08/10/2026",
+   "openfda": {
+    "application_number": [
+     "NDA017532"
+    ],
+    "brand_name": [
+     "GLYBURIDE"
+    ],
+    "generic_name": [
+     "GLYBURIDE"
+    ],
+    "manufacturer_name": [
+     "TEVA Pharmaceuticals USA Inc"
+    ],
+    "nui": [
+     "N0000175608",
+     "M0020795"
+    ],
+    "package_ndc": [
+     "0093-9477-53",
+     "0093-9433-01",
+     "0093-9433-05",
+     "0093-9364-01",
+     "0093-9364-05",
+     "0093-9364-10"
+    ],
+    "pharm_class_cs": [
+     "Sulfonylurea Compounds [CS]"
+    ],
+    "pharm_class_epc": [
+     "Sulfonylurea [EPC]"
+    ],
+    "product_ndc": [
+     "0093-9364",
+     "0093-9477",
+     "0093-9433"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "rxcui": [
+     "197737",
+     "310534",
+     "310537"
+    ],
+    "spl_id": [
+     "84b83205-8813-494e-933e-a70697393744"
+    ],
+    "spl_set_id": [
+     "50d16f1d-c814-4411-8749-62561321ecce"
+    ],
+    "substance_name": [
+     "GLYBURIDE"
+    ],
+    "unii": [
+     "SX6K58TVWC"
+    ]
+   },
+   "package_ndc": "0093-9364-01",
+   "presentation": "Diabeta, Tablet, 5 mg (NDC 0093-9364-01)",
+   "related_info": "A business decision was made to discontinue manufacture of the drug.",
+   "status": "To Be Discontinued",
+   "therapeutic_category": [
+    "Endocrinology/Metabolism"
+   ],
+   "update_date": "08/10/2026",
+   "update_type": "New"
+  }
+ ]
+}

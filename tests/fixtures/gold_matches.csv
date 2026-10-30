@@ -1,0 +1,118 @@
+# gold_matches.csv: formulary-item to shortage-event answer set (QA-02, DESIGN section 5, SPEC AC-4.3).
+# FROZEN. Hash in gold_matches.sha256 (LF-normalized bytes). Any change needs a HANDOFF line with the reason.
+# Labeled by: qa-engineer (team draft). reviewed_by = pending on every row. Michael has NOT reviewed this file.
+# Sources: events = real public openFDA drug/shortages records in gold_events.json (pull of 2026-10-30).
+#          items  = SYNTHETIC formulary items in SYNTHETIC_gold_formulary.csv (hand-written, not generator output).
+# LABELING RULE (Tech Lead): label 1 if the formulary item is the shortage record's package, or another package
+#   of the same product, or the same active ingredient (salt-insensitive) with the same dosage form and route and,
+#   when the shortage record lists a strength, the same strength. Otherwise 0.
+# QA interpretations, written down before any matcher run:
+#   - The shortage strength comes from presentation text; the openFDA strength field was empty on all records pulled.
+#   - Concentration counts as strength for injections and solutions (a 20 mg/2 mL vial of a 10 mg/mL product is 1).
+#   - Truth is the physical product the item describes; an NDC is evidence, not truth (see ndc_leading_zero_error rows).
+#   - Event route = openfda.route list when present (any overlap counts), else the default for the dosage form.
+#   - Release form is part of dosage form (ER, DR, ODT differ from plain tablet). Combination vs single agent is 0.
+# event_key = ndc11 + "|" + initial_posting_date ISO (DESIGN 3.2). pair_kind: positive (label 1) or hard_negative (0).
+pair_id,item_id,event_key,label,pair_kind,variant_type,rationale,labeled_by,reviewed_by
+GP-001,QG-001,72888015201|2023-03-10,1,positive,ndc_532,Same package NDC 72888-152-01 in 5-3-2 form.,qa-engineer,pending
+GP-002,QG-002,72888015201|2023-03-10,1,positive,ndc_11digit,Hyphenated 5-4-2 of 72888-152-30: other package of the same product.,qa-engineer,pending
+GP-003,QG-003,72888015201|2023-03-10,1,positive,ndc_11digit,11 digits with no hyphens equal to the event package.,qa-engineer,pending
+GP-004,QG-049,72888015201|2023-03-10,1,positive,typo,Name misspelled Clonazapam; NDC is another package of the same product.,qa-engineer,pending
+GP-005,QG-051,72888015201|2023-03-10,0,hard_negative,openfda_sibling_strength,"1 mg vs 0.5 mg. 72888-153 is listed in the event openfda.product_ndc, so tier 2 via openfda would wrongly match.",qa-engineer,pending
+GP-006,QG-001,43547040810|2023-03-10,0,hard_negative,diff_strength,Clonazepam 0.5 mg item vs a 2 mg shortage package.,qa-engineer,pending
+GP-007,QG-087,72888015201|2023-03-10,0,hard_negative,diff_dosage_form,"Orally disintegrating tablet vs plain tablet, same strength.",qa-engineer,pending
+GP-008,QG-080,72888015201|2023-03-10,0,hard_negative,lookalike_name,"Clonidine vs clonazepam: look-alike prefix, different drug.",qa-engineer,pending
+GP-009,QG-064,00093240101|2026-01-05,0,hard_negative,same_labeler_diff_product,Both Teva labeler 0093 but clonazepam vs hydroxychloroquine.,qa-engineer,pending
+GP-010,QG-004,00409610204|2020-04-07,1,positive,ndc_442,Same package NDC 0409-6102-04 in 4-4-2 form.,qa-engineer,pending
+GP-011,QG-005,00409610204|2020-04-07,1,positive,ndc_442,Other package (20 mg/2 mL vial) of the same product 0409-6102; 10 mg/mL either way.,qa-engineer,pending
+GP-012,QG-006,00409610204|2020-04-07,1,positive,same_ingredient_other_labeler,"Fresenius furosemide 10 mg/mL IV: same ingredient, form, route and concentration; different labeler.",qa-engineer,pending
+GP-013,QG-050,00409610204|2020-04-07,1,positive,ndc_10digit_unhyphenated,"10-digit unhyphenated NDC is ambiguous; identity by name, form, route, strength is the same.",qa-engineer,pending
+GP-014,QG-086,00409610204|2020-04-07,1,positive,typo,"Furosemid typo, no NDC; same ingredient, form, route, strength.",qa-engineer,pending
+GP-015,QG-007,00409610204|2020-04-07,0,hard_negative,diff_route,Oral solution vs injection of furosemide.,qa-engineer,pending
+GP-016,QG-004,00054329446|2026-03-31,0,hard_negative,diff_route,"Injection vs oral solution of furosemide, both 10 mg/mL.",qa-engineer,pending
+GP-017,QG-007,00054329446|2026-03-31,1,positive,ndc_442,Same package NDC 0054-3294-46.,qa-engineer,pending
+GP-018,QG-008,61703033922|2023-04-28,1,positive,ndc_532,Same package NDC 61703-339-22.,qa-engineer,pending
+GP-019,QG-009,61703033922|2023-04-28,1,positive,ndc_11digit,"Hyphenated 5-4-2 of 61703-339-56: other vial size, same 10 mg/mL product.",qa-engineer,pending
+GP-020,QG-010,61703033922|2023-04-28,1,positive,name_case_ws,"No NDC; lower and upper case and extra spaces in name; same ingredient, form, route, concentration.",qa-engineer,pending
+GP-021,QG-081,61703033922|2023-04-28,0,hard_negative,lookalike_name,"Cisplatin vs carboplatin: look-alike platinum names, different drug.",qa-engineer,pending
+GP-022,QG-011,00169406012|2023-07-18,1,positive,name_brand,"Brand Victoza, no NDC; event openfda brand_name is Victoza, same 6 mg/mL SC.",qa-engineer,pending
+GP-023,QG-012,00169406012|2023-07-18,1,positive,ndc_442,Other package 0169-4060-13 of the same product.,qa-engineer,pending
+GP-024,QG-079,00169406012|2023-07-18,1,positive,name_brand,"Saxenda vs Victoza: same liraglutide 6 mg/mL SC pen, so 1 under the rule. Different indications: flag for owner review.",qa-engineer,pending
+GP-025,QG-013,13668035490|2026-03-25,1,positive,no_openfda,Same package 13668-354-90; event has no openfda block.,qa-engineer,pending
+GP-026,QG-014,13668035490|2026-03-25,1,positive,name_salt,"Salt dropped, no NDC, event has no openfda: only tier 3 can match (AC-4.6).",qa-engineer,pending
+GP-027,QG-015,13668035490|2026-03-25,1,positive,no_openfda,Other package 13668-354-30 (written 5-4-2); product NDC from top-level field only.,qa-engineer,pending
+GP-028,QG-076,13668035490|2026-03-25,0,hard_negative,diff_strength,Nebivolol 10 mg (product 13668-355) vs 5 mg (13668-354).,qa-engineer,pending
+GP-029,QG-016,49884012591|2026-01-06,1,positive,no_openfda,Same package 49884-125-91; event has no openfda block.,qa-engineer,pending
+GP-030,QG-017,49884012591|2026-01-06,1,positive,missing_ndc,"No NDC, no route, form abbreviated tab; route defaults to oral for tablet.",qa-engineer,pending
+GP-031,QG-077,49884012591|2026-01-06,0,hard_negative,diff_strength,Everolimus 0.25 mg vs 5 mg.,qa-engineer,pending
+GP-032,QG-018,43547041109|2023-01-19,1,positive,ndc_532,Same package 43547-411-09.,qa-engineer,pending
+GP-033,QG-019,43547041109|2023-01-19,1,positive,name_salt,"Aurobindo quinapril 10 mg tablet, salt dropped; same ingredient, form, strength.",qa-engineer,pending
+GP-034,QG-084,43547041109|2023-01-19,1,positive,name_case_ws,"Lower case, padded spaces, tab and po abbreviations; no NDC.",qa-engineer,pending
+GP-035,QG-020,43547041109|2023-01-19,0,hard_negative,combination_product,Quinapril/HCTZ combination vs quinapril alone.,qa-engineer,pending
+GP-036,QG-020,62135066890|2023-01-19,1,positive,combination_product,"Same package 62135-668-90, combination tablet 20/12.5 mg.",qa-engineer,pending
+GP-037,QG-021,62135066890|2023-01-19,1,positive,combination_product,Combination written with and plus salt and dash strength; no NDC.,qa-engineer,pending
+GP-038,QG-018,62135066890|2023-01-19,0,hard_negative,combination_product,Quinapril alone vs the quinapril/HCTZ combination.,qa-engineer,pending
+GP-039,QG-022,62135066890|2023-01-19,0,hard_negative,combination_product,HCTZ alone vs the quinapril/HCTZ combination.,qa-engineer,pending
+GP-040,QG-022,00591034701|2025-11-19,1,positive,name_brand,"Brand Microzide, same package 0591-0347-01; event has no openfda block.",qa-engineer,pending
+GP-041,QG-063,00591034701|2025-11-19,0,hard_negative,same_labeler_diff_product,Teva labeler 0591 but allopurinol vs hydrochlorothiazide.,qa-engineer,pending
+GP-042,QG-055,00591034701|2025-11-19,0,hard_negative,lookalike_name,Hydroxyzine vs hydrochlorothiazide: look-alike hydro- names.,qa-engineer,pending
+GP-043,QG-023,00591034701|2025-11-19,0,hard_negative,lookalike_name,Hydroxychloroquine vs hydrochlorothiazide: look-alike names.,qa-engineer,pending
+GP-044,QG-023,00093240101|2026-01-05,1,positive,ndc_442,Same package 0093-2401-01.,qa-engineer,pending
+GP-045,QG-024,00093240101|2026-01-05,1,positive,typo,"Hydroxychloroqine typo, no NDC; same ingredient, form, strength.",qa-engineer,pending
+GP-046,QG-082,00093240101|2026-01-05,1,positive,ndc_10digit_unhyphenated,"10 digits no hyphens; matches only by name, form, strength.",qa-engineer,pending
+GP-047,QG-022,00093240101|2026-01-05,0,hard_negative,lookalike_name,Hydrochlorothiazide (Microzide) vs hydroxychloroquine.,qa-engineer,pending
+GP-048,QG-055,00093240101|2026-01-05,0,hard_negative,lookalike_name,Hydroxyzine vs hydroxychloroquine: look-alike names.,qa-engineer,pending
+GP-049,QG-025,60951060285|2025-11-03,1,positive,combination_product,Same package 60951-602-85; ingredient order and strength order swapped.,qa-engineer,pending
+GP-050,QG-026,60951060285|2025-11-03,1,positive,combination_product,Other package 60951-602-70 (written 5-4-2) of the same combination.,qa-engineer,pending
+GP-051,QG-057,60951060285|2025-11-03,0,hard_negative,combination_product,Oxycodone alone vs acetaminophen/oxycodone combination.,qa-engineer,pending
+GP-052,QG-058,60951060285|2025-11-03,0,hard_negative,combination_product,Acetaminophen alone vs acetaminophen/oxycodone combination.,qa-engineer,pending
+GP-053,QG-027,00832027311|2025-12-22,1,positive,ndc_442,Same package 0832-0273-11.,qa-engineer,pending
+GP-054,QG-054,00832027311|2025-12-22,0,hard_negative,openfda_sibling_strength,"Morphine 30 mg (0832-0274, in event openfda list) vs 15 mg.",qa-engineer,pending
+GP-055,QG-028,00832027311|2025-12-22,0,hard_negative,diff_route,Rectal suppository vs oral tablet of morphine.,qa-engineer,pending
+GP-056,QG-028,00574711412|2026-07-23,1,positive,ndc_442,Same package 0574-7114-12.,qa-engineer,pending
+GP-057,QG-027,00574711412|2026-07-23,0,hard_negative,diff_route,Oral tablet vs rectal suppository of morphine.,qa-engineer,pending
+GP-058,QG-029,00574711412|2026-07-23,0,hard_negative,lookalike_name,Hydromorphone vs morphine suppository: look-alike names.,qa-engineer,pending
+GP-059,QG-029,00574722406|2026-07-23,1,positive,ndc_442,Same package 0574-7224-06.,qa-engineer,pending
+GP-060,QG-030,00378686077|2023-07-14,1,positive,ndc_442,Same package 0378-6860-77 (the SPEC R4 record).,qa-engineer,pending
+GP-061,QG-031,00378686077|2023-07-14,1,positive,ndc_541,"Other labeler 60505-4745-1 (5-4-1), lisdexamfetamine 70 mg capsule.",qa-engineer,pending
+GP-062,QG-052,00378686077|2023-07-14,0,hard_negative,openfda_sibling_strength,"20 mg (0378-6855) vs 70 mg. Event openfda lists 0378-6855, the SPEC R4 trap.",qa-engineer,pending
+GP-063,QG-032,00068059701|2021-02-17,1,positive,name_brand,"Brand Rifadin IV, same package 0068-0597-01; event has no openfda block.",qa-engineer,pending
+GP-064,QG-033,00068059701|2021-02-17,1,positive,no_openfda,Mylan rifampin 600 mg IV vs Sanofi event with no openfda: tier 3 only.,qa-engineer,pending
+GP-065,QG-034,00068059701|2021-02-17,0,hard_negative,diff_route,Rifampin capsule vs rifampin injection.,qa-engineer,pending
+GP-066,QG-034,42806079930|2021-12-22,1,positive,ndc_532,Same package 42806-799-30.,qa-engineer,pending
+GP-067,QG-085,42806079930|2021-12-22,1,positive,missing_ndc,No NDC; rifampin 300 mg oral capsule.,qa-engineer,pending
+GP-068,QG-033,42806079930|2021-12-22,0,hard_negative,diff_route,Rifampin injection vs rifampin capsule.,qa-engineer,pending
+GP-069,QG-061,42806079930|2021-12-22,0,hard_negative,openfda_sibling_strength,"Rifampin 150 mg (42806-801, in openfda list) vs 300 mg.",qa-engineer,pending
+GP-070,QG-035,00378113401|2026-04-20,1,positive,ndc_442,Same package 0378-1134-01.,qa-engineer,pending
+GP-071,QG-068,00378113401|2026-04-20,0,hard_negative,diff_route,Ketorolac injection vs ketorolac tablet.,qa-engineer,pending
+GP-072,QG-065,00378113401|2026-04-20,0,hard_negative,ndc_leading_zero_error,"Item is glyburide; its keyed NDC 00378-1134-01 lands on the ketorolac package. Name, strength disagree.",qa-engineer,pending
+GP-073,QG-036,45963067696|2026-08-31,1,positive,ndc_532,Same package 45963-676-96.,qa-engineer,pending
+GP-074,QG-037,45963067696|2026-08-31,1,positive,name_case_ws,"Upper case, double space, ER abbreviation; no NDC.",qa-engineer,pending
+GP-075,QG-083,45963067696|2026-08-31,1,positive,ndc_10digit_unhyphenated,Same package written as 10 digits with no hyphens.,qa-engineer,pending
+GP-076,QG-060,45963067696|2026-08-31,0,hard_negative,diff_dosage_form,Metoprolol tartrate IR tablet vs succinate ER tablet.,qa-engineer,pending
+GP-077,QG-038,00378016702|2026-01-12,1,positive,ndc_442,Same package 0378-0167-02; event has no openfda block.,qa-engineer,pending
+GP-078,QG-059,00378016702|2026-01-12,0,hard_negative,diff_dosage_form,Delayed-release vs immediate-release doxycycline 100 mg.,qa-engineer,pending
+GP-079,QG-038,00591455022|2026-07-30,0,hard_negative,diff_dosage_form,IR 100 mg tablet vs delayed-release 50 mg tablet.,qa-engineer,pending
+GP-080,QG-039,00025100131|2025-12-10,1,positive,name_brand,"Brand Aldactone, same package 0025-1001-31.",qa-engineer,pending
+GP-081,QG-040,00025100131|2025-12-10,1,positive,missing_ndc,No NDC; generic spironolactone 25 mg tablet vs Aldactone package.,qa-engineer,pending
+GP-082,QG-066,00025100131|2025-12-10,0,hard_negative,ndc_leading_zero_error,Item is allopurinol 300 mg; its NDC typed with an extra leading zero lands on the Aldactone package.,qa-engineer,pending
+GP-083,QG-041,76045021010|2019-02-08,1,positive,ndc_11digit,"Same package 76045-0210-10, already 11 digits with hyphens; no openfda.",qa-engineer,pending
+GP-084,QG-042,76045021010|2019-02-08,1,positive,name_salt,"Salt dropped, no NDC; event has no openfda block.",qa-engineer,pending
+GP-085,QG-078,76045021010|2019-02-08,0,hard_negative,diff_route,Dexamethasone oral tablet vs injection.,qa-engineer,pending
+GP-086,QG-072,76045021010|2019-02-08,0,hard_negative,true_non_match,Sodium chloride 0.9% bag vs dexamethasone: unrelated.,qa-engineer,pending
+GP-087,QG-043,73293000102|2018-07-14,1,positive,ndc_541,Same package 73293-0001-2 (5-4-1).,qa-engineer,pending
+GP-088,QG-044,73293000102|2018-07-14,0,hard_negative,diff_route,Rule-literal 0: infiltration-route lidocaine vs IV-only event. Flag for owner review (vials often multi-route).,qa-engineer,pending
+GP-089,QG-074,73293000102|2018-07-14,0,hard_negative,combination_product,Lidocaine with epinephrine vs plain lidocaine.,qa-engineer,pending
+GP-090,QG-075,73293000102|2018-07-14,0,hard_negative,diff_route,Topical lidocaine patch vs injection.,qa-engineer,pending
+GP-091,QG-073,73293000102|2018-07-14,0,hard_negative,true_non_match,Ondansetron vs lidocaine: unrelated.,qa-engineer,pending
+GP-092,QG-089,73293000102|2018-07-14,0,hard_negative,ndc_541,"Lidocaine 2% (20 mg/mL, 5-4-1 NDC 76329-3390-1) vs 1% (10 mg/mL).",qa-engineer,pending
+GP-093,QG-088,00409100520|2017-11-14,1,positive,ndc_442,Same package 0409-1005-20 (2 units/mL premixed bag).,qa-engineer,pending
+GP-094,QG-069,00409100520|2017-11-14,0,hard_negative,diff_strength,"Heparin 5,000 units/mL SC vs 2 units/mL IV premix.",qa-engineer,pending
+GP-095,QG-045,00378581477|2025-11-19,1,positive,ndc_442,Same package 0378-5814-77; no openfda block.,qa-engineer,pending
+GP-096,QG-067,00378581477|2025-11-19,1,positive,ndc_leading_zero_error,"Leading zero dropped (3785-814-77): NDC unusable, but item is valsartan 160 mg tablet.",qa-engineer,pending
+GP-097,QG-062,00378581477|2025-11-19,0,hard_negative,same_labeler_diff_product,"Same labeler, adjacent product 0378-5815 is 320 mg.",qa-engineer,pending
+GP-098,QG-046,00009039514|2026-02-25,1,positive,name_brand,"Brand Cleocin HCl, same package 0009-0395-14; no openfda block.",qa-engineer,pending
+GP-099,QG-047,00009039514|2026-02-25,1,positive,name_salt,"Salt dropped, no NDC; clindamycin 300 mg capsule.",qa-engineer,pending
+GP-100,QG-071,00009039514|2026-02-25,0,hard_negative,true_non_match,Amoxicillin capsule vs clindamycin capsule: different antibiotic.,qa-engineer,pending
+GP-101,QG-048,00093936401|2026-08-10,1,positive,name_brand,"Brand Diabeta, same package 0093-9364-01.",qa-engineer,pending
+GP-102,QG-035,00093936401|2026-08-10,0,hard_negative,true_non_match,Ketorolac vs glyburide: unrelated.,qa-engineer,pending

@@ -1,0 +1,3 @@
+tests/fixtures/** -text
+data/demo/seed/** -text
+*.sh text eol=lf

@@ -1,0 +1,14 @@
+{
+ "snapshot_date": "2026-10-29",
+ "source": "SYNTHETIC_fixture",
+ "fetched_at_utc": "2026-10-29T11:30:00",
+ "record_count": 76,
+ "meta_total": 76,
+ "meta_last_updated": "2026-10-28",
+ "pages": 1,
+ "sha256": {
+  "records.json": "7dde0689ba706c919618a191273325bad33316e7541ecbf1aebcdac585a38629",
+  "meta.json": "fe5c533681a03018bf59f6e08c409f9b235056b079b16201e14e12f6e3e62dcf"
+ },
+ "tool_version": "0.1.0"
+}

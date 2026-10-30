@@ -1,0 +1,5 @@
+# Dev and CI tools, exact pins. Install with: pip install -r requirements-dev.txt
+-r requirements.txt
+pytest==9.2.0
+ruff==0.17.3
+matplotlib==3.11.2   # only for docs/img/make_charts.py (README charts); not needed to run the console

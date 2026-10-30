@@ -1,0 +1,178 @@
+item_id,ndc_raw,name_raw,strength_raw,dosage_form_raw,route_raw,is_synthetic
+FI-0001,,  QUINAPRIL  HYDROCHLORIDE ,10 mg,tablet,Oral,True
+FI-0002,99569-2638-19,Acetaminophen,500 mg,Tablet,Oral,True
+FI-0003,99529-9565-50,Amlodipine Besylate,10 mg,Tablet,Oral,True
+FI-0004,0093-2401-08,HYDROXYCHLOROQUINE SULFATE,200 mg,Tablet,Oral,True
+FI-0005,99838-2876-97,Verapamil Hydrochloride,2.5 mg/1 mL,Tablet,Oral,True
+FI-0006,99180-2403-72,Lorazepam,2 mg/1 mL,Tablet,Oral,True
+FI-0007,0378-6860-84,LISDEXAMFETAMINE DIMESYLATE,70 mg,Capsule,Oral,True
+FI-0008,99999-6038-40,Emtricitabine,10 mg/1 mL,Injection,Intravenous,True
+FI-0009,99335-4608-10,Glipizide,5 mg,Tablet,Oral,True
+FI-0010,99921-5065-44,Sertraline Hydrochloride,50 mg,Tablet,Oral,True
+FI-0011,,Fentanyl,50 mcg/1 mL,Injection,Intravenous,True
+FI-0012,,DIANEAL PD-2 with Dextrose,25.7 mg/100 mL; 2.5 g/100 mL; 5.08 mg/100 mL; 538 mg/100 mL; 448 mg/100 mL,"Intraperitoneal Injection, Solution",Intraperitoneal,True
+FI-0013,99936-8541-54,Lisinopril,10 mg,Tablet,Oral,True
+FI-0014,,  KETOROLAC  TROMETHAMINE ,10 mg,tablet,Oral,True
+FI-0015,99108-5905-94,Diphenhydramine Hydrochloride,25 mg,Capsule,Oral,True
+FI-0016,99845-6559-23,Hydroxyzine Hydrochloride,25 mg,Tablet,Oral,True
+FI-0017,00409263450,Hydromorphone Hydrochloride,500 mg/50 mL (10 mg/mL),Injection,Intravenous,True
+FI-0018,00406-5111-01,Lisdexamfetamine Dimesylate,10 mg,Capsule,Oral,True
+FI-0019,99573-5092-19,Escitalopram Oxalate,10 mg,Tablet,Oral,True
+FI-0020,61958-0602-8,EMTRICITABINE,10 mg/1 mL,Oral Solution,Oral,True
+FI-0021,99775-4164-61,Amoxicillin,250 mg,Capsule,Oral,True
+FI-0022,0093-7767-24,Everolimus,5 mg,Tablet,Oral,True
+FI-0023,99385-2137-45,Nitroglycerin,0.4 mg,Tablet,Sublingual,True
+FI-0024,99756-9346-61,Ondansetron Hydrochloride,4 mg/2 mL,Injection,Intravenous,True
+FI-0025,99510-5386-18,Ketorolac Tromethamine,30 mg/1 mL,Injection,Intravenous,True
+FI-0026,99119-2832-56,Ropivacaine Hydrochloride,10 mg/1 mL,Injection,Epidural,True
+FI-0027,99723-3803-78,Lorazepam,2 mg/1 mL,Injection,Intravenous,True
+FI-0028,,Dobutamine,"1,000 mg/250mL (4 mg/mL)",Injection,Intravenous,True
+FI-0029,99196-2588-94,Heparin Sodium,5000 units/mL,Injection,Subcutaneous,True
+FI-0030,42806-344-08,"AMPHETAMINE ASPARTATE MONOHYDRATE, AMPHETAMINE SULFATE, DEXTROAMPHETAMINE SACCHARATE, DEXTROAMPHETAMINE SULFATE","Dextroamphetamine Saccharate, Dextroamphetamine Sulfate, Tablet, 5 mg; 5 mg; 5 mg; 5 mg",Tablet,Oral,True
+FI-0031,0054-3298-70,FUROSEMIDE,40 mg/5 mL,Oral Solution,Oral,True
+FI-0032,99880-3927-74,Methylprednisolone Acetate,160 mg/1 mL,Injection,Intramuscular,True
+FI-0033,99251-8041-26,Rocuronium Bromide,10 mg/mL,Injection,Intravenous,True
+FI-0034,0169-4060-12,Liraglutide,6 mg/1 mL,Injection,Subcutaneous,True
+FI-0035,99243-7912-33,Labetalol Hydrochloride,5 mg/mL,Injection,Intravenous,True
+FI-0036,70121157401,Methylprednisolone Acetate,80 mg/1 mL,Injection,Intramuscular,True
+FI-0037,,"  EPINEPHRINE  BITARTRATE,  LIDOCAINE  HYDROCHLORIDE ","450 mg/30 mL (1.5%; 1:200,000)",injection,Intravenous,True
+FI-0038,00703-4239-01,Carboplatin,10 mg/1 mL,Injection,Intravenous,True
+FI-0039,99710-8119-54,Atorvastatin Calcium,40 mg,Tablet,Oral,True
+FI-0040,99462-7939-62,Simvastatin,20 mg,Tablet,Oral,True
+FI-0041,99771-9179-60,Desmopressin Acetate,10 ug/.1 mL,Spray,Nasal,True
+FI-0042,99505-3144-95,Levetiracetam,500 mg,Tablet,Oral,True
+FI-0043,0409-1893-01,Morphine Sulfate,10 mg/1 mL Syringes,Injection,Intravenous,True
+FI-0044,,Vyvanse,30 mg,"Tablet, Chewable",Oral,True
+FI-0045,99692-1651-89,Haloperidol Lactate,5 mg/mL,Injection,Intramuscular,True
+FI-0046,99499-5345-68,Acetaminophen,325 mg,Tablet,Oral,True
+FI-0047,99533-5533-15,Piperacillin and Tazobactam,3.375 g,Injection,Intravenous,True
+FI-0048,99897-9689-10,Remifentanil Hydrochloride,2 mg/1 mL,Injection,Intravenous,True
+FI-0049,,Cleocin Hydrochloride,300 mg,Capsule,Oral,True
+FI-0050,99403-4566-17,Ceftriaxone Sodium,2 g,Injection,Intravenous,True
+FI-0051,64980-642-03,Albuterol Sulfate,2.5 mg/.5 mL,Solution,Respiratory (Inhalation),True
+FI-0052,99825-8144-10,Lisinopril,20 mg,Tablet,Oral,True
+FI-0053,99820-5956-88,Spironolactone,25 mg,Tablet,Oral,True
+FI-0054,99545-3591-68,Leuprolide Acetate,28 mg/2.8 mL (1 mg/0.2 mL),Injection,Intravenous,True
+FI-0055,01672950008,Furosemide,10 mg/1 mL,Injection,Intravenous,True
+FI-0056,,DELFLEX® w/Dextrose,"4.25% Low Mg/Low Ca 2L, 5/cs",Solution,Intraperitoneal,True
+FI-0057,99343-5562-95,Clopidogrel Bisulfate,75 mg,Tablet,Oral,True
+FI-0058,75987-050-07,Glycerol Phenylbutyrate,1.1 g/1 mL,Oral Liquid,Oral,True
+FI-0059,07288815201,Clonazepam,.5 mg,Tablet,Oral,True
+FI-0060,99906-2771-58,Enoxaparin Sodium,40 mg/0.4 mL,Injection,Subcutaneous,True
+FI-0061,99597-8886-37,Insulin Lispro,100 units/mL,Injection,Subcutaneous,True
+FI-0062,10147057001,Etravirine,100 mg,Tablet,Oral,True
+FI-0063,99761-2612-17,Montelukast Sodium,10 mg,Tablet,Oral,True
+FI-0064,99159-4946-82,Fentanyl Citrate,100 ug/1 mL,Injection,Intravenous,True
+FI-0065,00641-6024-10,Fentanyl Citrate,50 ug/1 mL,Injection,Intravenous,True
+FI-0066,99533-8973-29,Gabapentin,100 mg,Capsule,Oral,True
+FI-0067,04988412591,Everolimus,5 mg,Tablet,Oral,True
+FI-0068,00378-0167-02,Doxycycline Hyclate,100 mg,Tablet,Oral,True
+FI-0069,99160-3697-58,Insulin Glargine,100 units/mL,Injection,Subcutaneous,True
+FI-0070,99755-4598-97,Cefotaxime Sodium,1 g,"Powder, for Solution",Intravenous,True
+FI-0071,,  ROPIVACAINE  HYDROCHLORIDE ,5 mg/1 mL,injection,Epidural,True
+FI-0072,99208-5889-91,Methotrexate Sodium,25 mg/1 mL,Tablet,Oral,True
+FI-0073,99462-7658-89,Famotidine,20 mg,Tablet,Oral,True
+FI-0074,00703367801,Methotrexate Sodium,25 mg/1 mL,Injection,Intravenous,True
+FI-0075,99125-3938-52,Senna,8.6 mg,Tablet,Oral,True
+FI-0076,99652-4295-49,Hydromorphone Hydrochloride,500 mg/50 mL (10 mg/mL),Tablet,Oral,True
+FI-0077,00409-2308-01,Midazolam Hydrochloride,5 mg/mL (5 mg/mL),Injection,Intravenous,True
+FI-0078,99139-8711-38,Carvedilol,6.25 mg,Tablet,Oral,True
+FI-0079,,  SODIUM  ACETATE ,4 meq/100 mL,injection,Intravenous,True
+FI-0080,99441-3143-91,Acetaminophen,1000 mg/100 mL,Injection,Intravenous,True
+FI-0081,99568-6180-19,Losartan Potassium,50 mg,Tablet,Oral,True
+FI-0082,99846-5010-30,Sufentanil Citrate,50 ug/1 mL,Injection,Intravenous,True
+FI-0083,99309-6147-40,Ibuprofen,600 mg,Tablet,Oral,True
+FI-0084,00409116001,Bupivacaine Hydrochloride,Marcaine 125 mg/50 mL (2.5 mg/mL),Injection,Infiltration,True
+FI-0085,99824-1964-39,Atorvastatin Calcium,20 mg,Tablet,Oral,True
+FI-0086,0409-4887-57,STERILE WATER,1 mL/1 mL,Injection,Intravenous,True
+FI-0087,99165-7304-58,Doxycycline Hyclate,200 mg,Tablet,Oral,True
+FI-0088,0264-2101-07,STERILE WATER,1 mL/1 mL,Irrigant,Irrigation,True
+FI-0089,76329-3390-8,LIDOCAINE HYDROCHLORIDE,20 mg/1 mL,Injection,Intravenous,True
+FI-0090,99472-8066-18,Metformin Hydrochloride,500 mg,Tablet,Oral,True
+FI-0091,99319-9834-26,Albumin Human,25%,Solution,Intravenous,True
+FI-0092,44567-0600-04,Dexmedetomidine Hydrochloride,100 ug/1 mL,Injection,Intravenous,True
+FI-0093,99318-9288-43,Zolpidem Tartrate,5 mg,Tablet,Oral,True
+FI-0094,99993-7932-37,Albuterol Sulfate,5 mg/.5 mL,Solution,Respiratory (Inhalation),True
+FI-0095,,  HYDROMORPHONE  HYDROCHLORIDE ,3 mg,suppository,Rectal,True
+FI-0096,00409-0042-12,Dopamine Hydrochloride,400 mg/250 mL (1.6 mg/1 mL),Injection,Intravenous,True
+FI-0097,,Ketorolac,30 mg/1 mL,Injection,Intravenous,True
+FI-0098,99853-9883-17,Prednisone,5 mg,Tablet,Oral,True
+FI-0099,,Verapamil,2.5 mg/1 mL,Injection,Intravenous,True
+FI-0100,99513-2964-82,Gabapentin,300 mg,Capsule,Oral,True
+FI-0101,39822-5550-06,Promethazine Hydrochloride,50 mg/1 mL,Injection,Intravenous,True
+FI-0102,00591-2888-30,Hydroxocobalamin,"1000 MCG/ML, 30 ML Multi-Dose Vial",Injection,Intramuscular,True
+FI-0103,99653-1241-21,Pantoprazole Sodium,40 mg,"Tablet, Delayed Release",Oral,True
+FI-0104,99787-7118-66,Oxycodone Hydrochloride,5 mg,Tablet,Oral,True
+FI-0105,70069048110,Atropine Sulfate,.4 mg/1 mL,Injection,Intravenous,True
+FI-0106,99573-7216-44,Bumetanide,.25 mg/1 mL,Injection,Intravenous,True
+FI-0107,99719-4450-53,Famotidine,20 mg/2 mL,Injection,Intravenous,True
+FI-0108,99269-5342-77,Lisdexamfetamine Dimesylate,50 mg,Injection,Intravenous,True
+FI-0109,0487-9901-30,Albuterol Sulfate,2.5 mg/.5 mL,Solution,Oral,True
+FI-0110,99775-8787-80,Fluticasone Propionate and Salmeterol Xinafoate,230 ug; 21 ug,"Aerosol, Metered",Respiratory (Inhalation),True
+FI-0111,99537-1158-24,Trazodone Hydrochloride,50 mg,Tablet,Oral,True
+FI-0112,99935-2133-78,Lidocaine Hydrochloride,40 mg/1 mL,Injection,Intravenous,True
+FI-0113,99415-6974-15,Apixaban,2.5 mg,Tablet,Oral,True
+FI-0114,99619-4258-29,Etomidate,4 mg/1 mL,Injection,Intravenous,True
+FI-0115,99546-9379-24,Metronidazole,500 mg,Tablet,Oral,True
+FI-0116,99421-1936-16,Folic Acid,1 mg,Tablet,Oral,True
+FI-0117,99738-6143-94,Propofol,10 mg/mL,Injectable Emulsion,Intravenous,True
+FI-0118,99941-1525-50,Dexamethasone Sodium Phosphate,10 mg/1 mL,Injection,Intravenous,True
+FI-0119,,Remifentanil,1 mg/1 mL,Injection,Intravenous,True
+FI-0120,99940-4728-38,Melatonin,3 mg,Tablet,Oral,True
+FI-0121,99482-3646-79,Quinapril Hydrochloride,10 mg,Injection,Intravenous,True
+FI-0122,99713-6310-72,Etravirine,100 mg,Injection,Intravenous,True
+FI-0123,0338-0023-09,DEXTROSE MONOHYDRATE 10%,100 g/1000 mL,Injection,Intravenous,True
+FI-0124,99954-7049-84,Amoxicillin,500 mg,Capsule,Oral,True
+FI-0125,99357-1188-97,Potassium Chloride,20 meq,"Tablet, Extended Release",Oral,True
+FI-0126,99803-5325-74,Cefazolin Sodium,1 g,Injection,Intravenous,True
+FI-0127,99807-3442-79,Amlodipine Besylate,5 mg,Tablet,Oral,True
+FI-0128,99296-4116-78,Ciprofloxacin,500 mg,Tablet,Oral,True
+FI-0129,00409-4900-14,Sodium Bicarbonate,84 mg/1 mL,Injection,Intravenous,True
+FI-0130,99999-3200-43,Azithromycin,250 mg,Tablet,Oral,True
+FI-0131,67457044560,Rifampin,600 mg,Injection,Intravenous,True
+FI-0132,00832-0273-11,Morphine Sulfate,15 mg,Tablet,Oral,True
+FI-0133,45963067796,Metoprolol Succinate,100 mg,"Tablet, Extended Release",Oral,True
+FI-0134,0228-2850-11,Guanfacine Hydrochloride,1 mg,"Tablet, Extended Release",Oral,True
+FI-0135,00173-0716-22,Fluticasone Propionate and Salmeterol Xinafoate,115 ug; 21 ug,"Aerosol, Metered",Respiratory (Inhalation),True
+FI-0136,,  MEPERIDINE  HYDROCHLORIDE ,50 mg/1 mL,injection,Intravenous,True
+FI-0137,99690-4114-42,Vancomycin Hydrochloride,1 g,Injection,Intravenous,True
+FI-0138,99316-6155-37,Dextrose Monohydrate 5%,50 mg/1 mL,Injection,Intravenous,True
+FI-0139,,Hydromorphone,2 mg/1 mL,Injection,Intravenous,True
+FI-0140,99103-5315-74,Dexamethasone Sodium Phosphate,10 mg/1 mL,Tablet,Oral,True
+FI-0141,99170-2113-96,Cephalexin,500 mg,Capsule,Oral,True
+FI-0142,23155-473-48,FUROSEMIDE,10 mg/1 mL,Injection,Intravenous,True
+FI-0143,70121-1388-1,Dexmedetomidine Hydrochloride,"4 mcg/mL, 50 mL",Injection,Intravenous,True
+FI-0144,00378-6858-77,Lisdexamfetamine Dimesylate,50 mg,Capsule,Oral,True
+FI-0145,99969-4872-31,Tamsulosin Hydrochloride,0.4 mg,Capsule,Oral,True
+FI-0146,99158-9320-20,Cefazolin Sodium,2 g,Injection,Intravenous,True
+FI-0147,70121253706,Leuprolide Acetate,14 mg/2.8 mL (1 mg/0.2 mL),Injection,Intravenous,True
+FI-0148,99265-8239-80,Ibuprofen,400 mg,Tablet,Oral,True
+FI-0149,99984-1887-96,Baclofen,10 mg,Tablet,Oral,True
+FI-0150,99927-2604-16,Levothyroxine Sodium,50 mcg,Tablet,Oral,True
+FI-0151,99649-5371-92,Desmopressin Acetate,20 ug/.1 mL,Spray,Nasal,True
+FI-0152,99357-1832-21,Metformin Hydrochloride,1000 mg,Tablet,Oral,True
+FI-0153,99348-8749-62,Warfarin Sodium,5 mg,Tablet,Oral,True
+FI-0154,0409-3793-01,Ketorolac Tromethamine,15 mg/1 mL,Injection,Intravenous,True
+FI-0155,,  CLINDAMYCIN  PHOSPHATE ,600 mg/50 mL,injection,Intravenous,True
+FI-0156,99342-3662-32,Levothyroxine Sodium,100 mcg,Tablet,Oral,True
+FI-0157,,Relexxii,27 mg,"Tablet, Extended Release",Oral,True
+FI-0158,99457-2127-41,Ceftriaxone Sodium,1 g,Injection,Intravenous,True
+FI-0159,99128-2889-43,Ondansetron,4 mg,"Tablet, Orally Disintegrating",Oral,True
+FI-0160,63323-452-01,Morphine Sulfate,2 mg/1 mL,Injection,Intravenous,True
+FI-0161,99209-3546-44,Docusate Sodium,100 mg,Capsule,Oral,True
+FI-0162,99315-5088-95,Naloxone Hydrochloride,0.4 mg/mL,Injection,Intravenous,True
+FI-0163,99432-1916-39,Calcium Chloride; Dextrose; Magnesium Chloride; Sodium Chloride; Sodium Lactate,25.7 mg/100 mL; 1.5 g/100 mL; 5.08 mg/100 mL; 538 mg/100 mL; 448 mg/100 mL,"Intraperitoneal Injection, Solution",Intraperitoneal,True
+FI-0164,99884-3060-26,Albuterol Sulfate,2.5 mg/.5 mL,Injection,Intravenous,True
+FI-0165,99132-6413-19,Apixaban,5 mg,Tablet,Oral,True
+FI-0166,,  DEXAMETHASONE  SODIUM  PHOSPHATE ,4 mg/1 mL,injection,Intravenous,True
+FI-0167,62037-710-08,POTASSIUM CHLORIDE,10 meq,"Tablet, Extended Release",Oral,True
+FI-0168,99391-3584-66,Omeprazole,20 mg,"Capsule, Delayed Release",Oral,True
+FI-0169,00409-9045-17,"Bupivacaine Hydrochloride, Epinephrine Bitartrate",150 mg/30 mL (5 mg/mL),Injection,Epidural,True
+FI-0170,99562-2982-41,Allopurinol,100 mg,Tablet,Oral,True
+FI-0171,99448-2827-47,Morphine Sulfate,2 mg/1 mL,Tablet,Oral,True
+FI-0172,99165-6539-12,Hydrochlorothiazide,25 mg,Tablet,Oral,True
+FI-0173,99694-5349-14,Hydralazine Hydrochloride,25 mg,Tablet,Oral,True
+FI-0174,99710-8668-77,Sufentanil Citrate,50 ug/1 mL,Tablet,Oral,True
+FI-0175,99588-9238-77,Prednisone,20 mg,Tablet,Oral,True
+FI-0176,99758-8517-28,Etomidate,2 mg/1 mL,Injection,Intravenous,True
+FI-0177,0409-5555-08,SODIUM BICARBONATE,"2.5 mEq/5 mL (4.2%, 0.5 mEq/mL)",Injection,Intravenous,True

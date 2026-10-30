@@ -1,0 +1,1760 @@
+{
+  "generated_at_utc": "2026-10-30T06:16:01",
+  "matcher_version": "v3 (ADR 006 + addendum + TL conditions, round 3)",
+  "gold": {
+    "file": "tests/fixtures/gold_matches.csv",
+    "events_file": "tests/fixtures/gold_events.json",
+    "formulary_file": "tests/fixtures/SYNTHETIC_gold_formulary.csv",
+    "sha256": "c1308465f6c9d42c4fa5b6ba8c68dfefa30b331536f76391bfaf9d865acf9a87",
+    "sha256_frozen": "c1308465f6c9d42c4fa5b6ba8c68dfefa30b331536f76391bfaf9d865acf9a87",
+    "hash_ok": true,
+    "pairs": 102,
+    "positives": 57,
+    "hard_negatives": 45,
+    "labeled_by": "qa-engineer",
+    "reviewed_by": "pending (team-labeled, not reviewed by the owner)",
+    "gold_event_keys_missing_from_events": []
+  },
+  "inputs": {
+    "events": 30,
+    "formulary_items": 86,
+    "brand_map_entries": 9
+  },
+  "targets": {
+    "recall": 0.95,
+    "precision": 0.9
+  },
+  "matcher": {
+    "overall": {
+      "tp": 56,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.9825,
+      "recall": 0.9825,
+      "f1": 0.9825,
+      "tn": 44,
+      "pairs": 102,
+      "positives": 57
+    },
+    "per_tier": {
+      "1": {
+        "tp": 28,
+        "fp": 0,
+        "precision": 1.0,
+        "recall_share": 0.4912
+      },
+      "2": {
+        "tp": 7,
+        "fp": 0,
+        "precision": 1.0,
+        "recall_share": 0.1228
+      },
+      "3": {
+        "tp": 21,
+        "fp": 1,
+        "precision": 0.9545,
+        "recall_share": 0.3684
+      }
+    },
+    "per_variant_type": {
+      "combination_product": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 10
+      },
+      "diff_dosage_form": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 4
+      },
+      "diff_route": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": null,
+        "pairs": 10
+      },
+      "diff_strength": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 4
+      },
+      "lookalike_name": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 7
+      },
+      "missing_ndc": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 3
+      },
+      "name_brand": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.8571,
+        "f1": 0.9231,
+        "pairs": 7
+      },
+      "name_case_ws": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 3
+      },
+      "name_salt": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 4
+      },
+      "ndc_10digit_unhyphenated": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 3
+      },
+      "ndc_11digit": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 4
+      },
+      "ndc_442": {
+        "tp": 13,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 13
+      },
+      "ndc_532": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 5
+      },
+      "ndc_541": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 3
+      },
+      "ndc_leading_zero_error": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 3
+      },
+      "no_openfda": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 4
+      },
+      "openfda_sibling_strength": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 4
+      },
+      "same_ingredient_other_labeler": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 1
+      },
+      "same_labeler_diff_product": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 3
+      },
+      "true_non_match": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 4
+      },
+      "typo": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 3
+      }
+    },
+    "failing_pairs": [
+      {
+        "pair_id": "GP-024",
+        "item_id": "QG-079",
+        "event_key": "00169406012|2023-07-18",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Saxenda vs Victoza: same liraglutide 6 mg/mL SC pen, so 1 under the rule. Different indications: flag for owner review."
+      },
+      {
+        "pair_id": "GP-088",
+        "item_id": "QG-044",
+        "event_key": "73293000102|2018-07-14",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_route",
+        "predicted_tier": 3,
+        "matched_on": "ingredient+form+route+strength=lidocaine",
+        "rationale": "Rule-literal 0: infiltration-route lidocaine vs IV-only event. Flag for owner review (vials often multi-route)."
+      }
+    ],
+    "unlabeled_predictions": 2,
+    "pass": true
+  },
+  "baseline": {
+    "overall": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 57,
+      "precision": null,
+      "recall": 0.0,
+      "f1": null,
+      "tn": 45,
+      "pairs": 102,
+      "positives": 57
+    },
+    "per_tier": {},
+    "per_variant_type": {
+      "combination_product": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 10
+      },
+      "diff_dosage_form": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 4
+      },
+      "diff_route": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 10
+      },
+      "diff_strength": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 4
+      },
+      "lookalike_name": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 7
+      },
+      "missing_ndc": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 3
+      },
+      "name_brand": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 7,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 7
+      },
+      "name_case_ws": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 3
+      },
+      "name_salt": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 4
+      },
+      "ndc_10digit_unhyphenated": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 3
+      },
+      "ndc_11digit": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 4
+      },
+      "ndc_442": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 13,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 13
+      },
+      "ndc_532": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 5
+      },
+      "ndc_541": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 3
+      },
+      "ndc_leading_zero_error": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 3
+      },
+      "no_openfda": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 4
+      },
+      "openfda_sibling_strength": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 4
+      },
+      "same_ingredient_other_labeler": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 1
+      },
+      "same_labeler_diff_product": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 3
+      },
+      "true_non_match": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 4
+      },
+      "typo": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 3
+      }
+    },
+    "failing_pairs": [
+      {
+        "pair_id": "GP-001",
+        "item_id": "QG-001",
+        "event_key": "72888015201|2023-03-10",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_532",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package NDC 72888-152-01 in 5-3-2 form."
+      },
+      {
+        "pair_id": "GP-002",
+        "item_id": "QG-002",
+        "event_key": "72888015201|2023-03-10",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_11digit",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Hyphenated 5-4-2 of 72888-152-30: other package of the same product."
+      },
+      {
+        "pair_id": "GP-003",
+        "item_id": "QG-003",
+        "event_key": "72888015201|2023-03-10",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_11digit",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "11 digits with no hyphens equal to the event package."
+      },
+      {
+        "pair_id": "GP-004",
+        "item_id": "QG-049",
+        "event_key": "72888015201|2023-03-10",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "typo",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Name misspelled Clonazapam; NDC is another package of the same product."
+      },
+      {
+        "pair_id": "GP-010",
+        "item_id": "QG-004",
+        "event_key": "00409610204|2020-04-07",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package NDC 0409-6102-04 in 4-4-2 form."
+      },
+      {
+        "pair_id": "GP-011",
+        "item_id": "QG-005",
+        "event_key": "00409610204|2020-04-07",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Other package (20 mg/2 mL vial) of the same product 0409-6102; 10 mg/mL either way."
+      },
+      {
+        "pair_id": "GP-012",
+        "item_id": "QG-006",
+        "event_key": "00409610204|2020-04-07",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "same_ingredient_other_labeler",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Fresenius furosemide 10 mg/mL IV: same ingredient, form, route and concentration; different labeler."
+      },
+      {
+        "pair_id": "GP-013",
+        "item_id": "QG-050",
+        "event_key": "00409610204|2020-04-07",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_10digit_unhyphenated",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "10-digit unhyphenated NDC is ambiguous; identity by name, form, route, strength is the same."
+      },
+      {
+        "pair_id": "GP-014",
+        "item_id": "QG-086",
+        "event_key": "00409610204|2020-04-07",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "typo",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Furosemid typo, no NDC; same ingredient, form, route, strength."
+      },
+      {
+        "pair_id": "GP-017",
+        "item_id": "QG-007",
+        "event_key": "00054329446|2026-03-31",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package NDC 0054-3294-46."
+      },
+      {
+        "pair_id": "GP-018",
+        "item_id": "QG-008",
+        "event_key": "61703033922|2023-04-28",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_532",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package NDC 61703-339-22."
+      },
+      {
+        "pair_id": "GP-019",
+        "item_id": "QG-009",
+        "event_key": "61703033922|2023-04-28",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_11digit",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Hyphenated 5-4-2 of 61703-339-56: other vial size, same 10 mg/mL product."
+      },
+      {
+        "pair_id": "GP-020",
+        "item_id": "QG-010",
+        "event_key": "61703033922|2023-04-28",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_case_ws",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "No NDC; lower and upper case and extra spaces in name; same ingredient, form, route, concentration."
+      },
+      {
+        "pair_id": "GP-022",
+        "item_id": "QG-011",
+        "event_key": "00169406012|2023-07-18",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Brand Victoza, no NDC; event openfda brand_name is Victoza, same 6 mg/mL SC."
+      },
+      {
+        "pair_id": "GP-023",
+        "item_id": "QG-012",
+        "event_key": "00169406012|2023-07-18",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Other package 0169-4060-13 of the same product."
+      },
+      {
+        "pair_id": "GP-024",
+        "item_id": "QG-079",
+        "event_key": "00169406012|2023-07-18",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Saxenda vs Victoza: same liraglutide 6 mg/mL SC pen, so 1 under the rule. Different indications: flag for owner review."
+      },
+      {
+        "pair_id": "GP-025",
+        "item_id": "QG-013",
+        "event_key": "13668035490|2026-03-25",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "no_openfda",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 13668-354-90; event has no openfda block."
+      },
+      {
+        "pair_id": "GP-026",
+        "item_id": "QG-014",
+        "event_key": "13668035490|2026-03-25",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_salt",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Salt dropped, no NDC, event has no openfda: only tier 3 can match (AC-4.6)."
+      },
+      {
+        "pair_id": "GP-027",
+        "item_id": "QG-015",
+        "event_key": "13668035490|2026-03-25",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "no_openfda",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Other package 13668-354-30 (written 5-4-2); product NDC from top-level field only."
+      },
+      {
+        "pair_id": "GP-029",
+        "item_id": "QG-016",
+        "event_key": "49884012591|2026-01-06",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "no_openfda",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 49884-125-91; event has no openfda block."
+      },
+      {
+        "pair_id": "GP-030",
+        "item_id": "QG-017",
+        "event_key": "49884012591|2026-01-06",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "missing_ndc",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "No NDC, no route, form abbreviated tab; route defaults to oral for tablet."
+      },
+      {
+        "pair_id": "GP-032",
+        "item_id": "QG-018",
+        "event_key": "43547041109|2023-01-19",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_532",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 43547-411-09."
+      },
+      {
+        "pair_id": "GP-033",
+        "item_id": "QG-019",
+        "event_key": "43547041109|2023-01-19",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_salt",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Aurobindo quinapril 10 mg tablet, salt dropped; same ingredient, form, strength."
+      },
+      {
+        "pair_id": "GP-034",
+        "item_id": "QG-084",
+        "event_key": "43547041109|2023-01-19",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_case_ws",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Lower case, padded spaces, tab and po abbreviations; no NDC."
+      },
+      {
+        "pair_id": "GP-036",
+        "item_id": "QG-020",
+        "event_key": "62135066890|2023-01-19",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "combination_product",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 62135-668-90, combination tablet 20/12.5 mg."
+      },
+      {
+        "pair_id": "GP-037",
+        "item_id": "QG-021",
+        "event_key": "62135066890|2023-01-19",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "combination_product",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Combination written with and plus salt and dash strength; no NDC."
+      },
+      {
+        "pair_id": "GP-040",
+        "item_id": "QG-022",
+        "event_key": "00591034701|2025-11-19",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Brand Microzide, same package 0591-0347-01; event has no openfda block."
+      },
+      {
+        "pair_id": "GP-044",
+        "item_id": "QG-023",
+        "event_key": "00093240101|2026-01-05",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 0093-2401-01."
+      },
+      {
+        "pair_id": "GP-045",
+        "item_id": "QG-024",
+        "event_key": "00093240101|2026-01-05",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "typo",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Hydroxychloroqine typo, no NDC; same ingredient, form, strength."
+      },
+      {
+        "pair_id": "GP-046",
+        "item_id": "QG-082",
+        "event_key": "00093240101|2026-01-05",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_10digit_unhyphenated",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "10 digits no hyphens; matches only by name, form, strength."
+      },
+      {
+        "pair_id": "GP-049",
+        "item_id": "QG-025",
+        "event_key": "60951060285|2025-11-03",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "combination_product",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 60951-602-85; ingredient order and strength order swapped."
+      },
+      {
+        "pair_id": "GP-050",
+        "item_id": "QG-026",
+        "event_key": "60951060285|2025-11-03",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "combination_product",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Other package 60951-602-70 (written 5-4-2) of the same combination."
+      },
+      {
+        "pair_id": "GP-053",
+        "item_id": "QG-027",
+        "event_key": "00832027311|2025-12-22",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 0832-0273-11."
+      },
+      {
+        "pair_id": "GP-056",
+        "item_id": "QG-028",
+        "event_key": "00574711412|2026-07-23",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 0574-7114-12."
+      },
+      {
+        "pair_id": "GP-059",
+        "item_id": "QG-029",
+        "event_key": "00574722406|2026-07-23",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 0574-7224-06."
+      },
+      {
+        "pair_id": "GP-060",
+        "item_id": "QG-030",
+        "event_key": "00378686077|2023-07-14",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 0378-6860-77 (the SPEC R4 record)."
+      },
+      {
+        "pair_id": "GP-061",
+        "item_id": "QG-031",
+        "event_key": "00378686077|2023-07-14",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_541",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Other labeler 60505-4745-1 (5-4-1), lisdexamfetamine 70 mg capsule."
+      },
+      {
+        "pair_id": "GP-063",
+        "item_id": "QG-032",
+        "event_key": "00068059701|2021-02-17",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Brand Rifadin IV, same package 0068-0597-01; event has no openfda block."
+      },
+      {
+        "pair_id": "GP-064",
+        "item_id": "QG-033",
+        "event_key": "00068059701|2021-02-17",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "no_openfda",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Mylan rifampin 600 mg IV vs Sanofi event with no openfda: tier 3 only."
+      },
+      {
+        "pair_id": "GP-066",
+        "item_id": "QG-034",
+        "event_key": "42806079930|2021-12-22",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_532",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 42806-799-30."
+      },
+      {
+        "pair_id": "GP-067",
+        "item_id": "QG-085",
+        "event_key": "42806079930|2021-12-22",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "missing_ndc",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "No NDC; rifampin 300 mg oral capsule."
+      },
+      {
+        "pair_id": "GP-070",
+        "item_id": "QG-035",
+        "event_key": "00378113401|2026-04-20",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 0378-1134-01."
+      },
+      {
+        "pair_id": "GP-073",
+        "item_id": "QG-036",
+        "event_key": "45963067696|2026-08-31",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_532",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 45963-676-96."
+      },
+      {
+        "pair_id": "GP-074",
+        "item_id": "QG-037",
+        "event_key": "45963067696|2026-08-31",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_case_ws",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Upper case, double space, ER abbreviation; no NDC."
+      },
+      {
+        "pair_id": "GP-075",
+        "item_id": "QG-083",
+        "event_key": "45963067696|2026-08-31",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_10digit_unhyphenated",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package written as 10 digits with no hyphens."
+      },
+      {
+        "pair_id": "GP-077",
+        "item_id": "QG-038",
+        "event_key": "00378016702|2026-01-12",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 0378-0167-02; event has no openfda block."
+      },
+      {
+        "pair_id": "GP-080",
+        "item_id": "QG-039",
+        "event_key": "00025100131|2025-12-10",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Brand Aldactone, same package 0025-1001-31."
+      },
+      {
+        "pair_id": "GP-081",
+        "item_id": "QG-040",
+        "event_key": "00025100131|2025-12-10",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "missing_ndc",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "No NDC; generic spironolactone 25 mg tablet vs Aldactone package."
+      },
+      {
+        "pair_id": "GP-083",
+        "item_id": "QG-041",
+        "event_key": "76045021010|2019-02-08",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_11digit",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 76045-0210-10, already 11 digits with hyphens; no openfda."
+      },
+      {
+        "pair_id": "GP-084",
+        "item_id": "QG-042",
+        "event_key": "76045021010|2019-02-08",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_salt",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Salt dropped, no NDC; event has no openfda block."
+      },
+      {
+        "pair_id": "GP-087",
+        "item_id": "QG-043",
+        "event_key": "73293000102|2018-07-14",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_541",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 73293-0001-2 (5-4-1)."
+      },
+      {
+        "pair_id": "GP-093",
+        "item_id": "QG-088",
+        "event_key": "00409100520|2017-11-14",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 0409-1005-20 (2 units/mL premixed bag)."
+      },
+      {
+        "pair_id": "GP-095",
+        "item_id": "QG-045",
+        "event_key": "00378581477|2025-11-19",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_442",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 0378-5814-77; no openfda block."
+      },
+      {
+        "pair_id": "GP-096",
+        "item_id": "QG-067",
+        "event_key": "00378581477|2025-11-19",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "ndc_leading_zero_error",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Leading zero dropped (3785-814-77): NDC unusable, but item is valsartan 160 mg tablet."
+      },
+      {
+        "pair_id": "GP-098",
+        "item_id": "QG-046",
+        "event_key": "00009039514|2026-02-25",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Brand Cleocin HCl, same package 0009-0395-14; no openfda block."
+      },
+      {
+        "pair_id": "GP-099",
+        "item_id": "QG-047",
+        "event_key": "00009039514|2026-02-25",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_salt",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Salt dropped, no NDC; clindamycin 300 mg capsule."
+      },
+      {
+        "pair_id": "GP-101",
+        "item_id": "QG-048",
+        "event_key": "00093936401|2026-08-10",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Brand Diabeta, same package 0093-9364-01."
+      }
+    ],
+    "unlabeled_predictions": 0,
+    "pass": false,
+    "definition": "v1 (AC-4.4): exact lowercase equality of formulary name_raw and event generic_name"
+  },
+  "baseline_v2": {
+    "overall": {
+      "tp": 39,
+      "fp": 21,
+      "fn": 18,
+      "precision": 0.65,
+      "recall": 0.6842,
+      "f1": 0.6667,
+      "tn": 24,
+      "pairs": 102,
+      "positives": 57
+    },
+    "per_tier": {
+      "0": {
+        "tp": 39,
+        "fp": 21,
+        "precision": 0.65,
+        "recall_share": 0.6842
+      }
+    },
+    "per_variant_type": {
+      "combination_product": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 2,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6667,
+        "pairs": 10
+      },
+      "diff_dosage_form": {
+        "tp": 0,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": null,
+        "pairs": 4
+      },
+      "diff_route": {
+        "tp": 0,
+        "fp": 8,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": null,
+        "pairs": 10
+      },
+      "diff_strength": {
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": null,
+        "pairs": 4
+      },
+      "lookalike_name": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 7
+      },
+      "missing_ndc": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 3
+      },
+      "name_brand": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 7,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 7
+      },
+      "name_case_ws": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "f1": 0.8,
+        "pairs": 3
+      },
+      "name_salt": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 4
+      },
+      "ndc_10digit_unhyphenated": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 3
+      },
+      "ndc_11digit": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 4
+      },
+      "ndc_442": {
+        "tp": 13,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 13
+      },
+      "ndc_532": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 5
+      },
+      "ndc_541": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.6667,
+        "recall": 1.0,
+        "f1": 0.8,
+        "pairs": 3
+      },
+      "ndc_leading_zero_error": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 3
+      },
+      "no_openfda": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.8571,
+        "pairs": 4
+      },
+      "openfda_sibling_strength": {
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": null,
+        "pairs": 4
+      },
+      "same_ingredient_other_labeler": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pairs": 1
+      },
+      "same_labeler_diff_product": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": null,
+        "f1": null,
+        "pairs": 3
+      },
+      "true_non_match": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "pairs": 4
+      },
+      "typo": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "pairs": 3
+      }
+    },
+    "failing_pairs": [
+      {
+        "pair_id": "GP-004",
+        "item_id": "QG-049",
+        "event_key": "72888015201|2023-03-10",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "typo",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Name misspelled Clonazapam; NDC is another package of the same product."
+      },
+      {
+        "pair_id": "GP-005",
+        "item_id": "QG-051",
+        "event_key": "72888015201|2023-03-10",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "openfda_sibling_strength",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=clonazepam",
+        "rationale": "1 mg vs 0.5 mg. 72888-153 is listed in the event openfda.product_ndc, so tier 2 via openfda would wrongly match."
+      },
+      {
+        "pair_id": "GP-006",
+        "item_id": "QG-001",
+        "event_key": "43547040810|2023-03-10",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_strength",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=clonazepam",
+        "rationale": "Clonazepam 0.5 mg item vs a 2 mg shortage package."
+      },
+      {
+        "pair_id": "GP-007",
+        "item_id": "QG-087",
+        "event_key": "72888015201|2023-03-10",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_dosage_form",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=clonazepam",
+        "rationale": "Orally disintegrating tablet vs plain tablet, same strength."
+      },
+      {
+        "pair_id": "GP-014",
+        "item_id": "QG-086",
+        "event_key": "00409610204|2020-04-07",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "typo",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Furosemid typo, no NDC; same ingredient, form, route, strength."
+      },
+      {
+        "pair_id": "GP-015",
+        "item_id": "QG-007",
+        "event_key": "00409610204|2020-04-07",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_route",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=furosemide",
+        "rationale": "Oral solution vs injection of furosemide."
+      },
+      {
+        "pair_id": "GP-016",
+        "item_id": "QG-004",
+        "event_key": "00054329446|2026-03-31",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_route",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=furosemide",
+        "rationale": "Injection vs oral solution of furosemide, both 10 mg/mL."
+      },
+      {
+        "pair_id": "GP-022",
+        "item_id": "QG-011",
+        "event_key": "00169406012|2023-07-18",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Brand Victoza, no NDC; event openfda brand_name is Victoza, same 6 mg/mL SC."
+      },
+      {
+        "pair_id": "GP-024",
+        "item_id": "QG-079",
+        "event_key": "00169406012|2023-07-18",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Saxenda vs Victoza: same liraglutide 6 mg/mL SC pen, so 1 under the rule. Different indications: flag for owner review."
+      },
+      {
+        "pair_id": "GP-026",
+        "item_id": "QG-014",
+        "event_key": "13668035490|2026-03-25",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_salt",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Salt dropped, no NDC, event has no openfda: only tier 3 can match (AC-4.6)."
+      },
+      {
+        "pair_id": "GP-027",
+        "item_id": "QG-015",
+        "event_key": "13668035490|2026-03-25",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "no_openfda",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Other package 13668-354-30 (written 5-4-2); product NDC from top-level field only."
+      },
+      {
+        "pair_id": "GP-028",
+        "item_id": "QG-076",
+        "event_key": "13668035490|2026-03-25",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_strength",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=nebivolol hydrochloride",
+        "rationale": "Nebivolol 10 mg (product 13668-355) vs 5 mg (13668-354)."
+      },
+      {
+        "pair_id": "GP-031",
+        "item_id": "QG-077",
+        "event_key": "49884012591|2026-01-06",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_strength",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=everolimus",
+        "rationale": "Everolimus 0.25 mg vs 5 mg."
+      },
+      {
+        "pair_id": "GP-033",
+        "item_id": "QG-019",
+        "event_key": "43547041109|2023-01-19",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_salt",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Aurobindo quinapril 10 mg tablet, salt dropped; same ingredient, form, strength."
+      },
+      {
+        "pair_id": "GP-034",
+        "item_id": "QG-084",
+        "event_key": "43547041109|2023-01-19",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_case_ws",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Lower case, padded spaces, tab and po abbreviations; no NDC."
+      },
+      {
+        "pair_id": "GP-037",
+        "item_id": "QG-021",
+        "event_key": "62135066890|2023-01-19",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "combination_product",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Combination written with and plus salt and dash strength; no NDC."
+      },
+      {
+        "pair_id": "GP-040",
+        "item_id": "QG-022",
+        "event_key": "00591034701|2025-11-19",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Brand Microzide, same package 0591-0347-01; event has no openfda block."
+      },
+      {
+        "pair_id": "GP-045",
+        "item_id": "QG-024",
+        "event_key": "00093240101|2026-01-05",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "typo",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Hydroxychloroqine typo, no NDC; same ingredient, form, strength."
+      },
+      {
+        "pair_id": "GP-049",
+        "item_id": "QG-025",
+        "event_key": "60951060285|2025-11-03",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "combination_product",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Same package 60951-602-85; ingredient order and strength order swapped."
+      },
+      {
+        "pair_id": "GP-054",
+        "item_id": "QG-054",
+        "event_key": "00832027311|2025-12-22",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "openfda_sibling_strength",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=morphine sulfate",
+        "rationale": "Morphine 30 mg (0832-0274, in event openfda list) vs 15 mg."
+      },
+      {
+        "pair_id": "GP-055",
+        "item_id": "QG-028",
+        "event_key": "00832027311|2025-12-22",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_route",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=morphine sulfate",
+        "rationale": "Rectal suppository vs oral tablet of morphine."
+      },
+      {
+        "pair_id": "GP-057",
+        "item_id": "QG-027",
+        "event_key": "00574711412|2026-07-23",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_route",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=morphine sulfate",
+        "rationale": "Oral tablet vs rectal suppository of morphine."
+      },
+      {
+        "pair_id": "GP-062",
+        "item_id": "QG-052",
+        "event_key": "00378686077|2023-07-14",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "openfda_sibling_strength",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=lisdexamfetamine dimesylate",
+        "rationale": "20 mg (0378-6855) vs 70 mg. Event openfda lists 0378-6855, the SPEC R4 trap."
+      },
+      {
+        "pair_id": "GP-063",
+        "item_id": "QG-032",
+        "event_key": "00068059701|2021-02-17",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Brand Rifadin IV, same package 0068-0597-01; event has no openfda block."
+      },
+      {
+        "pair_id": "GP-065",
+        "item_id": "QG-034",
+        "event_key": "00068059701|2021-02-17",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_route",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=rifampin",
+        "rationale": "Rifampin capsule vs rifampin injection."
+      },
+      {
+        "pair_id": "GP-068",
+        "item_id": "QG-033",
+        "event_key": "42806079930|2021-12-22",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_route",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=rifampin",
+        "rationale": "Rifampin injection vs rifampin capsule."
+      },
+      {
+        "pair_id": "GP-069",
+        "item_id": "QG-061",
+        "event_key": "42806079930|2021-12-22",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "openfda_sibling_strength",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=rifampin",
+        "rationale": "Rifampin 150 mg (42806-801, in openfda list) vs 300 mg."
+      },
+      {
+        "pair_id": "GP-071",
+        "item_id": "QG-068",
+        "event_key": "00378113401|2026-04-20",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_route",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=ketorolac tromethamine",
+        "rationale": "Ketorolac injection vs ketorolac tablet."
+      },
+      {
+        "pair_id": "GP-078",
+        "item_id": "QG-059",
+        "event_key": "00378016702|2026-01-12",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_dosage_form",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=doxycycline hyclate",
+        "rationale": "Delayed-release vs immediate-release doxycycline 100 mg."
+      },
+      {
+        "pair_id": "GP-079",
+        "item_id": "QG-038",
+        "event_key": "00591455022|2026-07-30",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_dosage_form",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=doxycycline hyclate",
+        "rationale": "IR 100 mg tablet vs delayed-release 50 mg tablet."
+      },
+      {
+        "pair_id": "GP-080",
+        "item_id": "QG-039",
+        "event_key": "00025100131|2025-12-10",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Brand Aldactone, same package 0025-1001-31."
+      },
+      {
+        "pair_id": "GP-084",
+        "item_id": "QG-042",
+        "event_key": "76045021010|2019-02-08",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_salt",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Salt dropped, no NDC; event has no openfda block."
+      },
+      {
+        "pair_id": "GP-088",
+        "item_id": "QG-044",
+        "event_key": "73293000102|2018-07-14",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_route",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=lidocaine hydrochloride",
+        "rationale": "Rule-literal 0: infiltration-route lidocaine vs IV-only event. Flag for owner review (vials often multi-route)."
+      },
+      {
+        "pair_id": "GP-092",
+        "item_id": "QG-089",
+        "event_key": "73293000102|2018-07-14",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "ndc_541",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=lidocaine hydrochloride",
+        "rationale": "Lidocaine 2% (20 mg/mL, 5-4-1 NDC 76329-3390-1) vs 1% (10 mg/mL)."
+      },
+      {
+        "pair_id": "GP-094",
+        "item_id": "QG-069",
+        "event_key": "00409100520|2017-11-14",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "diff_strength",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=heparin sodium",
+        "rationale": "Heparin 5,000 units/mL SC vs 2 units/mL IV premix."
+      },
+      {
+        "pair_id": "GP-097",
+        "item_id": "QG-062",
+        "event_key": "00378581477|2025-11-19",
+        "label": 0,
+        "error": "FP",
+        "variant_type": "same_labeler_diff_product",
+        "predicted_tier": 0,
+        "matched_on": "baseline_v2:base_name=valsartan",
+        "rationale": "Same labeler, adjacent product 0378-5815 is 320 mg."
+      },
+      {
+        "pair_id": "GP-098",
+        "item_id": "QG-046",
+        "event_key": "00009039514|2026-02-25",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Brand Cleocin HCl, same package 0009-0395-14; no openfda block."
+      },
+      {
+        "pair_id": "GP-099",
+        "item_id": "QG-047",
+        "event_key": "00009039514|2026-02-25",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_salt",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Salt dropped, no NDC; clindamycin 300 mg capsule."
+      },
+      {
+        "pair_id": "GP-101",
+        "item_id": "QG-048",
+        "event_key": "00093936401|2026-08-10",
+        "label": 1,
+        "error": "FN",
+        "variant_type": "name_brand",
+        "predicted_tier": null,
+        "matched_on": null,
+        "rationale": "Brand Diabeta, same package 0093-9364-01."
+      }
+    ],
+    "unlabeled_predictions": 14,
+    "pass": false,
+    "definition": "TEST_PLAN 6.2: base_name(name_raw) == base_name(generic_name), non-empty; no salts, brands, NDCs, routes, strengths or fuzzy matching"
+  }
+}

@@ -1,0 +1,95 @@
+# holdout_v2.csv: HELD-OUT formulary-to-shortage answer set for the v2 matching round.
+# DO NOT OPEN before scoring (matcher authors). FROZEN: hashes in holdout_v2.sha256 (LF-normalized bytes).
+# Labeled by: qa-engineer (team draft). reviewed_by = pending on every row. Michael has NOT reviewed this file.
+# No overlap with gold_matches.csv: different shortage records and different formulary items.
+# Events: holdout_v2_events.json (real public openFDA records). Items: SYNTHETIC_holdout_v2_formulary.csv.
+# LABELING RULE: same as gold_matches.csv (Tech Lead rule, DESIGN section 5), with the same QA interpretations,
+#   except: when an event has no openfda route, its route is the product's labeled route, not a software default.
+pair_id,item_id,event_key,label,pair_kind,variant_type,rationale,labeled_by,reviewed_by
+HP-001,QH-001,63323046617|2018-02-20,1,positive,name_brand,"Brand Sensorcaine, same package.",qa-engineer,pending
+HP-002,QH-002,63323046617|2018-02-20,1,positive,ndc_11digit,Same package written 5-4-2.,qa-engineer,pending
+HP-003,QH-003,63323046617|2018-02-20,1,positive,name_salt,Salt dropped; 0.5% = 5 mg/mL; no NDC.,qa-engineer,pending
+HP-004,QH-003,00409153001|2018-02-20,1,positive,no_openfda,Marcaine 5 mg/mL event with no openfda; 0.5% bupivacaine is the same.,qa-engineer,pending
+HP-005,QH-004,63323046231|2018-02-20,1,positive,combination_product,"Same package; 1:200,000 = 0.005 mg/mL epinephrine.",qa-engineer,pending
+HP-006,QH-004,63323046617|2018-02-20,0,hard_negative,openfda_sibling_strength,Combination with epinephrine; 63323-462 is listed in the plain-bupivacaine event openfda product list.,qa-engineer,pending
+HP-007,QH-001,63323046231|2018-02-20,0,hard_negative,combination_product,Plain bupivacaine vs bupivacaine with epinephrine.,qa-engineer,pending
+HP-008,QH-005,63323028565|2018-03-23,1,positive,name_brand,"Brand Naropin, same package.",qa-engineer,pending
+HP-009,QH-005,55150020010|2018-03-23,0,hard_negative,diff_strength,Ropivacaine 2 mg/mL vs 10 mg/mL.,qa-engineer,pending
+HP-010,QH-006,55150020010|2018-03-23,1,positive,ndc_10digit_unhyphenated,"Same package as 10 digits, no hyphens.",qa-engineer,pending
+HP-011,QH-007,55150020010|2018-03-23,1,positive,ndc_11digit,Same package 5-4-2; salt dropped.,qa-engineer,pending
+HP-012,QH-005,63323046617|2018-02-20,0,hard_negative,lookalike_name,Ropivacaine vs bupivacaine: look-alike -pivacaine names.,qa-engineer,pending
+HP-013,QH-008,63323048217|2016-10-14,1,positive,combination_product,"Same package; 1% = 10 mg/mL and 1:100,000 = 0.01 mg/mL.",qa-engineer,pending
+HP-014,QH-009,63323048217|2016-10-14,0,hard_negative,combination_product,Plain lidocaine vs lidocaine with epinephrine.,qa-engineer,pending
+HP-015,QH-010,63323048217|2016-10-14,0,hard_negative,combination_product,Epinephrine alone vs lidocaine/epinephrine combination.,qa-engineer,pending
+HP-016,QH-011,63323080811|2012-01-01,1,positive,ndc_532,Same package.,qa-engineer,pending
+HP-017,QH-012,63323080811|2012-01-01,1,positive,same_ingredient_other_labeler,Hospira fentanyl 50 mcg/mL written as 0.05 mg/mL.,qa-engineer,pending
+HP-018,QH-011,17478005002|2022-05-03,0,hard_negative,lookalike_name,"Fentanyl vs sufentanil, both 50 mcg/mL: look-alike names.",qa-engineer,pending
+HP-019,QH-013,17478005002|2022-05-03,1,positive,no_openfda,Same package; event has no openfda block.,qa-engineer,pending
+HP-020,QH-013,72078003401|2022-06-28,0,hard_negative,lookalike_name,Sufentanil vs remifentanil.,qa-engineer,pending
+HP-021,QH-014,72078003401|2022-06-28,1,positive,typo,"Remifentanyl typo, no NDC; same ingredient, form, route, strength.",qa-engineer,pending
+HP-022,QH-015,72078003401|2022-06-28,1,positive,name_brand,"Brand Ultiva, same package.",qa-engineer,pending
+HP-023,QH-016,63323041110|2020-04-02,1,positive,name_salt,Same package; salt dropped.,qa-engineer,pending
+HP-024,QH-016,00409230802|2020-04-02,0,hard_negative,diff_strength,Midazolam 1 mg/mL vs 5 mg/mL.,qa-engineer,pending
+HP-025,QH-017,63323041110|2020-04-02,0,hard_negative,diff_route,Oral syrup vs injection.,qa-engineer,pending
+HP-026,QH-018,00409230802|2020-04-02,1,positive,ndc_442,Same package; 10 mg/2 mL = 5 mg/mL.,qa-engineer,pending
+HP-027,QH-018,00409910420|2017-11-06,0,hard_negative,same_labeler_diff_product,Hospira 0409 labeler but midazolam vs dopamine.,qa-engineer,pending
+HP-028,QH-019,00409004010|2025-11-07,1,positive,name_case_ws,"Upper case, double space, no NDC; event has no openfda.",qa-engineer,pending
+HP-029,QH-019,00409230802|2020-04-02,0,hard_negative,true_non_match,Ketamine vs midazolam.,qa-engineer,pending
+HP-030,QH-020,00409910420|2017-11-06,1,positive,ndc_442,Same package.,qa-engineer,pending
+HP-031,QH-021,00409910420|2017-11-06,1,positive,ndc_10digit_unhyphenated,Same package as 10 digits; salt dropped.,qa-engineer,pending
+HP-032,QH-020,00409234401|2017-11-06,0,hard_negative,lookalike_name,Dopamine vs dobutamine.,qa-engineer,pending
+HP-033,QH-022,00409234401|2017-11-06,1,positive,typo,"Dobutamin typo, no NDC.",qa-engineer,pending
+HP-034,QH-022,00409910420|2017-11-06,0,hard_negative,lookalike_name,Dobutamine vs dopamine.,qa-engineer,pending
+HP-035,QH-023,00409910420|2017-11-06,0,hard_negative,ndc_leading_zero_error,Ondansetron item whose keyed NDC lands on the dopamine package.,qa-engineer,pending
+HP-036,QH-024,00409234401|2017-11-06,0,hard_negative,ndc_leading_zero_error,Phenylephrine item whose keyed NDC lands on the dobutamine package.,qa-engineer,pending
+HP-037,QH-025,00338001731|2022-02-14,1,positive,ndc_442,Same package.,qa-engineer,pending
+HP-038,QH-026,00338001731|2022-02-14,1,positive,same_ingredient_other_labeler,B. Braun D5W: 5% = 50 mg/mL = 50 g/1000 mL.,qa-engineer,pending
+HP-039,QH-025,63323082475|2022-03-01,0,hard_negative,diff_strength,Dextrose 5% vs 10%.,qa-engineer,pending
+HP-040,QH-025,00338071906|2024-10-11,0,hard_negative,same_labeler_diff_product,Baxter 0338 labeler; dextrose 5% vs 70%.,qa-engineer,pending
+HP-041,QH-027,63323082475|2022-03-01,1,positive,name_case_ws,Case and spaces; 10% = 100 mg/mL; no NDC.,qa-engineer,pending
+HP-042,QH-028,00338071906|2024-10-11,0,hard_negative,diff_strength,Dextrose 50% vs 70%.,qa-engineer,pending
+HP-043,QH-029,00409662535|2017-03-01,1,positive,ndc_541,Other labeler 5-4-1; 84 mg/mL = 8.4% = 1 mEq/mL.,qa-engineer,pending
+HP-044,QH-029,00409555502|2017-03-01,0,hard_negative,diff_strength,Sodium bicarbonate 8.4% vs 4.2%.,qa-engineer,pending
+HP-045,QH-030,00409662535|2017-03-01,0,hard_negative,diff_route,Oral tablet vs injection.,qa-engineer,pending
+HP-046,QH-031,62175031037|2023-07-26,1,positive,ndc_532,Same package.,qa-engineer,pending
+HP-047,QH-032,62175031037|2023-07-26,0,hard_negative,diff_dosage_form,Immediate-release vs extended-release tablet.,qa-engineer,pending
+HP-048,QH-031,00574243065|2025-02-28,0,hard_negative,diff_route,Oral ER tablet vs transdermal film.,qa-engineer,pending
+HP-049,QH-033,00574243065|2025-02-28,0,hard_negative,openfda_sibling_strength,20 mg patch (0574-2420 in event openfda list) vs 30 mg.,qa-engineer,pending
+HP-050,QH-034,00574243065|2025-02-28,1,positive,missing_ndc,No NDC; methylphenidate 30 mg transdermal system.,qa-engineer,pending
+HP-051,QH-035,70010011201|2022-10-12,1,positive,combination_product,Same package; 4 x 1.875 mg salts = 7.5 mg total.,qa-engineer,pending
+HP-052,QH-036,70010011201|2022-10-12,0,hard_negative,combination_product,Single salt vs four-salt amphetamine combination.,qa-engineer,pending
+HP-053,QH-037,49702020413|2026-10-19,1,positive,name_brand,"Brand Epivir, same package; no openfda.",qa-engineer,pending
+HP-054,QH-038,49702020413|2026-10-19,1,positive,missing_ndc,No NDC; event has no openfda: tier 3 only.,qa-engineer,pending
+HP-055,QH-038,49884056311|2026-04-29,0,hard_negative,lookalike_name,Lamivudine vs lamotrigine.,qa-engineer,pending
+HP-056,QH-039,49884056311|2026-04-29,1,positive,ndc_532,Same package; no openfda.,qa-engineer,pending
+HP-057,QH-039,49702020413|2026-10-19,0,hard_negative,lookalike_name,Lamotrigine vs lamivudine.,qa-engineer,pending
+HP-058,QH-040,49884056311|2026-04-29,0,hard_negative,diff_dosage_form,Immediate-release vs extended-release lamotrigine.,qa-engineer,pending
+HP-059,QH-041,00075291501|2026-10-20,1,positive,name_brand,"Brand Lovenox, same package.",qa-engineer,pending
+HP-060,QH-042,00075291501|2026-10-20,0,hard_negative,openfda_sibling_strength,100 mg/mL syringe (0075-0622 in event openfda list) vs 150 mg/mL.,qa-engineer,pending
+HP-061,QH-042,00955101010|2026-10-20,1,positive,same_ingredient_other_labeler,80 mg/0.8 mL = 100 mg/mL; event has no openfda.,qa-engineer,pending
+HP-062,QH-043,00955101010|2026-10-20,1,positive,no_openfda,Same package; event has no openfda block.,qa-engineer,pending
+HP-063,QH-041,00955101010|2026-10-20,0,hard_negative,diff_strength,150 mg/mL vs 100 mg/mL.,qa-engineer,pending
+HP-064,QH-044,00641625110|2023-12-20,1,positive,ndc_leading_zero_error,Leading zero dropped; NDC unusable; item is the same atropine 0.4 mg/mL.,qa-engineer,pending
+HP-065,QH-045,00641625110|2023-12-20,1,positive,same_ingredient_other_labeler,Accord atropine 0.4 mg/mL; same routes.,qa-engineer,pending
+HP-066,QH-046,00641625110|2023-12-20,0,hard_negative,diff_route,Ophthalmic drops vs injection.,qa-engineer,pending
+HP-067,QH-047,63323057802|2026-07-30,1,positive,name_case_ws,Case and spaces; 0.4 mg per 2 mL = 0.2 mg/mL; no NDC.,qa-engineer,pending
+HP-068,QH-048,63323057802|2026-07-30,0,hard_negative,diff_route,Oral tablet vs injection.,qa-engineer,pending
+HP-069,QH-016,63323057802|2026-07-30,0,hard_negative,same_labeler_diff_product,Fresenius 63323 labeler; midazolam vs glycopyrrolate.,qa-engineer,pending
+HP-070,QH-049,63323032620|2026-02-10,1,positive,ndc_532,Same package.,qa-engineer,pending
+HP-071,QH-050,63323032620|2026-02-10,1,positive,ndc_10digit_unhyphenated,Same package as 10 digits.,qa-engineer,pending
+HP-072,QH-049,00409509216|2025-11-14,0,hard_negative,lookalike_name,"Cefepime vs ceftazidime, both 1 g.",qa-engineer,pending
+HP-073,QH-051,00409509216|2025-11-14,1,positive,name_brand,"Brand Tazicef, same package; no openfda.",qa-engineer,pending
+HP-074,QH-052,00409509216|2025-11-14,0,hard_negative,diff_strength,2 g vs 1 g vial.,qa-engineer,pending
+HP-075,QH-053,00069437071|2023-04-28,1,positive,name_brand,"Brand Minipress, same package; no openfda.",qa-engineer,pending
+HP-076,QH-054,00069437071|2023-04-28,1,positive,missing_ndc,"No NDC, no route; capsule implies oral.",qa-engineer,pending
+HP-077,QH-055,55566250000|2021-03-12,1,positive,ndc_541,Same package (5-4-1); brand DDAVP; no openfda.,qa-engineer,pending
+HP-078,QH-056,55566250000|2021-03-12,0,hard_negative,diff_route,Oral tablet vs nasal spray.,qa-engineer,pending
+HP-079,QH-057,61474971101|2026-04-01,1,positive,ndc_541,Same package (5-4-1); no openfda.,qa-engineer,pending
+HP-080,QH-058,61474971101|2026-04-01,1,positive,name_brand,Vascepa is icosapent ethyl 1 g capsule; brand not in the snapshot.,qa-engineer,pending
+HP-081,QH-059,61474971101|2026-04-01,0,hard_negative,lookalike_name,Lovaza-type omega-3 esters vs icosapent ethyl: different ingredient.,qa-engineer,pending
+HP-082,QH-060,00069437071|2023-04-28,0,hard_negative,true_non_match,Unrelated.,qa-engineer,pending
+HP-083,QH-061,63323032620|2026-02-10,0,hard_negative,true_non_match,Unrelated.,qa-engineer,pending
+HP-084,QH-062,00641625110|2023-12-20,1,positive,ndc_11digit,"Same package as 11 digits, no hyphens.",qa-engineer,pending
+HP-085,QH-063,17478005002|2022-05-03,1,positive,name_salt,"Salt dropped, no NDC; event has no openfda: tier 3 only.",qa-engineer,pending
+HP-086,QH-064,63323057802|2026-07-30,1,positive,typo,"Glycopyrolate typo, no NDC; 0.2 mg/mL.",qa-engineer,pending
+HP-087,QH-065,49884056311|2026-04-29,0,hard_negative,diff_dosage_form,Orally disintegrating vs extended-release tablet.,qa-engineer,pending

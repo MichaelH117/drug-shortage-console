@@ -1,0 +1,23 @@
+# KNOWN ISSUES
+
+Owner: Principal Engineer. 2026-10-30. Honest limits of v1 and what would fix each. All hospital data is SYNTHETIC; nothing here has run at a real hospital.
+
+| # | Limit | Why it matters | What would fix it |
+|---|---|---|---|
+| KI-01 | **Matcher recall 0.605 on the newest unseen set** (v3, 43 positives; target 0.95). Precision 0.963. | Missed items are not in the queue; the pharmacist must still catch them by hand. | v4 fixes below, then a **new** blind set (v3 is now seen). See [ROADMAP](ROADMAP.md). |
+| KI-02 | Combination products: strength is compared as one value ("7.5 mg/325 mg" vs "325 mg; 7.5 mg" conflicts). 5 of 17 v3 misses. | Combos were 23 of 43 v3 positives; combo recall 0.522. | Compare a per-component strength set, ignoring order. |
+| KI-03 | Premixes: "in D5W", "in 0.9% NaCl" stay in the ingredient. 4 of 17 v3 misses (premix recall 0 of 4). | Common in hospital injectables. | Diluent noise words; concentration of the active drug is the strength. |
+| KI-04 | Brands not present anywhere in the FDA snapshot (Namzaric, Diclegis, Percocet, Accuretic): 4 of 17 v3 misses. | Unfixable from openFDA alone. | An external brand-to-ingredient source (RxNorm). Needs a product decision; out of scope today. |
+| KI-05 | Brand on one component of a combination is not split ("Sensorcaine with Epinephrine"); ambiguous brands (Sensorcaine plain vs with epi) caused the only v3 false positive (VP-008). | 1 FN, 1 FP on v3. | Fix in `normalize_ingredient`; judge ambiguous brands by the item text. |
+| KI-06 | Ratio strengths ("1:200,000") parse to no strength. Missing strength never blocks a match, so this loosens rather than breaks. | Epinephrine combos rely on the other component's strength. | Parse `1:N` as `1000/N mg/mL`. |
+| KI-07 | **Writer lock is in-process only.** DuckDB allows one read-write process. | Two app servers on one file are unsafe. | Postgres: sequences, row locks, triggers + REVOKE for append-only. |
+| KI-08 | An exception (as opposed to a refusal) inside an action leaves no audit row (REVIEW 8). A REFUSED row is written in a second transaction; if that write fails, the refusal is not logged (ADR 003). | ALCOA "complete" has a gap for crashes. | Log `ERROR` outcomes in a separate transaction (ADR 003 change). |
+| KI-09 | Audit log is tamper-**evident**, not tamper-proof (DuckDB has no triggers or REVOKE). | Anyone with the file can edit rows; `verify_chain` finds it. | Postgres triggers + REVOKE, or WORM storage for the anchor. |
+| KI-10 | No authentication; the sidebar picks a demo identity. | Not usable beyond a demo. | SSO (Entra ID / Okta), roles from an IdP group, not a CSV. |
+| KI-11 | Gold and holdout labels are team-drafted; `reviewed_by = pending`. GP-024 and GP-088 are flagged label questions. | Scores could move once a pharmacist reviews. | A pharmacist reviews the frozen sets; any change becomes a new versioned set, never an edit. |
+| KI-12 | Only one live snapshot exists (2026-10-30). Guardrail (b) is N/A; demo history is SYNTHETIC fixture days. | "Since yesterday" has not run on real consecutive days. | Daily scheduled `--pull-only` (needs Michael's OK, E4). |
+| KI-13 | Backfilling an older snapshot recomputes past change feeds, so a past day's queue and detection time can change (REVIEW 13). | Historic metrics are not frozen. | Persist each day's queue as a dated, immutable report. |
+| KI-14 | `COALESCE(edit, base)` means an edit cannot set a column back to NULL (REVIEW 11). Not used today. | A future "clear due date" would silently fail. | Select edit columns as-is when an edit row exists. |
+| KI-15 | `ops.outbox` is a stub; nothing is sent to buyers. | Task assignment is not notified. | A worker that sends Teams/email from the outbox. |
+| KI-16 | Time to first action is SIMULATED demo usage. | Says nothing about real pharmacists. | A pilot with real users (OPERATING_MODEL, phase 2). |
+| KI-17 | The app and `docs/impact.md` still headline v2 (R 0.936), not v3 (R 0.605): `console.metrics.load_quality` does not know v3 (BUG-PE-01). | The in-app headline is more optimistic than the newest unseen result. | Teach `load_quality` to pick the newest `match_quality_v*.json` unseen block. |

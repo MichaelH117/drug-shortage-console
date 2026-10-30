@@ -1,0 +1,17 @@
+# Streamlit theme for the console (AE-03). Dark operations-console look.
+[theme]
+base = "dark"
+primaryColor = "#4C90F0"
+backgroundColor = "#1C2127"
+secondaryBackgroundColor = "#252A31"
+textColor = "#F6F7F9"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+address = "localhost"
+
+[client]
+toolbarMode = "minimal"

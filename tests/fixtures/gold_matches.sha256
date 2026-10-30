@@ -1,0 +1,5 @@
+# sha256 of LF-normalized bytes (CRLF -> LF) so a git autocrlf checkout does not break the freeze.
+# Frozen by qa-engineer 2026-10-30 before any matcher run. reviewed_by = pending (not reviewed by Michael).
+c1308465f6c9d42c4fa5b6ba8c68dfefa30b331536f76391bfaf9d865acf9a87  gold_matches.csv
+6218f59c9cfb37b9fde5a9bb5632a3e8b73592c592233405a398066d1b340e6b  SYNTHETIC_gold_formulary.csv
+09a8c4ce33386e35957b994cd3af1a213116a855e756e75eee2f52f5cac3fb1d  gold_events.json

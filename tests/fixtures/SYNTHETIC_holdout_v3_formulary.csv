@@ -1,0 +1,74 @@
+item_id,ndc_raw,name_raw,strength_raw,dosage_form_raw,route_raw,is_synthetic
+QV-001,,"Bupivacaine 0.25% with Epinephrine 1:200,000",2.5 mg/mL; 0.005 mg/mL,Injection,Infiltration,true
+QV-002,,Bupivacaine HCl 0.25%,2.5 mg/mL,Injection,Infiltration,true
+QV-003,,Bupivicaine 0.25% w/ epi,"0.25%; 1:200,000",Inj,Infiltration,true
+QV-004,63323-463-57,Sensorcaine with Epinephrine,"0.5%; 1:200,000",Injection,Perineural,true
+QV-005,,Sensorcaine 0.5%,5 mg/mL,Injection,Perineural,true
+QV-006,63323-0463-57,Bupivacaine HCl and Epinephrine,5 mg/mL; 0.005 mg/mL,Injection,Perineural,true
+QV-007,,Marcaine 0.25% with Epinephrine,"2.5 mg/mL; 1:200,000",Injection,Epidural,true
+QV-008,,Marcaine 0.25%,2.5 mg/mL,Injection,Epidural,true
+QV-009,00409154110,Bupivacaine-Epinephrine,"0.25%-1:200,000",Injection,Epidural,true
+QV-010,,Xylocaine 0.5% with Epinephrine,"5 mg/mL; 1:200,000",Injection,Infiltration,true
+QV-011,63323-482-27,Xylocaine with Epinephrine,"1%; 1:100,000",Injection,Infiltration,true
+QV-012,,"Lidocaine 2% with Epinephrine 1:100,000",20 mg/mL; 0.01 mg/mL,Injection,Infiltration,true
+QV-013,63323-486-57,Xylocaine 2%,20 mg/mL,Injection,Infiltration,true
+QV-014,,Lidocaine Hydrochloride 1% (plain),1%,Injection,Local infiltration,true
+QV-015,0409-3178-02,Lidocaine-Epinephrine,"1%-1:100,000",Injection,Infiltration,true
+QV-016,,Lidocaine 0.4% in D5W,4 mg/mL,Injection,Intravenous,true
+QV-017,,Epinephrine,0.1 mg/mL,"Injection, Syringe",Intravenous,true
+QV-018,,Epinephrine Auto-Injector,0.3 mg,Injection,Intramuscular,true
+QV-019,0143-9252-25,Dopamine HCl,40 mg/mL,Injection,Intravenous,true
+QV-020,,Dopamine 80 mg/100 mL in D5W,0.8 mg/mL,Injection,Intravenous,true
+QV-021,,DOPAMINE IN D5W  400MG/250ML,1.6MG/ML,INJ,IV,true
+QV-022,,Dobutamine 2 mg/mL in D5W,500 mg/250 mL,Injection,Intravenous,true
+QV-023,0409-0151-10,Dobutamine in Dextrose,2 mg/mL,Injection,Intravenous,true
+QV-024,,"Heparin 1,000 units/500 mL in 0.9% NaCl",2 units/mL,Injection,Intravenous,true
+QV-025,,Heparin Lock Flush,10 units/mL,Injection,Intravenous,true
+QV-026,,  KALETRA  TABS ,100MG/25MG,TAB,PO,true
+QV-027,00074-3008-60,Famotidine,20 mg,Tablet,Oral,true
+QV-028,,Norvir,100 mg,Tablet,Oral,true
+QV-029,0074339930,Ritonavir,100 mg,Oral Powder,Oral,true
+QV-030,,Lopinavir/Ritonavir,80 mg/20 mg per mL,Oral Solution,Oral,true
+QV-031,,Advair HFA,230 mcg/21 mcg,"Aerosol, Metered",Inhalation,true
+QV-032,00173-0717-22,Metoclopramide,10 mg,Tablet,Oral,true
+QV-033,,Flovent HFA,220 mcg,"Aerosol, Metered",Inhalation,true
+QV-034,,Namzaric,28 mg/10 mg,"Capsule, Extended Release",Oral,true
+QV-035,,Memantine ER,28 mg,"Capsule, Extended Release",Oral,true
+QV-036,69238-1247-3,Donepezil HCl; Memantine HCl ER,10 mg; 28 mg,"Capsule, Extended Release",Oral,true
+QV-037,,Diclegis,10 mg/10 mg,"Tablet, Delayed Release",Oral,true
+QV-038,,Doxylamine Succinate,25 mg,Tablet,Oral,true
+QV-039,,Pyridoxine,25 mg,Tablet,Oral,true
+QV-040,,Adderall,10 mg,Tablet,Oral,true
+QV-041,0527-0764-37,Amphetamine Mixed Salts,15 mg,Tablet,Oral,true
+QV-042,,Dextroamphetamine Sulfate,10 mg,Tablet,Oral,true
+QV-043,,Endocet,7.5 mg/325 mg,Tablet,Oral,true
+QV-044,,Percocet,7.5 mg/325 mg,Tablet,Oral,true
+QV-045,60951-701-70,Endocet,2.5 mg/325 mg,Tablet,Oral,true
+QV-046,,Oxycodone HCl,10 mg,Tablet,Oral,true
+QV-047,,Accuretic,20 mg/25 mg,Tablet,Oral,true
+QV-048,,Quinapril,20 mg,Tablet,Oral,true
+QV-049,,Imipenem and Cilastatin,500 mg/500 mg,Injection,Intravenous,true
+QV-050,,Meropenem,500 mg,Injection,Intravenous,true
+QV-051,55513-810-60,Corlanor,7.5 mg,Tablet,Oral,true
+QV-052,,Ivabradine,5 mg,Tablet,Oral,true
+QV-053,,Itraconazol,100 mg,Capsule,Oral,true
+QV-054,,Sporanox Oral Solution,10 mg/mL,Solution,Oral,true
+QV-055,10147-1700-3,Sporanox,100 mg,Capsule,Oral,true
+QV-056,61958-1701-1,Zydelig,100 mg,Tablet,Oral,true
+QV-057,,Idelalisib,150 mg,Tablet,Oral,true
+QV-058,,Riluzole,50 mg,Tablet,Oral,true
+QV-059,,Teglutik,5 mg/mL,Oral Suspension,Oral,true
+QV-060,,Doxercalciferal,2 mcg/mL,Injection,Intravenous,true
+QV-061,,Doxercalciferol,0.5 mcg,Capsule,Oral,true
+QV-062,,Calcitriol,1 mcg/mL,Injection,Intravenous,true
+QV-063,169-4303-30,Rybelsus,3 mg,Tablet,Oral,true
+QV-064,,Ozempic,2 mg/3 mL,"Injection, Pen",Subcutaneous,true
+QV-065,00002775205,Insulin Lispro,100 units/mL,Injection,Subcutaneous,true
+QV-066,,  insulin lispro  u-100 ,100 UNITS/ML,inj,subq,true
+QV-067,0002-8980-05,Rezvoglar KwikPen,100 units/mL,Injection,Subcutaneous,true
+QV-068,,Insulin Glargine (Lantus),100 units/mL,Injection,Subcutaneous,true
+QV-069,,Amoxicillin,250 mg/5 mL,Suspension,Oral,true
+QV-070,,Famotidine,20 mg/2 mL,Injection,Intravenous,true
+QV-071,,"Xylocaine 1% with Epinephrine 1:100,000",10 mg/mL; 0.01 mg/mL,Injection,Infiltration,true
+QV-072,,  KETOROLAC 30MG/ML  ,30 mg/mL,Injection,Intravenous,true
+QV-073,57844-110-01,Adderall,2.5 mg x 4 salts,Tablet,Oral,true

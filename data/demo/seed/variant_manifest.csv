@@ -1,0 +1,178 @@
+item_id,variant_type,source_package_ndc,source_initial_posting_date,expected_match,expected_tier,note,is_synthetic
+FI-0001,name_case_whitespace,65862-618-90,01/19/2023,1,3,"upper case and extra spaces, no NDC on the item",True
+FI-0002,filler,,,0,,not on the shortage list,True
+FI-0003,filler,,,0,,not on the shortage list,True
+FI-0004,ndc_other_package,0093-2401-01,01/05/2026,1,2,"same labeler and product, another package code (SYNTHETIC)",True
+FI-0005,diff_route,0409-9633-05,11/21/2025,0,,Tablet / Oral vs shortage Injection / Intravenous,True
+FI-0006,diff_route,0641-6046-10,09/05/2018,0,,Tablet / Oral vs shortage Injection / Intravenous,True
+FI-0007,ndc_other_package,0378-6860-77,07/14/2023,1,2,"same labeler and product, another package code (SYNTHETIC)",True
+FI-0008,diff_route,61958-0602-1,06/17/2026,0,,Injection / Intravenous vs shortage Oral Solution / Oral,True
+FI-0009,filler,,,0,,not on the shortage list,True
+FI-0010,filler,,,0,,not on the shortage list,True
+FI-0011,name_salt,0641-6028-25,12/20/2023,1,3,"salt dropped, no NDC on the item",True
+FI-0012,name_brand,0941-0427-52,08/03/2026,1,3,"brand name from the presentation, no NDC on the item",True
+FI-0013,filler,,,0,,not on the shortage list,True
+FI-0014,name_case_whitespace,0378-1134-01,04/20/2026,1,3,"upper case and extra spaces, no NDC on the item",True
+FI-0015,filler,,,0,,not on the shortage list,True
+FI-0016,filler,,,0,,not on the shortage list,True
+FI-0017,ndc_11digit,0409-2634-50,10/31/2017,1,1,"11 digits, no hyphens",True
+FI-0018,ndc_5_4_2_hyphen,0406-5111-01,07/14/2023,1,1,padded 5-4-2 with hyphens,True
+FI-0019,filler,,,0,,not on the shortage list,True
+FI-0020,ndc_other_package,61958-0602-1,06/17/2026,1,2,"same labeler and product, another package code (SYNTHETIC)",True
+FI-0021,filler,,,0,,not on the shortage list,True
+FI-0022,ndc_as_listed,0093-7767-24,03/02/2026,1,1,package NDC as the FDA prints it,True
+FI-0023,filler,,,0,,not on the shortage list,True
+FI-0024,filler,,,0,,not on the shortage list,True
+FI-0025,alt_manufacturer,25021-701-01,03/23/2018,1,3,"another (SYNTHETIC) labeler, same ingredient/form/route/strength: a substitute candidate",True
+FI-0026,diff_strength,55150-198-30,03/23/2018,0,,strength 10 mg/1 mL vs shortage 5 mg/1 mL,True
+FI-0027,alt_manufacturer,0641-6046-10,09/05/2018,1,3,"another (SYNTHETIC) labeler, same ingredient/form/route/strength: a substitute candidate",True
+FI-0028,name_salt,0409-1100-10,11/06/2017,1,3,"salt dropped, no NDC on the item",True
+FI-0029,filler,,,0,,not on the shortage list,True
+FI-0030,ndc_other_package,42806-344-01,10/12/2022,1,2,"same labeler and product, another package code (SYNTHETIC)",True
+FI-0031,ndc_other_package,0054-3298-63,03/31/2026,1,2,"same labeler and product, another package code (SYNTHETIC)",True
+FI-0032,diff_strength,70121-1574-1,12/15/2021,0,,strength 160 mg/1 mL vs shortage 80 mg/1 mL,True
+FI-0033,filler,,,0,,not on the shortage list,True
+FI-0034,ndc_as_listed,0169-4060-12,07/18/2023,1,1,package NDC as the FDA prints it,True
+FI-0035,filler,,,0,,not on the shortage list,True
+FI-0036,ndc_11digit,70121-1574-1,12/15/2021,1,1,"11 digits, no hyphens",True
+FI-0037,name_case_whitespace,0409-3181-01,02/22/2012,1,3,"upper case and extra spaces, no NDC on the item",True
+FI-0038,ndc_5_4_2_hyphen,0703-4239-01,04/28/2023,1,1,padded 5-4-2 with hyphens,True
+FI-0039,filler,,,0,,not on the shortage list,True
+FI-0040,filler,,,0,,not on the shortage list,True
+FI-0041,alt_manufacturer,69918-501-05,03/12/2021,1,3,"another (SYNTHETIC) labeler, same ingredient/form/route/strength: a substitute candidate",True
+FI-0042,filler,,,0,,not on the shortage list,True
+FI-0043,ndc_as_listed,0409-1893-01,10/31/2017,1,1,package NDC as the FDA prints it,True
+FI-0044,name_brand,59417-117-01,07/14/2023,1,3,"brand name from the presentation, no NDC on the item",True
+FI-0045,filler,,,0,,not on the shortage list,True
+FI-0046,filler,,,0,,not on the shortage list,True
+FI-0047,filler,,,0,,not on the shortage list,True
+FI-0048,diff_strength,63323-724-05,06/28/2022,0,,strength 2 mg/1 mL vs shortage 1 mg/1 mL,True
+FI-0049,name_brand,0009-0395-14,02/25/2026,1,3,"brand name from the presentation, no NDC on the item",True
+FI-0050,filler,,,0,,not on the shortage list,True
+FI-0051,ndc_as_listed,64980-642-03,10/25/2022,1,1,package NDC as the FDA prints it,True
+FI-0052,filler,,,0,,not on the shortage list,True
+FI-0053,filler,,,0,,not on the shortage list,True
+FI-0054,diff_strength,70121-2537-6,10/20/2026,0,,strength 28 mg/2.8 mL (1 mg/0.2 mL) vs shortage 14 mg/2.8 mL (1 mg/0.2 mL),True
+FI-0055,ndc_leading_zero_error,16729-500-08,04/07/2020,1,3,pad zero put in front: the NDC points elsewhere; name/form/strength still right,True
+FI-0056,name_brand,46163-212-92,03/10/2026,1,3,"brand name from the presentation, no NDC on the item",True
+FI-0057,filler,,,0,,not on the shortage list,True
+FI-0058,ndc_as_listed,75987-050-07,09/01/2026,1,1,package NDC as the FDA prints it,True
+FI-0059,ndc_leading_zero_error,72888-152-01,03/10/2023,1,3,pad zero put in front: the NDC points elsewhere; name/form/strength still right,True
+FI-0060,filler,,,0,,not on the shortage list,True
+FI-0061,filler,,,0,,not on the shortage list,True
+FI-0062,ndc_11digit,10147-0570-1,04/28/2026,1,1,"11 digits, no hyphens",True
+FI-0063,filler,,,0,,not on the shortage list,True
+FI-0064,diff_strength,0641-6024-10,12/20/2023,0,,strength 100 ug/1 mL vs shortage 50 ug/1 mL,True
+FI-0065,ndc_5_4_2_hyphen,0641-6024-10,12/20/2023,1,1,padded 5-4-2 with hyphens,True
+FI-0066,filler,,,0,,not on the shortage list,True
+FI-0067,ndc_leading_zero_error,49884-125-91,01/06/2026,1,3,pad zero put in front: the NDC points elsewhere; name/form/strength still right,True
+FI-0068,ndc_5_4_2_hyphen,0378-0167-02,01/12/2026,1,1,padded 5-4-2 with hyphens,True
+FI-0069,filler,,,0,,not on the shortage list,True
+FI-0070,alt_manufacturer,0143-9931-25,02/17/2015,1,3,"another (SYNTHETIC) labeler, same ingredient/form/route/strength: a substitute candidate",True
+FI-0071,name_case_whitespace,55150-198-30,03/23/2018,1,3,"upper case and extra spaces, no NDC on the item",True
+FI-0072,diff_route,0703-3678-01,03/13/2023,0,,Tablet / Oral vs shortage Injection / Intravenous,True
+FI-0073,filler,,,0,,not on the shortage list,True
+FI-0074,ndc_11digit,0703-3678-01,03/13/2023,1,1,"11 digits, no hyphens",True
+FI-0075,filler,,,0,,not on the shortage list,True
+FI-0076,diff_route,0409-2634-50,10/31/2017,0,,Tablet / Oral vs shortage Injection / Intravenous,True
+FI-0077,ndc_5_4_2_hyphen,0409-2308-01,04/02/2020,1,1,padded 5-4-2 with hyphens,True
+FI-0078,filler,,,0,,not on the shortage list,True
+FI-0079,name_case_whitespace,63323-032-00,03/23/2016,1,3,"upper case and extra spaces, no NDC on the item",True
+FI-0080,filler,,,0,,not on the shortage list,True
+FI-0081,filler,,,0,,not on the shortage list,True
+FI-0082,alt_manufacturer,0409-3382-21,05/03/2022,1,3,"another (SYNTHETIC) labeler, same ingredient/form/route/strength: a substitute candidate",True
+FI-0083,filler,,,0,,not on the shortage list,True
+FI-0084,ndc_11digit,0409-1160-01,02/20/2018,1,1,"11 digits, no hyphens",True
+FI-0085,filler,,,0,,not on the shortage list,True
+FI-0086,ndc_other_package,0409-4887-50,11/23/2021,1,2,"same labeler and product, another package code (SYNTHETIC)",True
+FI-0087,diff_strength,0378-0167-02,01/12/2026,0,,strength 200 mg vs shortage 100 mg,True
+FI-0088,ndc_other_package,0264-2101-00,04/28/2023,1,2,"same labeler and product, another package code (SYNTHETIC)",True
+FI-0089,ndc_other_package,76329-3390-1,02/22/2012,1,2,"same labeler and product, another package code (SYNTHETIC)",True
+FI-0090,filler,,,0,,not on the shortage list,True
+FI-0091,filler,,,0,,not on the shortage list,True
+FI-0092,ndc_5_4_2_hyphen,44567-600-04,04/10/2020,1,1,padded 5-4-2 with hyphens,True
+FI-0093,filler,,,0,,not on the shortage list,True
+FI-0094,diff_strength,64980-642-03,10/25/2022,0,,strength 5 mg/.5 mL vs shortage 2.5 mg/.5 mL,True
+FI-0095,name_case_whitespace,0574-7224-06,07/23/2026,1,3,"upper case and extra spaces, no NDC on the item",True
+FI-0096,ndc_5_4_2_hyphen,0409-0042-12,11/06/2017,1,1,padded 5-4-2 with hyphens,True
+FI-0097,name_salt,25021-701-01,03/26/2018,1,3,"salt dropped, no NDC on the item",True
+FI-0098,filler,,,0,,not on the shortage list,True
+FI-0099,name_salt,0409-9633-05,11/21/2025,1,3,"salt dropped, no NDC on the item",True
+FI-0100,filler,,,0,,not on the shortage list,True
+FI-0101,ndc_5_4_2_hyphen,39822-5550-6,11/21/2023,1,1,padded 5-4-2 with hyphens,True
+FI-0102,ndc_5_4_2_hyphen,0591-2888-30,11/04/2024,1,1,padded 5-4-2 with hyphens,True
+FI-0103,filler,,,0,,not on the shortage list,True
+FI-0104,filler,,,0,,not on the shortage list,True
+FI-0105,ndc_11digit,70069-481-10,01/01/2012,1,1,"11 digits, no hyphens",True
+FI-0106,alt_manufacturer,25021-321-10,01/31/2018,1,3,"another (SYNTHETIC) labeler, same ingredient/form/route/strength: a substitute candidate",True
+FI-0107,filler,,,0,,not on the shortage list,True
+FI-0108,diff_route,0378-6858-77,07/14/2023,0,,Injection / Intravenous vs shortage Capsule / Oral,True
+FI-0109,ndc_as_listed,0487-9901-30,10/25/2022,1,1,package NDC as the FDA prints it,True
+FI-0110,diff_strength,0173-0716-22,07/27/2026,0,,strength 230 ug; 21 ug vs shortage 115 ug; 21 ug,True
+FI-0111,filler,,,0,,not on the shortage list,True
+FI-0112,diff_strength,76329-3390-1,02/22/2012,0,,strength 40 mg/1 mL vs shortage 20 mg/1 mL,True
+FI-0113,filler,,,0,,not on the shortage list,True
+FI-0114,diff_strength,0143-9507-10,10/05/2022,0,,strength 4 mg/1 mL vs shortage 2 mg/1 mL,True
+FI-0115,filler,,,0,,not on the shortage list,True
+FI-0116,filler,,,0,,not on the shortage list,True
+FI-0117,filler,,,0,,not on the shortage list,True
+FI-0118,alt_manufacturer,76045-0212-10,02/08/2019,1,3,"another (SYNTHETIC) labeler, same ingredient/form/route/strength: a substitute candidate",True
+FI-0119,name_salt,63323-724-05,06/28/2022,1,3,"salt dropped, no NDC on the item",True
+FI-0120,filler,,,0,,not on the shortage list,True
+FI-0121,diff_route,65862-618-90,01/19/2023,0,,Injection / Intravenous vs shortage Tablet / Oral,True
+FI-0122,diff_route,10147-0570-1,04/28/2026,0,,Injection / Intravenous vs shortage Tablet / Oral,True
+FI-0123,ndc_other_package,0338-0023-02,03/01/2022,1,2,"same labeler and product, another package code (SYNTHETIC)",True
+FI-0124,filler,,,0,,not on the shortage list,True
+FI-0125,diff_strength,62037-710-01,11/21/2025,0,,strength 20 meq vs shortage 10 meq,True
+FI-0126,filler,,,0,,not on the shortage list,True
+FI-0127,filler,,,0,,not on the shortage list,True
+FI-0128,filler,,,0,,not on the shortage list,True
+FI-0129,ndc_5_4_2_hyphen,0409-4900-14,11/07/2025,1,1,padded 5-4-2 with hyphens,True
+FI-0130,filler,,,0,,not on the shortage list,True
+FI-0131,ndc_11digit,67457-445-60,02/17/2021,1,1,"11 digits, no hyphens",True
+FI-0132,ndc_5_4_2_hyphen,0832-0273-11,12/22/2025,1,1,padded 5-4-2 with hyphens,True
+FI-0133,ndc_11digit,45963-677-96,08/31/2026,1,1,"11 digits, no hyphens",True
+FI-0134,ndc_as_listed,0228-2850-11,11/13/2025,1,1,package NDC as the FDA prints it,True
+FI-0135,ndc_5_4_2_hyphen,0173-0716-22,07/27/2026,1,1,padded 5-4-2 with hyphens,True
+FI-0136,name_case_whitespace,0641-6053-25,05/30/2025,1,3,"upper case and extra spaces, no NDC on the item",True
+FI-0137,filler,,,0,,not on the shortage list,True
+FI-0138,alt_manufacturer,65219-458-30,02/14/2022,1,3,"another (SYNTHETIC) labeler, same ingredient/form/route/strength: a substitute candidate",True
+FI-0139,name_salt,0641-0121-25,11/03/2017,1,3,"salt dropped, no NDC on the item",True
+FI-0140,diff_route,76045-0212-10,02/08/2019,0,,Tablet / Oral vs shortage Injection / Intravenous,True
+FI-0141,filler,,,0,,not on the shortage list,True
+FI-0142,ndc_other_package,23155-473-41,04/07/2020,1,2,"same labeler and product, another package code (SYNTHETIC)",True
+FI-0143,ndc_as_listed,70121-1388-1,04/10/2020,1,1,package NDC as the FDA prints it,True
+FI-0144,ndc_5_4_2_hyphen,0378-6858-77,07/14/2023,1,1,padded 5-4-2 with hyphens,True
+FI-0145,filler,,,0,,not on the shortage list,True
+FI-0146,filler,,,0,,not on the shortage list,True
+FI-0147,ndc_11digit,70121-2537-6,10/20/2026,1,1,"11 digits, no hyphens",True
+FI-0148,filler,,,0,,not on the shortage list,True
+FI-0149,filler,,,0,,not on the shortage list,True
+FI-0150,filler,,,0,,not on the shortage list,True
+FI-0151,diff_strength,69918-501-05,03/12/2021,0,,strength 20 ug/.1 mL vs shortage 10 ug/.1 mL,True
+FI-0152,filler,,,0,,not on the shortage list,True
+FI-0153,filler,,,0,,not on the shortage list,True
+FI-0154,ndc_as_listed,0409-3793-01,03/26/2018,1,1,package NDC as the FDA prints it,True
+FI-0155,name_case_whitespace,0338-3612-50,03/21/2023,1,3,"upper case and extra spaces, no NDC on the item",True
+FI-0156,filler,,,0,,not on the shortage list,True
+FI-0157,name_brand,68025-096-30,07/26/2023,1,3,"brand name from the presentation, no NDC on the item",True
+FI-0158,filler,,,0,,not on the shortage list,True
+FI-0159,filler,,,0,,not on the shortage list,True
+FI-0160,ndc_as_listed,63323-452-01,10/31/2017,1,1,package NDC as the FDA prints it,True
+FI-0161,filler,,,0,,not on the shortage list,True
+FI-0162,filler,,,0,,not on the shortage list,True
+FI-0163,alt_manufacturer,0941-0411-07,08/03/2026,1,3,"another (SYNTHETIC) labeler, same ingredient/form/route/strength: a substitute candidate",True
+FI-0164,diff_route,0487-9901-30,10/25/2022,0,,Injection / Intravenous vs shortage Solution / Oral,True
+FI-0165,filler,,,0,,not on the shortage list,True
+FI-0166,name_case_whitespace,76045-0210-10,02/08/2019,1,3,"upper case and extra spaces, no NDC on the item",True
+FI-0167,ndc_other_package,62037-710-01,11/21/2025,1,2,"same labeler and product, another package code (SYNTHETIC)",True
+FI-0168,filler,,,0,,not on the shortage list,True
+FI-0169,ndc_5_4_2_hyphen,0409-9045-17,02/20/2018,1,1,padded 5-4-2 with hyphens,True
+FI-0170,filler,,,0,,not on the shortage list,True
+FI-0171,diff_route,63323-452-01,10/31/2017,0,,Tablet / Oral vs shortage Injection / Intravenous,True
+FI-0172,filler,,,0,,not on the shortage list,True
+FI-0173,filler,,,0,,not on the shortage list,True
+FI-0174,diff_route,0409-3382-21,05/03/2022,0,,Tablet / Oral vs shortage Injection / Intravenous,True
+FI-0175,filler,,,0,,not on the shortage list,True
+FI-0176,alt_manufacturer,0143-9507-10,10/05/2022,1,3,"another (SYNTHETIC) labeler, same ingredient/form/route/strength: a substitute candidate",True
+FI-0177,ndc_other_package,0409-5555-01,03/01/2017,1,2,"same labeler and product, another package code (SYNTHETIC)",True

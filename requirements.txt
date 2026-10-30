@@ -1,0 +1,8 @@
+# Runtime dependencies, exact pins (OPS-01). Tested on Python 3.13.0 (Windows 11).
+# Light on purpose (DESIGN section 7): no requests (stdlib urllib), no dbt (ADR 002), no LLM.
+duckdb==2.0.0
+pandas==3.1.0
+PyYAML==6.0.3
+streamlit==1.66.1
+altair==6.3.0      # imported directly by app/pages/4_Metrics.py (also a streamlit dependency)
+tzdata==2026.6     # zoneinfo needs it on Windows (snapshot dates are America/New_York)

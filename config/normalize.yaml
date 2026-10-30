@@ -1,0 +1,265 @@
+# Name, dosage-form, route and strength normalization for the matcher (ML-03, DESIGN section 5).
+# Owner: ml-engineer. Stdlib only (exact matching after normalization, no fuzzy scores):
+# look-alike names such as hydroxyzine / hydralazine must never match.
+version: 1
+
+# Salt / ester / hydrate words dropped from an ingredient when they follow the active moiety
+# ("lidocaine hydrochloride" -> "lidocaine"). They are kept when the name starts with one
+# ("sodium bicarbonate", "potassium chloride", "magnesium sulfate"), because then the salt IS the drug.
+salts:
+  - hydrochloride
+  - hcl
+  - dihydrochloride
+  - hydrobromide
+  - hbr
+  - bromide
+  - chloride
+  - sodium
+  - potassium
+  - calcium
+  - magnesium
+  - sulfate
+  - sulphate
+  - phosphate
+  - acetate
+  - citrate
+  - tartrate
+  - bitartrate
+  - maleate
+  - mesylate
+  - dimesylate
+  - besylate
+  - succinate
+  - fumarate
+  - tromethamine
+  - meglumine
+  - lactate
+  - gluconate
+  - saccharate
+  - aspartate
+  - nitrate
+  - bicarbonate
+  - carbonate
+  - disodium
+  - monohydrate
+  - dihydrate
+  - trihydrate
+  - hemihydrate
+  - anhydrous
+  - hyclate
+  - pamoate
+  - valerate
+  - propionate
+  - dipropionate
+  - decanoate
+
+# Words that are not part of an ingredient name (forms, packaging, marketing).
+noise_words:
+  - injection
+  - injectable
+  - inj
+  - tablet
+  - tablets
+  - tab
+  - tabs
+  - capsule
+  - capsules
+  - cap
+  - caps
+  - solution
+  - suspension
+  - liquid
+  - syrup
+  - elixir
+  - oral
+  - for
+  - extended
+  - delayed
+  - release
+  - er
+  - xr
+  - sr
+  - dr
+  - film
+  - coated
+  - chewable
+  - powder
+  - lyophilized
+  - vial
+  - vials
+  - ampule
+  - syringe
+  - prefilled
+  - premix
+  - premixed
+  - single
+  - dose
+  - multi
+  - usp
+  - nf
+  - preservative
+  - free
+  - pf
+  - cream
+  - ointment
+  - gel
+  - patch
+  - topical
+  - ophthalmic
+  - otic
+  - nasal
+  - spray
+  - inhalation
+  - emulsion
+  - concentrate
+  - kit
+  - in
+  - plastic
+  - container
+  - the
+  - orally
+  - disintegrating
+  - odt
+  # v2 (ADR 006 addendum): route abbreviations and device words seen after brand names ("Rifadin IV", "Victoza pen")
+  - iv
+  - im
+  - sc
+  - subq
+  - po
+  - pen
+  - pens
+  - autoinjector
+  - flexpen
+  - cartridge
+
+# Dosage-form buckets. Checked in order; the first bucket with a pattern that appears as whole words wins.
+# Then, for tablet and capsule only, a release modifier word turns the bucket into <bucket>_er or <bucket>_dr
+# (an extended-release tablet is a different dosage form from an immediate-release tablet).
+dosage_forms:
+  - {bucket: injection, patterns: ["injection", "injectable", "inj", "vial", "vials", "infusion", "syringe", "ampule", "emulsion", "intravenous solution"]}
+  - {bucket: tablet_odt, patterns: ["orally disintegrating", "odt", "disintegrating tablet"]}
+  - {bucket: tablet, patterns: ["tablet", "tablets", "tab", "tabs", "caplet"]}
+  - {bucket: capsule, patterns: ["capsule", "capsules", "cap", "caps"]}
+  - {bucket: oral_liquid, patterns: ["oral liquid", "oral solution", "oral suspension", "suspension", "syrup", "elixir", "liquid"]}
+  - {bucket: ophthalmic, patterns: ["ophthalmic", "eye drop", "eye drops"]}
+  - {bucket: inhalation, patterns: ["inhalation", "inhaler", "nebulizer", "aerosol"]}
+  - {bucket: patch, patterns: ["patch", "transdermal", "film extended release"]}  # ADR 006 cond. 3: transdermal ER film
+  - {bucket: topical, patterns: ["cream", "ointment", "gel", "lotion", "topical"]}
+  - {bucket: solution, patterns: ["solution"]}
+
+release_modifiers:
+  er: [extended, er, xr, sr, xl, "extended-release", "24 hr", "12 hr"]
+  dr: [delayed, dr, ec, "delayed-release", "enteric"]
+
+# Default route when the record has no openfda.route (AC-4.6). "parenteral" is compatible with
+# any route in route_groups.parenteral.
+default_routes:
+  tablet: oral
+  tablet_er: oral
+  tablet_dr: oral
+  tablet_odt: oral
+  capsule: oral
+  capsule_er: oral
+  capsule_dr: oral
+  oral_liquid: oral
+  injection: parenteral
+  ophthalmic: ophthalmic
+  inhalation: respiratory (inhalation)
+  topical: topical
+  patch: transdermal
+
+route_aliases:
+  iv: intravenous
+  ivpb: intravenous
+  "i.v.": intravenous
+  intravenous: intravenous
+  im: intramuscular
+  "i.m.": intramuscular
+  intramuscular: intramuscular
+  sc: subcutaneous
+  sq: subcutaneous
+  subq: subcutaneous
+  "sub-q": subcutaneous
+  subcut: subcutaneous
+  subcutaneous: subcutaneous
+  po: oral
+  "p.o.": oral
+  oral: oral
+  "by mouth": oral
+  top: topical
+  topical: topical
+  inh: respiratory (inhalation)
+  inhalation: respiratory (inhalation)
+  "respiratory (inhalation)": respiratory (inhalation)
+  ophth: ophthalmic
+  ophthalmic: ophthalmic
+  td: transdermal
+  transdermal: transdermal
+  injection: parenteral
+  parenteral: parenteral
+
+route_groups:
+  parenteral: [intravenous, intramuscular, subcutaneous, intradermal, infiltration, perineural, epidural,
+               intrathecal, intra-articular, intralesional, soft tissue, intracavernous, intraocular,
+               intravitreal, intracardiac, intraosseous, intraspinal, caudal block, intravesical,
+               intra-arterial, intraperitoneal, intracameral, parenteral]
+
+# Strength units -> canonical unit and multiplier. Concentrations are turned into "per mL".
+units:
+  mg: [mg, 1.0]
+  mgs: [mg, 1.0]
+  milligram: [mg, 1.0]
+  milligrams: [mg, 1.0]
+  g: [mg, 1000.0]
+  gm: [mg, 1000.0]
+  gram: [mg, 1000.0]
+  grams: [mg, 1000.0]
+  mcg: [mg, 0.001]
+  ug: [mg, 0.001]
+  "µg": [mg, 0.001]
+  microgram: [mg, 0.001]
+  micrograms: [mg, 0.001]
+  meq: [meq, 1.0]
+  mmol: [mmol, 1.0]
+  unit: [unit, 1.0]
+  units: [unit, 1.0]
+  u: [unit, 1.0]
+  iu: [unit, 1.0]
+  "[usp'u]": [unit, 1.0]
+  "usp units": [unit, 1.0]
+
+# v2 (ADR 006 addendum): misspelling tolerance for the ingredient name in tier 3 only.
+# A near-miss name matches only when ALL hold: both single-ingredient, both at least min_length letters,
+# difflib ratio >= min_ratio, edit distance <= max_edits, the formulary spelling is not itself a known ingredient
+# in the snapshot, the pair is not a listed look-alike, same dosage form, compatible route, and BOTH sides have a
+# strength and it is equal. Confidence 0.50.
+fuzzy:
+  min_length: 6
+  min_ratio: 0.88
+  max_edits: 2
+  confidence: 0.50
+# Look-alike / sound-alike names that must never be treated as misspellings of each other (public ISMP-style list).
+lookalikes:
+  - [hydroxyzine, hydralazine]
+  - [prednisone, prednisolone]
+  - [hydrocodone, oxycodone]
+  - [clonidine, clonazepam]
+  - [clonidine, klonopin]
+  - [methylprednisolone, medroxyprogesterone]
+  - [glipizide, glyburide]
+  - [cefazolin, ceftriaxone]
+  - [dopamine, dobutamine]
+  - [ephedrine, epinephrine]
+  - [vinblastine, vincristine]
+  - [carboplatin, cisplatin]
+  - [oxcarbazepine, carbamazepine]
+  - [tramadol, trazodone]
+  - [hydromorphone, morphine]
+  - [metformin, metronidazole]
+  - [risperidone, ropinirole]
+  - [lamivudine, lamotrigine]
+  - [amiodarone, amlodipine]
+  - [fentanyl, sufentanil]
+  - [sufentanil, alfentanil]
+  - [fentanyl, alfentanil]
+  - [dexmedetomidine, medetomidine]

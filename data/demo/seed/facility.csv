@@ -1,0 +1,4 @@
+facility_id,name,kind,beds,is_synthetic
+F-MAIN,Riverbend Main (SYNTHETIC),academic,500,True
+F-NORTH,Riverbend North (SYNTHETIC),community,180,True
+F-KIDS,Riverbend Kids (SYNTHETIC),pediatric,90,True

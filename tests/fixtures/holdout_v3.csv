@@ -1,0 +1,98 @@
+# holdout_v3.csv: HELD-OUT answer set for the v3 matching round (QA-06).
+# DO NOT OPEN before scoring (matcher authors). FROZEN: hashes in holdout_v3.sha256 (LF-normalized bytes).
+# Labeled by: qa-engineer (team draft). reviewed_by = pending on every row. Michael has NOT reviewed this file.
+# No overlap with gold_matches.csv or holdout_v2.csv: different shortage records and different formulary items.
+# Events: holdout_v3_events.json (real public openFDA records). Items: SYNTHETIC_holdout_v3_formulary.csv.
+# LABELING RULE: same as holdout_v2.csv. Diluents (dextrose, saline) in a premix are vehicles; the concentration
+#   of the active drug is the strength. A brand that exists both plain and with epinephrine is judged by the item text.
+pair_id,item_id,event_key,label,pair_kind,variant_type,rationale,labeled_by,reviewed_by
+VP-001,QV-001,63323046157|2018-02-20,1,positive,name_salt,"Salt dropped, no NDC; 1:200,000 = 0.005 mg/mL.",qa-engineer,pending
+VP-002,QV-002,63323046157|2018-02-20,0,hard_negative,combination_product,Plain bupivacaine vs bupivacaine + epinephrine.,qa-engineer,pending
+VP-003,QV-002,00409251001|2018-02-20,1,positive,missing_ndc,Plain 0.25% bupivacaine; event has no openfda.,qa-engineer,pending
+VP-004,QV-003,63323046157|2018-02-20,1,positive,typo,"Bupivicaine typo, w/ epi abbreviation; same combination and strengths.",qa-engineer,pending
+VP-005,QV-003,00409251001|2018-02-20,0,hard_negative,combination_product,With-epinephrine item vs plain Marcaine event.,qa-engineer,pending
+VP-006,QV-004,63323046357|2018-02-20,1,positive,name_brand,Same package; brand Sensorcaine with Epinephrine.,qa-engineer,pending
+VP-007,QV-004,63323046157|2018-02-20,0,hard_negative,openfda_sibling_strength,0.5% + epi (63323-463 is in the event openfda list) vs 0.25% + epi.,qa-engineer,pending
+VP-008,QV-005,63323046357|2018-02-20,0,hard_negative,combination_product,Brand trap: plain Sensorcaine vs Sensorcaine with epinephrine.,qa-engineer,pending
+VP-009,QV-006,63323046357|2018-02-20,1,positive,ndc_11digit,Same package written 5-4-2.,qa-engineer,pending
+VP-010,QV-007,00409154110|2018-02-20,1,positive,name_brand,"Brand Marcaine with Epinephrine, no NDC.",qa-engineer,pending
+VP-011,QV-008,00409154110|2018-02-20,0,hard_negative,combination_product,Brand trap: plain Marcaine vs Marcaine with Epinephrine.,qa-engineer,pending
+VP-012,QV-008,00409251001|2018-02-20,1,positive,name_brand,Plain Marcaine 0.25% = 2.5 mg/mL; event has no openfda.,qa-engineer,pending
+VP-013,QV-009,00409154110|2018-02-20,1,positive,ndc_11digit,Same package as 11 digits.,qa-engineer,pending
+VP-014,QV-010,63323048157|2016-10-14,1,positive,name_brand,"Brand Xylocaine with epinephrine, 0.5% and 1:200,000.",qa-engineer,pending
+VP-015,QV-011,63323048157|2016-10-14,0,hard_negative,openfda_sibling_strength,"1% + 1:100,000 (63323-482 in event openfda list) vs 0.5% + 1:200,000.",qa-engineer,pending
+VP-016,QV-012,00409318203|2012-02-22,1,positive,name_salt,"Salt dropped, no NDC; event has no openfda.",qa-engineer,pending
+VP-017,QV-013,63323048657|2012-02-22,1,positive,ndc_532,"Same package, plain Xylocaine 2%.",qa-engineer,pending
+VP-018,QV-013,00409318203|2012-02-22,0,hard_negative,combination_product,Brand trap: plain Xylocaine 2% vs lidocaine 2% + epinephrine.,qa-engineer,pending
+VP-019,QV-013,00338040903|2017-10-25,0,hard_negative,diff_strength,20 mg/mL vial vs 4 mg/mL premix in dextrose.,qa-engineer,pending
+VP-020,QV-013,63323046357|2018-02-20,0,hard_negative,same_labeler_diff_product,Fresenius 63323 labeler; lidocaine vs bupivacaine + epi.,qa-engineer,pending
+VP-021,QV-014,00409317802|2012-02-22,0,hard_negative,combination_product,Plain lidocaine 1% vs lidocaine 1% + epinephrine.,qa-engineer,pending
+VP-022,QV-015,00409317802|2012-02-22,1,positive,ndc_442,Same package.,qa-engineer,pending
+VP-023,QV-015,00409318203|2012-02-22,0,hard_negative,diff_strength,Lidocaine 1% + epi vs 2% + epi.,qa-engineer,pending
+VP-024,QV-016,00338040903|2017-10-25,1,positive,missing_ndc,Premixed lidocaine in dextrose 4 mg/mL; no NDC.,qa-engineer,pending
+VP-025,QV-017,00409493310|2025-11-07,1,positive,missing_ndc,Epinephrine 0.1 mg/mL syringe; event has no openfda.,qa-engineer,pending
+VP-026,QV-017,63323048157|2016-10-14,0,hard_negative,combination_product,Epinephrine alone vs lidocaine + epinephrine.,qa-engineer,pending
+VP-027,QV-018,00409493310|2025-11-07,0,hard_negative,diff_route,IM auto-injector vs 0.1 mg/mL IV syringe.,qa-engineer,pending
+VP-028,QV-019,00143925225|2017-11-06,1,positive,ndc_532,Same package.,qa-engineer,pending
+VP-029,QV-019,00338100503|2017-11-06,0,hard_negative,diff_strength,40 mg/mL vial vs 0.8 mg/mL premix in D5W.,qa-engineer,pending
+VP-030,QV-020,00338100503|2017-11-06,1,positive,missing_ndc,Same premix concentration; no NDC.,qa-engineer,pending
+VP-031,QV-021,00338100503|2017-11-06,0,hard_negative,diff_strength,1.6 mg/mL premix vs 0.8 mg/mL premix.,qa-engineer,pending
+VP-032,QV-022,00409015110|2017-11-06,1,positive,name_salt,Salt dropped; 500 mg/250 mL = 2 mg/mL; event has no openfda.,qa-engineer,pending
+VP-033,QV-022,00338100503|2017-11-06,0,hard_negative,lookalike_name,Dobutamine vs dopamine premix.,qa-engineer,pending
+VP-034,QV-023,00409154110|2018-02-20,0,hard_negative,same_labeler_diff_product,Hospira 0409 labeler; dobutamine vs bupivacaine + epi.,qa-engineer,pending
+VP-035,QV-024,00338043103|2017-11-14,1,positive,missing_ndc,Heparin premix 2 units/mL in saline.,qa-engineer,pending
+VP-036,QV-025,00338043103|2017-11-14,0,hard_negative,diff_strength,10 units/mL flush vs 2 units/mL premix.,qa-engineer,pending
+VP-037,QV-026,00074300860|2026-07-24,1,positive,name_case_ws,"Brand Kaletra, case and spaces, no NDC; 100/25 mg.",qa-engineer,pending
+VP-038,QV-027,00074300860|2026-07-24,0,hard_negative,ndc_leading_zero_error,Famotidine item whose keyed NDC lands on the Kaletra package.,qa-engineer,pending
+VP-039,QV-028,00074300860|2026-07-24,0,hard_negative,combination_product,Brand-component trap: ritonavir alone vs lopinavir/ritonavir.,qa-engineer,pending
+VP-040,QV-028,00074339930|2026-07-24,0,hard_negative,diff_dosage_form,Norvir tablet vs Norvir oral powder.,qa-engineer,pending
+VP-041,QV-029,00074339930|2026-07-24,1,positive,ndc_10digit_unhyphenated,Same package as 10 digits.,qa-engineer,pending
+VP-042,QV-029,00074395646|2026-07-24,0,hard_negative,combination_product,Ritonavir alone vs lopinavir/ritonavir solution.,qa-engineer,pending
+VP-043,QV-030,00074395646|2026-07-24,1,positive,combination_product,"Same combination, form and strengths; no NDC.",qa-engineer,pending
+VP-044,QV-030,00074300860|2026-07-24,0,hard_negative,diff_dosage_form,Oral solution vs tablet.,qa-engineer,pending
+VP-045,QV-031,00173071722|2026-07-27,1,positive,name_brand,"Brand Advair HFA, same strengths; no NDC.",qa-engineer,pending
+VP-046,QV-032,00173071722|2026-07-27,0,hard_negative,ndc_leading_zero_error,Metoclopramide item whose keyed NDC lands on the Advair package.,qa-engineer,pending
+VP-047,QV-033,00173071722|2026-07-27,0,hard_negative,combination_product,Brand-component trap: fluticasone alone vs fluticasone/salmeterol.,qa-engineer,pending
+VP-048,QV-034,69238124703|2026-06-15,1,positive,name_brand,Namzaric = memantine ER/donepezil 28/10 mg; brand not in the snapshot.,qa-engineer,pending
+VP-049,QV-035,69238124703|2026-06-15,0,hard_negative,combination_product,Memantine alone vs memantine/donepezil.,qa-engineer,pending
+VP-050,QV-036,69238124703|2026-06-15,1,positive,ndc_541,Same package (5-4-1).,qa-engineer,pending
+VP-051,QV-037,00378461501|2026-01-12,1,positive,name_brand,Diclegis = doxylamine/pyridoxine DR 10/10; event has no openfda.,qa-engineer,pending
+VP-052,QV-038,00378461501|2026-01-12,0,hard_negative,combination_product,Doxylamine alone vs doxylamine/pyridoxine.,qa-engineer,pending
+VP-053,QV-039,00378461501|2026-01-12,0,hard_negative,combination_product,Pyridoxine alone vs doxylamine/pyridoxine.,qa-engineer,pending
+VP-054,QV-040,57844011001|2022-10-12,1,positive,name_brand,Brand Adderall 10 mg = 4 x 2.5 mg salts.,qa-engineer,pending
+VP-055,QV-040,00527076437|2022-10-12,0,hard_negative,diff_strength,10 mg vs 15 mg (4 x 3.75 mg) mixed salts.,qa-engineer,pending
+VP-056,QV-041,00527076437|2022-10-12,1,positive,ndc_442,Same package.,qa-engineer,pending
+VP-057,QV-042,57844011001|2022-10-12,0,hard_negative,combination_product,Brand-component trap: one salt vs Adderall's four.,qa-engineer,pending
+VP-058,QV-043,60951070070|2025-11-03,1,positive,name_brand,"Brand Endocet, no NDC.",qa-engineer,pending
+VP-059,QV-044,60951070070|2025-11-03,1,positive,name_brand,Percocet = oxycodone/APAP 7.5/325; brand not in the snapshot.,qa-engineer,pending
+VP-060,QV-045,60951070070|2025-11-03,0,hard_negative,openfda_sibling_strength,2.5/325 (60951-701 in event openfda list) vs 7.5/325.,qa-engineer,pending
+VP-061,QV-046,60951070070|2025-11-03,0,hard_negative,combination_product,Oxycodone alone vs oxycodone/acetaminophen.,qa-engineer,pending
+VP-062,QV-047,65862016390|2023-01-19,1,positive,name_brand,Accuretic = quinapril/HCTZ 20/25; brand not in the snapshot.,qa-engineer,pending
+VP-063,QV-048,65862016390|2023-01-19,0,hard_negative,combination_product,Quinapril alone vs quinapril/HCTZ.,qa-engineer,pending
+VP-064,QV-049,00006351659|2026-01-08,1,positive,missing_ndc,Same combination as Primaxin 500 mg; event has no openfda.,qa-engineer,pending
+VP-065,QV-050,00006351659|2026-01-08,0,hard_negative,lookalike_name,Meropenem vs imipenem/cilastatin: look-alike -penem.,qa-engineer,pending
+VP-066,QV-051,55513081060|2026-03-24,1,positive,name_brand,Same package; brand Corlanor.,qa-engineer,pending
+VP-067,QV-051,55513081328|2026-03-24,0,hard_negative,diff_dosage_form,Corlanor tablet vs Corlanor oral solution.,qa-engineer,pending
+VP-068,QV-052,55513081060|2026-03-24,0,hard_negative,diff_strength,Ivabradine 5 mg vs 7.5 mg.,qa-engineer,pending
+VP-069,QV-053,10147170003|2026-02-27,1,positive,typo,"Itraconazol typo, no NDC.",qa-engineer,pending
+VP-070,QV-054,10147170003|2026-02-27,0,hard_negative,diff_dosage_form,Sporanox solution vs Sporanox capsule.,qa-engineer,pending
+VP-071,QV-055,10147170003|2026-02-27,1,positive,ndc_541,Same package (5-4-1).,qa-engineer,pending
+VP-072,QV-056,61958170101|2026-04-07,1,positive,ndc_541,Same package (5-4-1); no openfda.,qa-engineer,pending
+VP-073,QV-057,61958170101|2026-04-07,0,hard_negative,diff_strength,150 mg vs 100 mg.,qa-engineer,pending
+VP-074,QV-058,70726030601|2024-01-26,0,hard_negative,diff_dosage_form,Riluzole tablet vs oral suspension.,qa-engineer,pending
+VP-075,QV-059,70726030601|2024-01-26,1,positive,name_brand,"Brand Teglutik, no NDC.",qa-engineer,pending
+VP-076,QV-060,58468012301|2025-12-10,1,positive,typo,Doxercalciferal typo; 4 mcg/2 mL = 2 mcg/mL; no openfda.,qa-engineer,pending
+VP-077,QV-061,58468012301|2025-12-10,0,hard_negative,diff_route,Oral capsule vs injection.,qa-engineer,pending
+VP-078,QV-062,58468012301|2025-12-10,0,hard_negative,true_non_match,Calcitriol vs doxercalciferol: different vitamin D analog.,qa-engineer,pending
+VP-079,QV-063,00169430330|2026-06-04,1,positive,ndc_leading_zero_error,Leading zero dropped; NDC unusable; same Rybelsus 3 mg.,qa-engineer,pending
+VP-080,QV-064,00169430330|2026-06-04,0,hard_negative,diff_route,Semaglutide SC pen vs oral tablet.,qa-engineer,pending
+VP-081,QV-065,00002775205|2026-09-01,1,positive,ndc_11digit,Same package as 11 digits.,qa-engineer,pending
+VP-082,QV-066,00002775205|2026-09-01,1,positive,name_case_ws,"Case, spaces, U-100 = 100 units/mL; no NDC.",qa-engineer,pending
+VP-083,QV-067,00002775205|2026-09-01,0,hard_negative,same_labeler_diff_product,Lilly 0002 labeler; insulin glargine-aglr vs lispro.,qa-engineer,pending
+VP-084,QV-067,00002898005|2026-09-01,1,positive,ndc_442,Same package.,qa-engineer,pending
+VP-085,QV-068,00002898005|2026-09-01,0,hard_negative,biosimilar_suffix,Rule-literal 0: glargine-aglr is a distinct (interchangeable) ingredient name. Flag for owner review.,qa-engineer,pending
+VP-086,QV-069,70726030601|2024-01-26,0,hard_negative,true_non_match,Unrelated.,qa-engineer,pending
+VP-087,QV-070,00006351659|2026-01-08,0,hard_negative,true_non_match,Unrelated.,qa-engineer,pending
+VP-088,QV-071,00409317802|2012-02-22,1,positive,name_brand,Brand Xylocaine with epinephrine at the event strengths; no NDC.,qa-engineer,pending
+VP-089,QV-072,00143925225|2017-11-06,0,hard_negative,name_case_ws,Case/space-messy unrelated item; must not match on noise.,qa-engineer,pending
+VP-090,QV-073,57844011001|2022-10-12,1,positive,ndc_532,Same package; four 2.5 mg salts = 10 mg.,qa-engineer,pending

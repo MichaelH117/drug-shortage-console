@@ -1,0 +1,40 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python and tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Secrets and local config (none are needed; keep it that way)
+.env
+.env.*
+.streamlit/secrets.toml
+
+# Databases are rebuilt by `python -m pipeline.run --fixtures` (about 1 s)
+*.duckdb
+*.duckdb.wal
+*.wal
+
+# data/ is generated. Only the small deterministic demo seed CSVs are committed.
+# data/live (real openFDA pulls and the live DB) is never committed.
+data/*
+!data/demo/
+data/demo/*
+!data/demo/seed/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

@@ -1,0 +1,22 @@
+# Raw openFDA `availability` text -> bucket (AC-2.5). Owner: data-engineer.
+# Matching is on the value with case folded and whitespace collapsed. The raw value is always kept in stage.
+# Every distinct raw value seen in the live pull of 2026-10-30 is listed (counts from that pull).
+# A value that matches nothing goes to Unknown and is reported in core.dq_results (check availability_unmapped).
+version: "1.0"
+buckets:
+  Available:
+    - Available                       # 749
+  Limited:
+    - Limited Availability            # 138
+    - Limited Availalbility           # 1, upstream typo
+  Unavailable:
+    - Unavailable                     # 263
+    - Unvailable                      # 1, upstream typo
+# Prefix rules for sentence-style values, checked after the exact list, in this order.
+prefixes:
+  - prefix: limited supply available  # 1: "Limited Supply Available. Next Delivery and Estimated Recovery: June 2027"
+    bucket: Limited
+# Records with no availability at all (To Be Discontinued and Resolved records in the live pull carry none).
+# They go to this bucket and are counted as availability_missing in DQ, not as unmapped.
+missing_bucket: Unknown
+unmapped_bucket: Unknown

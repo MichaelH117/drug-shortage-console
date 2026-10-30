@@ -1,0 +1,66 @@
+item_id,ndc_raw,name_raw,strength_raw,dosage_form_raw,route_raw,is_synthetic
+QH-001,63323-466-17,Sensorcaine MPF,5 mg/mL,Injection,Infiltration,true
+QH-002,63323-0466-17,Bupivacaine HCl,5 mg/mL,Injection,Epidural,true
+QH-003,,Bupivacaine 0.5%,0.5%,Injection,Infiltration,true
+QH-004,63323-462-31,Bupivacaine HCl and Epinephrine,"0.5%; 1:200,000",Injection,Infiltration,true
+QH-005,63323-285-65,Naropin,2 mg/mL,Injection,Epidural,true
+QH-006,5515020010,Ropivacaine HCl,10 mg/mL,Injection,Epidural,true
+QH-007,55150-0200-10,Ropivacaine,10 mg/mL,Injection,Epidural,true
+QH-008,63323-482-17,Xylocaine with Epinephrine,"1%; 1:100,000",Injection,Infiltration,true
+QH-009,,Lidocaine HCl 1%,10 mg/mL,Injection,Infiltration,true
+QH-010,,Epinephrine,1 mg/mL,Injection,Intramuscular,true
+QH-011,63323-808-11,Fentanyl Citrate,50 mcg/mL,Injection,Intravenous,true
+QH-012,0409-9094-55,Fentanyl,0.05 mg/mL,Injection,Intravenous,true
+QH-013,17478-050-02,Sufentanil Citrate,50 mcg/mL,Injection,Intravenous,true
+QH-014,,Remifentanyl,1 mg/mL,Injection,Intravenous,true
+QH-015,72078-034-01,Ultiva,1 mg/mL,Injection,Intravenous,true
+QH-016,63323-411-10,Midazolam,1 mg/mL,Injection,Intravenous,true
+QH-017,,Midazolam HCl,2 mg/mL,Syrup,Oral,true
+QH-018,0409-2308-02,Midazolam HCl PF,10 mg/2 mL,Injection,Intravenous,true
+QH-019,,KETAMINE HCL  100MG/ML,100MG/ML,INJ,IV,true
+QH-020,0409-9104-20,Dopamine HCl,40 mg/mL,Injection,Intravenous,true
+QH-021,0409910420,Dopamine,40 mg/mL,Injection,Intravenous,true
+QH-022,,Dobutamin,12.5 mg/mL,Injection,Intravenous,true
+QH-023,00409-9104-20,Ondansetron,2 mg/mL,Injection,Intravenous,true
+QH-024,00409-2344-01,Phenylephrine HCl,10 mg/mL,Injection,Intravenous,true
+QH-025,0338-0017-31,Dextrose 5% in Water,50 g/1000 mL,Injection,Intravenous,true
+QH-026,0264-1510-32,Dextrose 5%,5%,Injection,Intravenous,true
+QH-027,,  DEXTROSE 10%  INJ ,10%,Injection,Intravenous,true
+QH-028,,Dextrose 50%,0.5 g/mL,Injection,Intravenous,true
+QH-029,76329-3352-1,Sodium Bicarbonate 8.4%,1 mEq/mL,Injection,Intravenous,true
+QH-030,,Sodium Bicarbonate,650 mg,Tablet,Oral,true
+QH-031,62175-310-37,Methylphenidate HCl ER,18 mg,"Tablet, Extended Release",Oral,true
+QH-032,,Methylphenidate HCl,10 mg,Tablet,Oral,true
+QH-033,0574-2420-65,Methylphenidate Transdermal System,20 mg,"Film, Extended Release",Transdermal,true
+QH-034,,Methylphenidate patch,30 mg/9 hr,"Film, Extended Release",Transdermal,true
+QH-035,70010-112-01,Dextroamphetamine-Amphetamine Mixed Salts,7.5 mg,Tablet,Oral,true
+QH-036,,Dextroamphetamine Sulfate,5 mg,Tablet,Oral,true
+QH-037,49702-204-13,Epivir,300 mg,Tablet,Oral,true
+QH-038,,Lamivudine,300 mg,Tablet,Oral,true
+QH-039,49884-563-11,Lamotrigine ER,100 mg,"Tablet, Extended Release",Oral,true
+QH-040,,Lamotrigine,100 mg,Tablet,Oral,true
+QH-041,0075-2915-01,Lovenox,150 mg/mL,Injection,Subcutaneous,true
+QH-042,0075-0622-80,Lovenox,80 mg/0.8 mL,Injection,Subcutaneous,true
+QH-043,0955-1010-10,Enoxaparin Sodium,100 mg/mL,Injection,Subcutaneous,true
+QH-044,641-6251-10,Atropine Sulfate,0.4 mg/mL,Injection,Intravenous,true
+QH-045,16729-512-43,Atropine Sulfate,0.4 mg/mL,Injection,Intravenous,true
+QH-046,,Atropine 1%,1%,Ophthalmic Solution,Ophthalmic,true
+QH-047,,glycopyrrolate  0.2MG/ML inj,0.2 mg/mL,injection,iv,true
+QH-048,,Glycopyrrolate,1 mg,Tablet,Oral,true
+QH-049,63323-326-20,Cefepime,1 g,Injection,Intravenous,true
+QH-050,6332332620,Cefepime HCl,1 g/vial,Injection,Intravenous,true
+QH-051,0409-5092-16,Tazicef,1 g,Injection,Intravenous,true
+QH-052,,Ceftazidime,2 g,Injection,Intravenous,true
+QH-053,0069-4370-71,Minipress,2 mg,Capsule,Oral,true
+QH-054,,Prazosin HCl,2mg,cap,,true
+QH-055,55566-2500-0,DDAVP Nasal Spray,0.1 mg/mL,Spray,Nasal,true
+QH-056,,Desmopressin Acetate,0.1 mg,Tablet,Oral,true
+QH-057,61474-9711-1,Icosapent Ethyl,1 g,Capsule,Oral,true
+QH-058,,Vascepa,1 g,Capsule,Oral,true
+QH-059,,Omega-3-Acid Ethyl Esters,1 g,Capsule,Oral,true
+QH-060,,Amoxicillin-Clavulanate,875 mg-125 mg,Tablet,Oral,true
+QH-061,,Pantoprazole,40 mg,Injection,Intravenous,true
+QH-062,00641625110,Atropine Sulfate,0.4 mg/mL,Injection,Intravenous,true
+QH-063,,Sufentanil,50 mcg/mL,Injection,Intravenous,true
+QH-064,,Glycopyrolate,0.2 mg/mL,Injection,Intravenous,true
+QH-065,,Lamotrigine ODT,100 mg,"Tablet, Orally Disintegrating",Oral,true

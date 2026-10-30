@@ -1,0 +1,24 @@
+# RISK REGISTER
+
+Owner: Principal Engineer. 2026-10-30. Folds in DESIGN section 9 (T1 to T14), REVIEW.md, and the v3 matcher result.
+Scale: Likelihood and Impact are L / M / H. Status: **Open** (no mitigation yet), **Mitigated** (control in place, evidence linked), **Accepted** (known, documented, not fixing in v1), **Closed** (cannot recur as designed).
+
+| # | Risk | L | I | Mitigation (evidence) | Owner | Status |
+|---|---|---|---|---|---|---|
+| R1 | **Matcher misses affected items** (low recall on combinations, premixes, brands not in FDA data). A missed item never reaches the queue. | H | H | Measured on 3 unseen sets and reported as FAIL, never hidden (`reports/match_quality_v3.json`: R 0.605). Misses fall back to the pharmacist's existing manual review. v4 fixes and a new blind set on the [ROADMAP](ROADMAP.md). | ml-engineer | **Open** (accepted for v1 by EM decision) |
+| R2 | **Matcher suggests a wrong match** (false positive leads to a wrong substitute discussion). | M | H | Precision 0.980 / 0.957 / 0.963 across the three sets. Component-set guard, look-alike list, no fuzzy match without equal strength (ADR 006). Approval is pharmacist-only and requires a reason. 1 FP on v3 (VP-008, an ambiguous brand). | ml-engineer | Mitigated |
+| R3 | Recall depends on the test-set mix, so any single number misleads. | H | M | Headline is always the newest unseen set; per-category recall published ([CASE_STUDY](CASE_STUDY.md)). The app still headlines v2: BUG-PE-01. | analytics-engineer | **Open** |
+| R4 | Gold labels are team-drafted, not pharmacist-reviewed. | Certain | M | `reviewed_by = pending` on every row; frozen hashes (`tests/test_gold_frozen.py`, `tests/test_holdout_frozen.py`); stated on every page. | qa-engineer / Michael | Accepted |
+| R5 | Role control bypassed (buyer approves, or undoes an approval). | M | H | Server-side role lookup; `not_already_decided` criterion. Planted-bug proofs PB-2 and PB-6 ([FLAW_HUNT](FLAW_HUNT.md)); [postmortem](POSTMORTEM_repropose_undoes_approval.md). | ml-engineer | Mitigated |
+| R6 | Concurrent writers fork the audit chain or lose a refusal. | M | H | `writer_lock`; 0/20 failures after, 11/15 before; PB-7 proof. Cross-process still unsafe (KI-07). [Postmortem](POSTMORTEM_concurrency_race.md). | data-engineer | Mitigated (in-process) |
+| R7 | Someone edits the audit log with direct SQL. | L | H | Hash chain + checkpoint + optional anchor detect it (`tests/test_audit.py`). DuckDB cannot prevent it (no triggers/REVOKE). | data-engineer | Accepted (detective only) |
+| R8 | Day-one queue floods the user (663 events). | Certain | M | ADR 007: baseline day, actionable filter, item-grain worklist (73), visible cap 40 (`tests/qa/test_queue_adr007.py`). | analytics-engineer | Mitigated |
+| R9 | Upstream schema drift (field renamed) silently nulls data. | M | H | Schema-drift DQ check by field name (`tests/test_dq.py::test_renamed_field_fails_schema_drift_and_names_it`). | data-engineer | Mitigated |
+| R10 | openFDA unavailable or rate-limited (1,000 req/day, no key). | M | M | Full pull is 2 requests; cached write-once snapshot; stale banner after 1 day (`tests/test_queries.py::test_is_stale_boundary_is_exactly_one_day`). | data-engineer | Mitigated |
+| R11 | openFDA says its data is unvalidated and not for care decisions. | Certain | H | The app lists candidates only; a pharmacist approves; FAQ and UI say so. A real deployment pairs it with the wholesaler feed (OPERATING_MODEL). | product-owner | Accepted |
+| R12 | Rebuild fails halfway and leaves no object views. | L | M | `_build_ml` inside the rebuild transaction (REVIEW 5, DE test: rollback when matching fails). | data-engineer | Mitigated |
+| R13 | Reader mistakes synthetic history or users for real ones. | M | H | `SYNTHETIC_` folder names, `is_synthetic` columns (`tests/test_generator.py::test_every_table_is_marked_synthetic`), UI banner, README. | all seats | Mitigated |
+| R14 | Overclaiming in README or interviews (seen-set score as headline, "deployed"). | M | H | PE review of every number against run outputs; the 0.982 seen-gold score is never a headline. The auto-written README block labels gold as a regression check only after BUG-PE-02 is fixed. | principal-engineer | **Open** until BUG-PE-02 lands |
+| R15 | No real authentication (demo identity picker). | Certain | H for prod / L for demo | Labeled "demo identity, not authentication"; SSO is step 1 of the deployment plan. | devops-engineer | Accepted (v1) |
+| R16 | Snapshot date wrong around midnight or DST. | L | M | America/New_York local date; checked by hand at 03:30Z and DST end (FLAW_HUNT). No committed test yet: BUG-PE-03. | data-engineer | Mitigated, test gap open |
+| R17 | Full rebuild cost grows with history. | L | L | ~600k rows/year; measured rebuild under 2 s on fixtures ([SCALE_AND_COST](SCALE_AND_COST.md)). | data-engineer | Accepted |

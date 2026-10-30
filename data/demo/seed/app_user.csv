@@ -1,0 +1,9 @@
+user_id,display_name,role,active,is_synthetic
+dana.ruiz,"Dana Ruiz, PharmD",pharmacist,True,True
+sam.okafor,"Sam Okafor, PharmD",pharmacist,True,True
+morgan.ellis,"Morgan Ellis, PharmD",pharmacist,False,True
+lee.chen,Lee Chen,buyer,True,True
+priya.nair,Priya Nair,buyer,True,True
+alex.kim,Alex Kim,buyer,True,True
+jordan.blake,Jordan Blake,viewer,True,True
+casey.morgan,Casey Morgan,viewer,True,True

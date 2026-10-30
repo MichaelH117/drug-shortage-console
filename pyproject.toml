@@ -1,0 +1,17 @@
+[project]
+name = "drug-shortage-console"
+version = "0.1.0"
+description = "Foundry-style drug shortage operations console on the public openFDA Drug Shortages API, with a SYNTHETIC hospital."
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+markers = ["live: calls the real api.fda.gov; skipped unless DSC_LIVE=1"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

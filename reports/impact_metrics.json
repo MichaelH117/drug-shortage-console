@@ -1,0 +1,312 @@
+{
+  "as_of_snapshot": "2026-10-30",
+  "primary": {
+    "name": "Recall of affected formulary items surfaced in the morning queue",
+    "run": "v3 matcher on the unseen holdout_v3",
+    "measured_on": "tests/fixtures/holdout_v3.csv (90 pairs, 43 positives); pending (team-labeled, not reviewed by the owner)",
+    "matcher_recall": 0.6047,
+    "matcher_precision": 0.963,
+    "matcher_f1": 0.7429,
+    "matcher_tp": 26,
+    "matcher_fn": 17,
+    "baseline_name": "Fairer baseline: base-name equality",
+    "baseline_definition": "TEST_PLAN 6.2: base_name(name_raw) == base_name(generic_name), non-empty; no salts, brands, NDCs, routes, strengths or fuzzy matching",
+    "baseline_recall": 0.093,
+    "baseline_precision": 0.5714,
+    "baseline_tp": 4,
+    "lift_vs_baseline": 0.5117,
+    "target": 0.95,
+    "status": "FAIL",
+    "gold_sha256": "adca1d0953e8b2a22b1eb0a635746a728732620af0e3f1ea5779e6b4c27f8310",
+    "gold_hash_ok": true,
+    "source": "reports/match_quality_v3.json",
+    "history": [
+      {
+        "run": "v1 matcher, gold set (blind at the time; frozen)",
+        "version": 1,
+        "set": "tests/fixtures/gold_matches.csv",
+        "seen": false,
+        "headline": false,
+        "precision": 0.9804,
+        "recall": 0.8772,
+        "f1": 0.9259,
+        "tp": 50,
+        "fp": 1,
+        "fn": 7,
+        "categories": [
+          {
+            "category": "Single ingredient",
+            "found": 46,
+            "positives": 53,
+            "recall": 0.8679
+          },
+          {
+            "category": "Combination",
+            "found": 4,
+            "positives": 4,
+            "recall": 1.0
+          },
+          {
+            "category": "Premix (drug in D5W / saline)",
+            "found": 0,
+            "positives": 0,
+            "recall": null
+          }
+        ]
+      },
+      {
+        "run": "v2 matcher, holdout_v2 (unseen)",
+        "version": 2,
+        "set": "tests/fixtures/holdout_v2.csv",
+        "seen": false,
+        "headline": false,
+        "precision": 0.9565,
+        "recall": 0.9362,
+        "f1": 0.9462,
+        "tp": 44,
+        "fp": 2,
+        "fn": 3,
+        "categories": [
+          {
+            "category": "Single ingredient",
+            "found": 42,
+            "positives": 44,
+            "recall": 0.9545
+          },
+          {
+            "category": "Combination",
+            "found": 2,
+            "positives": 3,
+            "recall": 0.6667
+          },
+          {
+            "category": "Premix (drug in D5W / saline)",
+            "found": 0,
+            "positives": 0,
+            "recall": null
+          }
+        ]
+      },
+      {
+        "run": "v3 matcher, holdout_v3 (unseen) HEADLINE",
+        "version": 3,
+        "set": "tests/fixtures/holdout_v3.csv",
+        "seen": false,
+        "headline": true,
+        "precision": 0.963,
+        "recall": 0.6047,
+        "f1": 0.7429,
+        "tp": 26,
+        "fp": 1,
+        "fn": 17,
+        "categories": [
+          {
+            "category": "Single ingredient",
+            "found": 14,
+            "positives": 16,
+            "recall": 0.875
+          },
+          {
+            "category": "Combination",
+            "found": 12,
+            "positives": 23,
+            "recall": 0.5217
+          },
+          {
+            "category": "Premix (drug in D5W / saline)",
+            "found": 0,
+            "positives": 4,
+            "recall": 0.0
+          }
+        ]
+      },
+      {
+        "run": "v3 matcher, gold_matches (seen, optimistic)",
+        "version": 3,
+        "set": "tests/fixtures/gold_matches.csv",
+        "seen": true,
+        "headline": false,
+        "precision": 0.9825,
+        "recall": 0.9825,
+        "f1": 0.9825,
+        "tp": 56,
+        "fp": 1,
+        "fn": 1,
+        "categories": null
+      },
+      {
+        "run": "v3 matcher, holdout_v2 (seen, optimistic)",
+        "version": 3,
+        "set": "tests/fixtures/holdout_v2.csv",
+        "seen": true,
+        "headline": false,
+        "precision": 0.9778,
+        "recall": 0.9362,
+        "f1": 0.9565,
+        "tp": 44,
+        "fp": 1,
+        "fn": 3,
+        "categories": null
+      }
+    ],
+    "baselines": [
+      {
+        "name": "Fairer baseline: base-name equality",
+        "definition": "TEST_PLAN 6.2: base_name(name_raw) == base_name(generic_name), non-empty; no salts, brands, NDCs, routes, strengths or fuzzy matching",
+        "precision": 0.5714,
+        "recall": 0.093,
+        "f1": 0.16,
+        "tp": 4,
+        "fp": 3,
+        "fn": 39
+      },
+      {
+        "name": "Naive baseline: exact name",
+        "definition": "v1 (AC-4.4): exact lowercase equality of formulary name_raw and event generic_name",
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "tp": 0,
+        "fp": 0,
+        "fn": 43
+      }
+    ],
+    "categories": [
+      {
+        "category": "Single ingredient",
+        "found": 14,
+        "positives": 16,
+        "recall": 0.875
+      },
+      {
+        "category": "Combination",
+        "found": 12,
+        "positives": 23,
+        "recall": 0.5217
+      },
+      {
+        "category": "Premix (drug in D5W / saline)",
+        "found": 0,
+        "positives": 4,
+        "recall": 0.0
+      }
+    ],
+    "fail_safe": {
+      "min_precision": 0.9565,
+      "max_precision": 0.9825,
+      "sets": 5,
+      "holds": true
+    }
+  },
+  "guardrails": [
+    {
+      "id": "a",
+      "name": "Queue precision (v3 matcher on the unseen holdout_v3)",
+      "protects": "alert fatigue",
+      "value": 0.963,
+      "threshold": ">= 0.9",
+      "status": "PASS",
+      "detail": "fp 1 of 27 predicted matches"
+    },
+    {
+      "id": "b",
+      "name": "Daily queue length, uncapped (latest live snapshot)",
+      "protects": "a queue too long to use",
+      "threshold": "<= 40",
+      "demo_queue_length": 3,
+      "demo_watch_length": 3,
+      "demo_note": "SYNTHETIC fixture history, snapshot 2026-10-30",
+      "value": null,
+      "status": "N/A",
+      "detail": "n/a: no live snapshot available to this computation"
+    },
+    {
+      "id": "c",
+      "name": "Audit chain verifies",
+      "protects": "quiet edits to the action log",
+      "value": "OK",
+      "threshold": "OK",
+      "status": "PASS",
+      "detail": "14 rows checked"
+    },
+    {
+      "id": "d",
+      "name": "Actions executed by a role that is not allowed",
+      "protects": "role rules bypassed",
+      "value": 0,
+      "threshold": "= 0",
+      "status": "PASS",
+      "detail": "12 successful actions checked; 2 attempts refused on role (blocked, not executed)"
+    },
+    {
+      "id": "e",
+      "name": "Data-quality checks pass rate (latest snapshot)",
+      "protects": "bad input data",
+      "value": 0.9091,
+      "threshold": ">= 0.8 and 0 FAIL",
+      "status": "PASS",
+      "detail": "PASS 10, WARN 1"
+    }
+  ],
+  "guardrails_failing": [],
+  "secondary": {
+    "name": "Time from detection to first action per affected shortage",
+    "label": "SIMULATED demo usage, not real users",
+    "affected_events": 7,
+    "actioned_events": 6,
+    "not_actioned_events": 1,
+    "median_minutes": 36.400000000000006,
+    "p90_minutes": 240.2,
+    "max_minutes": 270.2,
+    "per_event": [
+      {
+        "event_key": "00009039514|2026-02-25",
+        "detected_utc": "2026-10-29T11:30:00",
+        "first_action_utc": null,
+        "minutes": null
+      },
+      {
+        "event_key": "00409189301|2017-10-31",
+        "detected_utc": "2026-10-29T11:30:00",
+        "first_action_utc": "2026-10-29T11:52:40",
+        "minutes": 22.7
+      },
+      {
+        "event_key": "00409379301|2018-03-26",
+        "detected_utc": "2026-10-30T11:30:00",
+        "first_action_utc": "2026-10-30T12:02:43",
+        "minutes": 32.7
+      },
+      {
+        "event_key": "00641602410|2023-12-20",
+        "detected_utc": "2026-10-29T11:30:00",
+        "first_action_utc": "2026-10-29T12:10:07",
+        "minutes": 40.1
+      },
+      {
+        "event_key": "16729050008|2020-04-07",
+        "detected_utc": "2026-10-30T11:30:00",
+        "first_action_utc": "2026-10-30T11:48:06",
+        "minutes": 18.1
+      },
+      {
+        "event_key": "62037071001|2025-11-21",
+        "detected_utc": "2026-10-29T11:30:00",
+        "first_action_utc": "2026-10-29T16:00:14",
+        "minutes": 270.2
+      },
+      {
+        "event_key": "70121253706|2026-10-20",
+        "detected_utc": "2026-10-29T11:30:00",
+        "first_action_utc": "2026-10-29T15:00:15",
+        "minutes": 210.2
+      }
+    ]
+  },
+  "notes": [
+    "Hospital data (facilities, formulary, stock, users, tasks) is SYNTHETIC.",
+    "Gold set and holdout are team-labeled (qa-engineer), reviewed_by pending; not owner-reviewed.",
+    "Headline = newest matcher on a set its author never opened. Scores on the already-seen gold set are labeled 'seen, optimistic' and are history, not the headline.",
+    "The naive exact-name baseline gets 0 because openFDA generic_name carries the dosage form; the fairer base-name baseline is the comparison."
+  ]
+}

@@ -1,0 +1,5 @@
+# sha256 of LF-normalized bytes. Held-out v2 set, frozen by qa-engineer 2026-10-30 before any v2 scoring.
+# reviewed_by = pending (not reviewed by Michael).
+39b5ef051288fd057512dce3163fe8f5981b66a82b80bbf5e86f02aad2daa9cd  holdout_v2.csv
+7368f4ec086dee4b070c1295a0c7aca0fdee1135b787846daf790834407a27b9  SYNTHETIC_holdout_v2_formulary.csv
+376c52cadac7bfccc9a7eeb82044f3a325068c7e2fdb025344cfbbe3ff019d37  holdout_v2_events.json
