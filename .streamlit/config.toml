@@ -1,17 +1,32 @@
-# Streamlit theme for the console (AE-03). Dark operations-console look.
+# Hanson Labs brand, FORMULARY sub-theme (light, calm, clinical). Source of truth for the colours:
+# dev-team/brand/tokens/build_tokens.py -> tokens/streamlit/formulary.config.toml (WCAG-checked, 170 pairs).
+# Needs Streamlit 1.46+ for Google-font URLs and baseRadius; pinned to 1.66.1 in requirements.txt.
+# Brand CSS on top of this theme: app/assets/formulary.css (status stickers, panels, masthead).
 [theme]
-base = "dark"
-primaryColor = "#4C90F0"
-backgroundColor = "#1C2127"
-secondaryBackgroundColor = "#252A31"
-textColor = "#F6F7F9"
-font = "sans serif"
+base = "light"
+primaryColor = "#1D4ED8"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F4F5F2"
+textColor = "#1B1B1B"
+linkColor = "#1D4ED8"
+borderColor = "#D5D9DE"
+baseRadius = "4px"
+baseFontSize = 17
+# One family per URL: Streamlit 1.66 rejects a font URL that names several families (the brand snippet does).
+font = "Atkinson Hyperlegible Next:https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&display=swap"
+headingFont = "Source Serif 4:https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap"
+codeFont = "IBM Plex Mono:https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+chartCategoricalColors = ["#2563EB", "#A14A07", "#14532D", "#9A3412", "#5F6670"]
+
+[theme.sidebar]
+backgroundColor = "#F4F5F2"
 
 [browser]
 gatherUsageStats = false
 
 [server]
 address = "localhost"
+enableStaticServing = true   # app/static/wallpaper: the Home-only background engine
 
 [client]
 toolbarMode = "minimal"

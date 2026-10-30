@@ -372,3 +372,10 @@
 - Checks: new test file against the old run.py: 4 failed (e.g. "a suite that never ran was recorded as ok: {... 'error': 1 ...}"); with the fix: 4 passed. Quick subset `pytest -x -q` on test_run_pytest, test_run, test_ndc, test_match, test_dq: 70 passed. Full suite not run (RAM brief).
 - Open: pre-existing uncommitted edits to README.md, docs/impact.md, reports/impact_metrics.json, reports/match_quality.json were left untouched and NOT committed (not mine).
 - Next: QA Engineer.
+
+## 2026-10-30 | design-lead | Hanson Labs FORMULARY restyle (OVERNIGHT_PLAN step 4)
+- **Did:** Light FORMULARY theme (`.streamlit/config.toml`) plus `app/assets/formulary.css`; Atkinson Hyperlegible Next 17 px / Source Serif 4 / IBM Plex Mono; pharmacy-label status stickers (icon + word); a large auxiliary label on the object view; a lead number with a ruled ledger in place of 6 identical cards; a takeaway band on Home; the Hanson Labs logo, favicon and footer lockup; the wallpaper only in the Home band, OFF by default behind a toggle, with a Pause button; `?as=` persisted and a sidebar "Where you were" button; the sidebar collapses on phones; the Metrics chart row height fixed (alt.Step).
+- **Files:** .streamlit/config.toml, app/ui.py, app/Home.py, app/pages/1_Drug.py, 2_Audit.py, 3_Match_Quality.py, 4_Metrics.py, app/assets/*, app/static/wallpaper/hl-wallpaper.js, tests/test_app.py (+1 test), README.md (one line), docs/demo/*.png (6 retaken + 01b + mobile/*_375), docs/team/DESIGN_REVIEW.md (new).
+- **Checks:** test_app 11 passed; full pytest **312 passed, 2 skipped**; ruff clean on app/. Screenshots were taken with headless Chrome on a scratch DB copy; the server and Chrome are stopped.
+- **Open:** The brand Streamlit snippet's multi-family font URL is rejected by Streamlit 1.66 (brand owner to fix build_tokens.py). Not tested on a real phone. Backlog count shows 39 (old shot: 40); that comes from the demo DB, not this change.
+- **Next:** qa-engineer (spot-check the screens). Bigger idea, not built: the allocation/backorder board (VoC #1), see DESIGN_REVIEW.md NEXT.

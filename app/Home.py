@@ -20,10 +20,9 @@ from console import queries  # noqa: E402
 QUESTION = ("Of the shortages that are new or got worse since yesterday, which ones hit drugs Riverbend stocks, "
             "and which need a decision first?")
 CAP = queries.QUEUE_CAP
-CHANGE_STYLE = {"NEW": "background-color:#2D72D2;color:#fff;font-weight:700",
-                "WORSENED": "background-color:#CD4246;color:#fff;font-weight:700"}
-AVAIL_STYLE = {"Unavailable": "color:#FA999C;font-weight:700", "Limited": "color:#FBB360;font-weight:700",
-               "Available": "color:#72CA9B", "Unknown": "color:#ABB3BF"}
+CHANGE_STYLE = {"NEW": ui.CELL["accent"], "WORSENED": ui.CELL["warn"]}
+AVAIL_STYLE = {"Unavailable": ui.CELL["bad_text"], "Limited": ui.CELL["warn_text"],
+               "Available": ui.CELL["ok_plain"], "Unknown": ui.CELL["muted"]}
 TIER_SHORT = {1: "T1 NDC", 2: "T2 product", 3: "T3 ingredient"}
 DAYS_COL = st.column_config.NumberColumn(format="%d d", width="small", help="Lowest SYNTHETIC days on hand")
 
@@ -47,7 +46,7 @@ def _page(df: pd.DataFrame, key: str, noun: str) -> pd.DataFrame:
     page = st.selectbox(f"Page (showing {CAP} of {n} {noun})", list(range(1, pages + 1)), key=key,
                         format_func=lambda p: f"{(p - 1) * CAP + 1}-{min(p * CAP, n)} of {n}")
     start = (page - 1) * CAP
-    st.markdown(f'<div class="lockmsg" style="color:#8ABBFF">{n - CAP} more beyond the top {CAP}; '
+    st.markdown(f'<div class="dsc-more">{n - CAP} more beyond the top {CAP}; '
                 f'nothing is hidden, use the page control.</div>', unsafe_allow_html=True)
     return df.iloc[start:start + CAP]
 
@@ -77,8 +76,8 @@ def _open_from(table_event, keys: list[str]) -> None:
 
 
 def _daily(con, info: dict, q: pd.DataFrame) -> None:
-    st.markdown(f"#### Since yesterday &nbsp;{ui.badge(info['previous'], 'NA')} &rarr; "
-                f"{ui.badge(info['latest'], 'NA')}", unsafe_allow_html=True)
+    st.markdown(f"#### Since yesterday &nbsp;{ui.badge(info['previous'], 'date')} &rarr; "
+                f"{ui.badge(info['latest'], 'date')}", unsafe_allow_html=True)
     st.caption("Actionable only: Limited, Unavailable or To Be Discontinued, not Resolved. Ranked by availability, "
                "then lowest SYNTHETIC days on hand, then match tier, then sites affected. Click a row to open it.")
     if q.empty:
@@ -89,9 +88,9 @@ def _daily(con, info: dict, q: pd.DataFrame) -> None:
     styled = (t.style
               .map(lambda v: CHANGE_STYLE.get(v, ""), subset=["Change"])
               .map(lambda v: AVAIL_STYLE.get(v, ""), subset=["Availability", "Was"])
-              .map(lambda v: "color:#FA999C;font-weight:700" if isinstance(v, (int, float)) and v <= 7 else "",
+              .map(lambda v: ui.CELL["bad_text"] if isinstance(v, (int, float)) and v <= 7 else "",
                    subset=["Days on hand"])
-              .map(lambda v: "color:#72CA9B;font-weight:700" if v == "Approved" else "", subset=["Substitute"]))
+              .map(lambda v: ui.CELL["ok_text"] if v == "Approved" else "", subset=["Substitute"]))
     ev = st.dataframe(styled, hide_index=True, width="stretch", on_select="rerun", selection_mode="single-row",
                       key="queue_table",
                       column_config={"#": st.column_config.NumberColumn(width="small"), "Days on hand": DAYS_COL,
@@ -120,11 +119,57 @@ def _worklist(w: pd.DataFrame, as_main: bool) -> None:
         return
     shown = _page(w, "worklist_page" if as_main else "worklist_page_bg", "formulary items")
     styled = _worklist_table(shown).style.map(
-        lambda v: AVAIL_STYLE.get(v, "color:#ABB3BF"), subset=["Worst availability"])
+        lambda v: AVAIL_STYLE.get(v, ui.CELL["muted"]), subset=["Worst availability"])
     ev = st.dataframe(styled, hide_index=True, width="stretch", on_select="rerun", selection_mode="single-row",
                       key="worklist_table" if as_main else "worklist_table_bg",
                       column_config={"#": st.column_config.NumberColumn(width="small"), "Days on hand": DAYS_COL})
     _open_from(ev, shown["worst_event_key"].tolist())
+
+
+def _plural(n: int, one: str, many: str) -> str:
+    return f"{n} {one if n == 1 else many}"
+
+
+def _overview_band(kicker: str, title: str, sub: str) -> None:
+    """The takeaway for the whole page in one sentence. The optional moving background lives ONLY here, on the
+    Home overview, behind a solid paper panel; it is OFF by default (audience rule: no motion while they work).
+    The Drug object view, Audit and the action forms never load it."""
+    paper = (f'<div class="paper"><div class="k">{ui.esc(kicker)}</div><div class="t">{ui.esc(title)}</div>'
+             f'<div class="s">{ui.esc(sub)}</div></div>')
+    if "wallpaper" not in st.session_state:  # off by default; ?bg=1 (a bookmark) turns it on for this session
+        st.session_state["wallpaper"] = st.query_params.get("bg") == "1"
+    if not st.session_state["wallpaper"]:
+        st.markdown(f'<div class="dsc-band">{paper}</div>', unsafe_allow_html=True)
+        return
+    # Engine files are served by Streamlit's static route (server.enableStaticServing) as real files, because
+    # st.html mangles a large inline script. Its layout CSS is part of app/assets/formulary.css.
+    st.html(
+        f'<div class="dsc-band" id="dsc-band-wall">{paper}</div>'
+        '<script src="app/static/wallpaper/hl-wallpaper.js"></script>'
+        """<script>
+(function start(tries) {
+  var b = document.getElementById("dsc-band-wall");
+  if (!b || b.__hlw) return;
+  if (!window.HansonWallpaper) { if (tries < 40) setTimeout(function () { start(tries + 1); }, 100); return; }
+  if (window.__dscWall) { try { window.__dscWall.destroy(); } catch (e) {} }
+  var w = HansonWallpaper.mount({ theme: "formulary", container: b, mode: "story", scope: "dsc-home", fps: 30 });
+  b.__hlw = w; window.__dscWall = w;
+  var mo = new MutationObserver(function () {   /* leaving Home or hiding it removes the box: stop drawing */
+    if (document.body.contains(b)) return;
+    w.destroy(); mo.disconnect(); if (window.__dscWall === w) window.__dscWall = null;
+  });
+  mo.observe(document.body, { childList: true, subtree: true });
+})(0);</script>""", unsafe_allow_javascript=True)
+
+
+def _wallpaper_toggle() -> None:
+    st.toggle("Moving background (this overview only)", key="wallpaper",
+              help="Off by default. A slow, low-contrast pharmacy-label pattern behind the summary above, with a "
+                   "Pause motion button. It is never shown on the Drug, Audit or action screens.")
+    if st.session_state["wallpaper"]:
+        st.query_params["bg"] = "1"
+    elif "bg" in st.query_params:
+        del st.query_params["bg"]
 
 
 with ui.page("Morning triage queue", QUESTION) as con:
@@ -135,34 +180,48 @@ with ui.page("Morning triage queue", QUESTION) as con:
     watch = queries.watch_list(con)
     counts = queries.change_counts(con)
 
-    c = st.columns(6)
+    needs = int(((q["open_tasks"] == 0) & (~q["substitute_approved"])).sum())
+    low = "n/a" if q.empty else int(q["min_days_on_hand"].min())
     if baseline:
-        ui.kpi(c[0], "Baseline review", len(w), "formulary items, one time")
+        items = _plural(len(w), "formulary item has", "formulary items have")
+        _overview_band(f"Baseline day {info['latest']}", f"{items} an actionable shortage. Review them once.",
+                       f"The daily since-yesterday queue starts with the next snapshot. Watch list: {len(watch)}.")
+    else:
+        _overview_band(f"Since yesterday, {info['previous']} to {info['latest']}",
+                       f"{_plural(len(q), 'shortage hits', 'shortages hit')} drugs Riverbend stocks. "
+                       f"{needs} {'needs' if needs == 1 else 'need'} a decision.",
+                       f"Lowest SYNTHETIC days on hand: {low}. Watch list (new or worse, still available): "
+                       f"{len(watch)}.")
+    _wallpaper_toggle()
+
+    c = st.columns([1.35, 1, 1, 1, 1, 1])
+    if baseline:
+        ui.kpi(c[0], "Baseline review", len(w), "formulary items, one time", lead=True)
         ui.kpi(c[1], "Daily queue", 0, "starts with the next snapshot")
         ui.kpi(c[2], "Unavailable items", int((w["worst_availability"] == "Unavailable").sum()), "in the review")
         ui.kpi(c[3], "FDA records matched", int(w["n_events"].sum()) if len(w) else 0, "actionable, stocked")
         ui.kpi(c[4], "Lowest days on hand", "n/a" if w.empty else int(w["min_days_on_hand"].min()), "SYNTHETIC stock")
         ui.kpi(c[5], "Watch list", len(watch), "matched, not actionable")
     else:
-        ui.kpi(c[0], "In queue", len(q), f"actionable; top {CAP} shown" if len(q) > CAP else "actionable, stocked")
+        ui.kpi(c[0], "In queue", len(q), f"actionable; top {CAP} shown" if len(q) > CAP else "actionable, stocked",
+               lead=True)
         ui.kpi(c[1], "New", int((q["change_type"] == "NEW").sum()), f"{counts.get('NEW', 0)} on the FDA list")
         ui.kpi(c[2], "Worsened", int((q["change_type"] == "WORSENED").sum()),
                f"{counts.get('WORSENED', 0)} on the FDA list")
-        ui.kpi(c[3], "Lowest days on hand", "n/a" if q.empty else int(q["min_days_on_hand"].min()), "SYNTHETIC stock")
-        ui.kpi(c[4], "Needs a decision", int(((q["open_tasks"] == 0) & (~q["substitute_approved"])).sum()),
-               "no open task, no approved substitute")
+        ui.kpi(c[3], "Lowest days on hand", low, "SYNTHETIC stock", tone="bad" if low != "n/a" and low <= 7 else "")
+        ui.kpi(c[4], "Needs a decision", needs, "no open task, no approved substitute", tone="warn" if needs else "")
         ui.kpi(c[5], "Watch list", len(watch), "new/worse but still available")
 
     st.write("")
-    left, right = st.columns([4.2, 1])
+    left, right = st.columns([3.3, 1.2])
     with left:
         if baseline:
             st.markdown(
-                f'<div class="dsc-strip" style="background:rgba(45,114,210,.15);border:1px solid #2D72D2;'
-                f'color:#8ABBFF"><b>Baseline day ({ui.esc(info["latest"])}).</b> This is the first snapshot, so '
+                f'<div class="dsc-strip dsc-info"><div><b>Baseline day ({ui.esc(info["latest"])}).</b> '
+                f'This is the first snapshot, so '
                 f'there is no "since yesterday" yet: every FDA record would look NEW. Instead, review this '
                 f'one-time list once, one row per formulary item. The daily queue starts with the next '
-                f'snapshot (ADR 007).</div>', unsafe_allow_html=True)
+                f'snapshot (ADR 007).</div></div>', unsafe_allow_html=True)
             st.markdown("#### Baseline review: formulary items with an actionable shortage")
             st.caption("Ranked by worst availability, then lowest SYNTHETIC days on hand, then match tier. Click a "
                        "row to open its worst FDA record.")
@@ -203,7 +262,7 @@ with ui.page("Morning triage queue", QUESTION) as con:
         chain = verify_chain(con)
         st.markdown("#### Activity")
         st.markdown(f"Audit chain {ui.badge('OK' if chain.ok else 'BROKEN', 'OK' if chain.ok else 'FAIL')} "
-                    f"<span style='color:#ABB3BF;font-size:12px'>{chain.rows_checked} rows</span>",
+                    f"<span class='dsc-muted'>{chain.rows_checked} rows</span>",
                     unsafe_allow_html=True)
         recent = queries.audit_entries(con).head(7)
         if recent.empty:
@@ -214,6 +273,9 @@ with ui.page("Morning triage queue", QUESTION) as con:
                 f'<div class="feed"><div class="t">#{r.seq} {str(r.ts_utc)[:16]} UTC</div>'
                 f'{ui.badge(r.outcome)} <b>{ui.esc(r.actor or r.actor_id)}</b> '
                 f'{ui.esc(r.action_type.replace("_", " "))}{ui.esc(crit)}<br>'
-                f'<span style="color:#ABB3BF">{ui.esc(r.object_key)}</span></div>', unsafe_allow_html=True)
+                f'<span class="o">{ui.esc(r.object_key)}</span></div>', unsafe_allow_html=True)
+        # NEXT (not built, out of scope for the restyle): the #1 build-next item in research/voc/voc-drug-shortage.md,
+        # an allocation and backorder board (ordered vs received per wholesaler, "expected back" date, days-on-hand
+        # gauge). It would sit here as a second rail panel and as its own page. See docs/team/DESIGN_REVIEW.md.
         if st.button("Open audit log", width="stretch"):
             st.switch_page("pages/2_Audit.py")

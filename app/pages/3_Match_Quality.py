@@ -60,17 +60,19 @@ with ui.page("Match quality", QUESTION) as con:
     where = "an unseen holdout the matcher author never opened" if q["unseen"] else "the frozen gold set"
     if not (r_ok and p_ok):
         st.markdown(
-            f'<div class="dsc-strip dsc-stale" style="font-size:14px"><b>BELOW TARGET. Headline: '
+            f'<div class="dsc-strip dsc-stale">{ui.badge("FAIL")}<div><b>BELOW TARGET. Headline: '
             f'{ui.esc(q["label"])}.</b> Recall {_f(m["recall"])} vs target {tg["recall"]} ({m["fn"]} of '
             f'{m["tp"] + m["fn"]} true matches missed). Precision {_f(m["precision"])} '
             f'{"meets" if p_ok else "misses"} its {tg["precision"]} target. Measured once on {where}; '
-            f'nobody tuned the labels to pass.</div>', unsafe_allow_html=True)
+            f'nobody tuned the labels to pass.</div></div>', unsafe_allow_html=True)
     else:
-        st.markdown(f'<div class="dsc-strip dsc-fresh">Headline ({ui.esc(q["label"])}) meets both targets.</div>',
+        st.markdown(f'<div class="dsc-strip dsc-fresh">{ui.badge("PASS")}<div>Headline ({ui.esc(q["label"])}) '
+                    f'meets both targets.</div></div>',
                     unsafe_allow_html=True)
 
     c = st.columns(5)
-    ui.kpi(c[0], "Recall", _f(m["recall"]), f"target >= {tg['recall']}  {'PASS' if r_ok else 'FAIL'}")
+    ui.kpi(c[0], "Recall", _f(m["recall"]), f"target >= {tg['recall']}  {'PASS' if r_ok else 'FAIL'}",
+           tone="" if r_ok else "bad", lead=True)
     ui.kpi(c[1], "Precision", _f(m["precision"]), f"target >= {tg['precision']}  {'PASS' if p_ok else 'FAIL'}")
     ui.kpi(c[2], "F1", _f(m["f1"]), f"tp {m['tp']}  fp {m['fp']}  fn {m['fn']}")
     ui.kpi(c[3], "Fairer baseline recall", _f(fair["recall"]), f"precision {_f(fair['precision'])}")
@@ -96,7 +98,7 @@ with ui.page("Match quality", QUESTION) as con:
         hist["Label"] = hist["seen"].map({True: "seen, optimistic", False: "unseen"})
         st.dataframe(hist[["run", "Label", "precision", "recall", "f1", "tp", "fp", "fn"]]
                      .rename(columns={"run": "Run", "precision": "Precision", "recall": "Recall", "f1": "F1"})
-                     .style.map(lambda v: "color:#FBB360;font-weight:700" if v == "seen, optimistic" else "",
+                     .style.map(lambda v: ui.CELL["warn_text"] if v == "seen, optimistic" else "",
                                 subset=["Label"]),
                      hide_index=True, width="stretch",
                      column_config={"Precision": NUM3, "Recall": NUM3, "F1": NUM3})

@@ -35,7 +35,14 @@ def _run(label: str, fn, *args) -> None:
 
 
 def _lock(msg: str) -> None:
-    st.markdown(f'<div class="lockmsg">Locked: {ui.esc(msg)}</div>', unsafe_allow_html=True)
+    st.markdown(ui.lock_html(msg), unsafe_allow_html=True)
+
+
+AVAIL_NOTE = {"Unavailable": "FDA lists it as unavailable. Substitutes are below; a pharmacist decides.",
+              "Limited": "FDA lists limited supply. Check stock and the substitutes below.",
+              "Available": "FDA lists it as available.", "Unknown": "FDA gives no availability."}
+CHANGE_NOTE = {"NEW": "New on the FDA list since the previous snapshot.",
+               "WORSENED": "Availability got worse since the previous snapshot."}
 
 
 with ui.page("Drug object view", QUESTION) as con:
@@ -64,6 +71,7 @@ with ui.page("Drug object view", QUESTION) as con:
         st.query_params["event"] = picked
         st.rerun()
     st.session_state["event_key"] = current
+    st.session_state["event_name"] = labels.get(current, current)  # for the sidebar's "Where you were" link
 
     obj = queries.drug_object(con, current)
     ev, drug = obj["event"], obj["drug"] or {}
@@ -81,10 +89,10 @@ with ui.page("Drug object view", QUESTION) as con:
     n_open = sum(1 for t in obj["tasks"] if t["state"] == "open")
     st.markdown(
         f'<div class="objcard"><div class="type">Object: Drug &nbsp;/&nbsp; ShortageEvent {ui.esc(current)}</div>'
-        f'<div class="name">{ui.esc(ev["generic_name"])} &nbsp;'
-        f'{ui.badge(change_now) if change_now in ("NEW", "WORSENED") else ""} '
-        f'{ui.badge(ev["availability_normalized"])}</div>'
-        f'<div style="font-size:12.5px;color:#ABB3BF;margin-bottom:8px">{ui.esc(ev["presentation"])}</div>'
+        f'<div class="name">{ui.esc(ev["generic_name"])}</div>'
+        f'<div class="pres">{ui.esc(ev["presentation"])}</div>'
+        f'<div>{ui.aux_label(ev["availability_normalized"], AVAIL_NOTE.get(ev["availability_normalized"], ""))}'
+        f'{ui.aux_label(change_now, CHANGE_NOTE[change_now]) if change_now in CHANGE_NOTE else ""}</div>'
         f'<div class="props">' + "".join(f'<div><span>{ui.esc(k)}</span><b>{ui.esc(v if v is not None else "n/a")}'
                                          f'</b></div>' for k, v in props) + '</div>'
         f'<div class="links">Links: <b>{1 + len(obj["sibling_events"])}</b> ShortageEvent &middot; '

@@ -36,6 +36,8 @@ Screenshots of the full click-through (queue, object, action, audit), taken on a
 | ![After approve](docs/demo/03_object_after_approve.png) **3. Pharmacist approves** a substitute and opens a task; no rebuild needed. | ![Audit](docs/demo/04_audit_verify_ok.png) **4. Audit page.** Chain verifies; the buyer's REFUSED attempt sits next to the SUCCESS rows. |
 | ![Metrics](docs/demo/05_metrics.png) **5. Metrics.** Guardrails and the SIMULATED time-to-action. | ![Match quality](docs/demo/06_match_quality.png) **6. Match quality.** Per tier, per variant, every failing pair with its rationale. |
 
+Phone-width (375 px) versions are in [docs/demo/mobile/](docs/demo/mobile/). The optional moving background (Home overview only, off by default) is shown in [01b_queue_background_on.png](docs/demo/01b_queue_background_on.png). Design notes and before/after: [docs/team/DESIGN_REVIEW.md](docs/team/DESIGN_REVIEW.md).
+
 ## Infographics
 
 Rendered by `python docs/img/make_charts.py` (needs matplotlib) from the report files.

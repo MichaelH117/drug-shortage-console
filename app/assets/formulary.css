@@ -1,0 +1,193 @@
+/* Hanson Labs / FORMULARY: brand layer on top of .streamlit/config.toml.
+   Palette: dev-team/brand/tokens/themes/formulary.css (light), every text pair >= 4.5:1 (see CONTRAST.md there).
+   Rules: flat colour, hairlines, a 2 px ink rule on top of panels, corners 0-4 px, no gradients, glows or shadows.
+   Status is never colour alone: every sticker has a shape (icon) and a word.
+   Only stable hooks: data-testid attributes, .st-key-* and our own .dsc-* classes (no st-emotion-cache-*). */
+:root {
+  --hl-font-display: "Source Serif 4", Georgia, serif;
+  --hl-font-body: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", Verdana, sans-serif;
+  --hl-font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --hl-bg: #F4F5F2; --hl-panel: #FFFFFF; --hl-ink: #1B1B1B; --hl-ink-2: #33363A; --hl-muted: #5F6670;
+  --hl-accent: #1D4ED8; --hl-ok: #14532D; --hl-warn: #A14A07; --hl-bad: #9A3412; --hl-mark: #2563EB;
+  --hl-focus: #1D4ED8; --hl-line: #D5D9DE;
+  --hl-ok-tint: #EAF3EE; --hl-warn-tint: #FCF1E6; --hl-bad-tint: #FBEDE7; --hl-accent-tint: #EDF2FD;
+  --hlw-paper: #F4F5F2; --hlw-a: #14532D; --hlw-b: #B45309; --hlw-c: #1D4ED8; --hlw-line: #14532D; --hlw-strength: .10;
+  --hl-radius: 4px; --hl-touch: 44px;
+}
+
+/* ---- page frame ---------------------------------------------------------------------------------------- */
+[data-testid="stMainBlockContainer"], .block-container { padding-top: 2.6rem; padding-bottom: 2rem; max-width: 1480px; }
+[data-testid="stAppViewContainer"] { background: var(--hl-panel); }
+h1, h2, h3, h4, h5 { font-family: var(--hl-font-display); color: var(--hl-ink); letter-spacing: 0; }
+h4 { font-size: 1.35rem; } h5 { font-size: 1.12rem; }
+[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p, .stCaption { color: var(--hl-muted) !important; font-size: .92rem; opacity: 1 !important; }
+:focus-visible { outline: 3px solid var(--hl-focus) !important; outline-offset: 2px; }
+button, [role="button"], [data-baseweb="select"] > div { min-height: var(--hl-touch); }
+hr { border-color: var(--hl-line) !important; }
+
+/* sidebar: quiet paper, nav as a ruled list */
+[data-testid="stSidebar"] { border-right: 1px solid var(--hl-line); }
+[data-testid="stSidebarNav"] a { border-radius: 2px; min-height: 40px; }
+[data-testid="stSidebarNav"] a[aria-current="page"] { background: var(--hl-panel); box-shadow: inset 3px 0 0 var(--hl-ink); }
+[data-testid="stSidebarNav"] span { font-size: 1rem; color: var(--hl-ink); }
+
+/* expanders and bordered containers: hairline paper, ink rule on top */
+[data-testid="stExpander"] details { border: 1px solid var(--hl-line); border-top: 2px solid var(--hl-ink-2); border-radius: 2px; background: var(--hl-panel); }
+[data-testid="stExpander"] summary { min-height: var(--hl-touch); font-weight: 500; }
+[data-testid="stForm"] { border: 1px solid var(--hl-line); border-top: 2px solid var(--hl-ink); border-radius: 2px; background: var(--hl-panel); }
+[data-testid="stDataFrame"] { border-top: 2px solid var(--hl-ink); }
+
+/* ---- masthead ------------------------------------------------------------------------------------------ */
+.dsc-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px 24px; flex-wrap: wrap;
+  border-bottom: 2px solid var(--hl-ink); padding-bottom: 10px; margin-bottom: 12px; }
+.dsc-eyebrow { font: 700 .8rem/1.2 var(--hl-font-body); letter-spacing: .06em; text-transform: uppercase; color: var(--hl-muted); }
+.dsc-title { font: 700 2.05rem/1.15 var(--hl-font-display); color: var(--hl-ink); margin-top: 2px; }
+.dsc-meta { display: grid; grid-template-columns: repeat(5, auto); gap: 2px 20px; font-size: .82rem; color: var(--hl-muted); }
+.dsc-meta span { display: flex; flex-direction: column; }
+.dsc-meta b { color: var(--hl-ink); font: 500 .95rem/1.3 var(--hl-font-mono); font-variant-numeric: tabular-nums; }
+.q { font-size: 1rem; color: var(--hl-ink-2); margin: 2px 0 14px 0; max-width: 72ch; }
+.q b { font-weight: 700; color: var(--hl-ink); }
+
+/* strips: a coloured left rule, a sticker and plain words on paper (never a coloured wall of text) */
+.dsc-strip { display: block; border: 1px solid var(--hl-line); border-left: 6px solid var(--c, var(--hl-muted));
+  background: var(--t, var(--hl-bg)); color: var(--hl-ink); border-radius: 2px; padding: 9px 14px; font-size: .95rem; margin: 6px 0; line-height: 1.45; }
+.dsc-strip:has(> .badge) { display: flex; gap: 12px; align-items: flex-start; }
+.dsc-strip > .badge { flex: none; margin-top: 1px; }
+.dsc-synth { --c: var(--hl-warn); --t: var(--hl-warn-tint); }
+.dsc-stale { --c: var(--hl-bad); --t: var(--hl-bad-tint); }
+.dsc-fresh { --c: var(--hl-ok); --t: var(--hl-ok-tint); }
+.dsc-info  { --c: var(--hl-accent); --t: var(--hl-accent-tint); }
+
+/* ---- status stickers: pharmacy auxiliary labels ---------------------------------------------------------
+   A rectangular sticker with a solid band carrying an icon (the shape) and a word on white. */
+.badge { --c: var(--hl-muted); display: inline-flex; align-items: stretch; vertical-align: middle; border: 1.5px solid var(--c);
+  border-radius: 2px; background: var(--hl-panel); color: var(--c); font: 700 .74rem/1 var(--hl-font-body);
+  letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; overflow: hidden; margin: 1px 2px; }
+.badge .ic { display: inline-flex; align-items: center; background: var(--c); color: #fff; padding: 0 4px; }
+.badge .ic svg { width: 13px; height: 13px; }
+.badge .tx { padding: 4px 7px 3px; }
+.b-NEW, .b-proposed, .b-open { --c: var(--hl-accent); }
+.b-WORSENED, .b-Limited, .b-SYNTHETIC { --c: var(--hl-warn); }
+.b-Unavailable, .b-FAIL, .b-REFUSED, .b-rejected, .b-BROKEN { --c: var(--hl-bad); }
+.b-RESOLVED, .b-IMPROVED, .b-Available, .b-PASS, .b-SUCCESS, .b-OK, .b-approved { --c: var(--hl-ok); }
+.b-DROPPED, .b-UNCHANGED, .b-Unknown, .b-NA, .b-candidate, .b-closed { --c: var(--hl-muted); }
+.b-role { --c: var(--hl-ink-2); }
+.b-date { --c: var(--hl-ink-2); font-family: var(--hl-font-mono); font-weight: 500; letter-spacing: 0; }
+
+/* the big auxiliary label on the object view: bold top band, instruction underneath */
+.aux { display: inline-block; min-width: 230px; border: 2px solid var(--c); border-radius: 2px; background: var(--hl-panel); vertical-align: top; margin: 0 8px 8px 0; }
+.aux .band { display: flex; gap: 8px; align-items: center; background: var(--c); color: #fff; padding: 6px 10px;
+  font: 700 .86rem/1 var(--hl-font-body); letter-spacing: .07em; text-transform: uppercase; }
+.aux .band svg { width: 16px; height: 16px; }
+.aux .body { padding: 7px 10px; font-size: .9rem; color: var(--hl-ink); }
+.aux.b-Unavailable { --c: var(--hl-bad); } .aux.b-Limited, .aux.b-WORSENED { --c: var(--hl-warn); }
+.aux.b-NEW { --c: var(--hl-accent); } .aux.b-Available, .aux.b-RESOLVED { --c: var(--hl-ok); } .aux.b-Unknown { --c: var(--hl-muted); }
+
+/* ---- figures: one lead number, the rest a quiet ruled ledger (not six identical cards) ------------------- */
+.kpi { border-top: 2px solid var(--hl-ink); padding: 8px 2px 4px; height: 100%; }
+.kpi .k { font-size: .86rem; color: var(--hl-ink-2); font-weight: 700; }
+.kpi .v { font: 500 1.9rem/1.2 var(--hl-font-mono); color: var(--hl-ink); font-variant-numeric: tabular-nums; }
+.kpi .s { font-size: .84rem; color: var(--hl-muted); line-height: 1.3; }
+.kpi.lead { border-top: 6px solid var(--hl-ink); }
+.kpi.lead .v { font: 700 3.1rem/1.05 var(--hl-font-display); }
+.kpi.bad .v { color: var(--hl-bad); } .kpi.bad { border-top-color: var(--hl-bad); }
+.kpi.warn .v { color: var(--hl-warn); } .kpi.ok .v { color: var(--hl-ok); }
+
+/* ---- object card --------------------------------------------------------------------------------------- */
+.objcard { background: var(--hl-panel); border: 1px solid var(--hl-line); border-top: 6px solid var(--hl-ink); border-radius: 2px;
+  padding: 14px 18px; margin-bottom: 10px; }
+.objcard .type { font: 500 .8rem/1.2 var(--hl-font-mono); color: var(--hl-muted); }
+.objcard .name { font: 700 2rem/1.15 var(--hl-font-display); color: var(--hl-ink); margin: 4px 0 4px 0; }
+.objcard .pres { font-size: .95rem; color: var(--hl-ink-2); margin-bottom: 10px; }
+.props { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px 22px; font-size: .9rem;
+  border-top: 1px solid var(--hl-line); padding-top: 10px; }
+.props div span { display: block; color: var(--hl-muted); font-size: .8rem; }
+.props div b { color: var(--hl-ink); font: 500 .95rem/1.3 var(--hl-font-mono); }
+.links { font-size: .9rem; color: var(--hl-ink-2); margin-top: 10px; }
+.links b { color: var(--hl-ink); font-family: var(--hl-font-mono); }
+.lockmsg { display: flex; gap: 6px; align-items: center; font-size: .9rem; color: var(--hl-warn); margin: -2px 0 8px 0; font-weight: 700; }
+.lockmsg svg { width: 15px; height: 15px; flex: none; }
+.dsc-more { font-size: .9rem; color: var(--hl-accent); margin: -4px 0 8px 0; }
+
+/* ---- activity rail ------------------------------------------------------------------------------------- */
+.feed { font-size: .9rem; border-left: 2px solid var(--hl-line); padding: 2px 0 8px 12px; margin-bottom: 2px; line-height: 1.4; }
+.feed .t { color: var(--hl-muted); font: 400 .78rem/1.3 var(--hl-font-mono); }
+.feed .o { color: var(--hl-muted); font-family: var(--hl-font-mono); font-size: .8rem; }
+.dsc-muted { color: var(--hl-muted); font-size: .85rem; }
+
+/* ---- Home overview band (the only place the wallpaper may appear) ---------------------------------------- */
+.dsc-band { position: relative; border: 1px solid var(--hl-line); border-radius: 2px; background: var(--hl-bg); padding: 22px; margin: 2px 0 14px 0; min-height: 132px; overflow: hidden; }
+.dsc-band .paper { position: relative; z-index: 1; background: var(--hl-panel); border-top: 2px solid var(--hl-ink); padding: 12px 18px; max-width: 760px; }
+.dsc-band .paper .k { font: 700 .8rem/1.2 var(--hl-font-body); letter-spacing: .06em; text-transform: uppercase; color: var(--hl-muted); }
+.dsc-band .paper .t { font: 700 1.55rem/1.25 var(--hl-font-display); color: var(--hl-ink); margin-top: 4px; }
+.dsc-band .paper .s { font-size: .95rem; color: var(--hl-ink-2); margin-top: 4px; }
+.dsc-band .hlw-controls { right: 10px; left: auto !important; }
+
+/* ---- footer lockup ------------------------------------------------------------------------------------- */
+.hl-lockup { display: inline-flex; align-items: center; gap: .5em; color: var(--hl-ink-2); font: 500 .85rem/1.2 var(--hl-font-body); }
+.hl-lockup svg { width: 1.7em; height: 1.7em; flex: none; }
+.hl-lockup .hl-dot { fill: #0E7A5F; }
+.hl-lockup b { font-weight: 700; }
+.dsc-foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center;
+  border-top: 1px solid var(--hl-line); margin-top: 28px; padding-top: 12px; font-size: .82rem; color: var(--hl-muted); }
+
+/* ---- phone: one column, 16 px gutter, nothing wider than the screen --------------------------------------- */
+@media (max-width: 767.98px) {
+  [data-testid="stMainBlockContainer"], .block-container { padding-left: 16px; padding-right: 16px; padding-top: 3.2rem; }
+  .dsc-title { font-size: 1.6rem; }
+  .dsc-meta { grid-template-columns: repeat(2, auto); }
+  .kpi.lead .v { font-size: 2.4rem; }
+  .objcard .name { font-size: 1.55rem; }
+  .dsc-band { padding: 12px; }
+  .dsc-band .paper .t { font-size: 1.25rem; }
+}
+@media (forced-colors: active) { .badge .ic, .aux .band { forced-color-adjust: none; } }
+@media print { .dsc-band .hlw, .hlw-controls { display: none !important; } }
+
+/* ---- wallpaper engine layout (copied from dev-team/brand/wallpaper/hl-wallpaper.css; used only by the Home band) ---- */
+/* Hanson Labs living wallpaper: layout, static textures and the motion control. Pairs with hl-wallpaper.js.
+   The wallpaper never sits under text: put content on .hl-panel (tokens/base.css) or another solid surface. */
+.hlw { pointer-events: none; overflow: hidden; background: var(--hlw-paper, var(--hl-bg, #F5F2EB)); }
+.hlw-page { position: fixed; inset: 0; z-index: var(--hl-z-wallpaper, -2); }
+.hlw-box { position: absolute; inset: 0; z-index: 0; }
+.hlw[hidden] { display: none; }
+.hlw canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hlw-blobs { filter: blur(14px); transform: scale(1.06); }
+.hlw-box .hlw-blobs { filter: blur(10px); }
+
+/* static, theme-specific textures (they never move) */
+.hlw::after { content: ""; position: absolute; inset: 0; }
+.hlw[data-theme="specimen"]::after, .hlw[data-theme="visor"]::after {
+  background: repeating-linear-gradient(0deg, transparent 0 3px, color-mix(in srgb, var(--hlw-line, #0F5E6B) 4%, transparent) 3px 4px); }
+.hlw[data-theme="visor"]::after {
+  background: repeating-linear-gradient(0deg, transparent 0 2px, color-mix(in srgb, var(--hlw-line, #3FD0E0) 6%, transparent) 2px 3px); }
+.hlw[data-theme="manila"]::after { opacity: .05; mix-blend-mode: multiply;   /* paper fibre */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .55' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .15 0 0 0 1.6 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"); }
+.hlw[data-theme="ledger"]::after {   /* fine security-print rule lines */
+  background: repeating-linear-gradient(135deg, transparent 0 5px, color-mix(in srgb, var(--hlw-line, #0B1F33) 3%, transparent) 5px 6px); }
+
+/* the control: always visible, 44 px, solid, bottom-left of the page or the box */
+.hlw-controls { display: flex; gap: 6px; z-index: var(--hl-z-control, 1035); }
+.hlw-controls-page { position: fixed; left: 14px; bottom: 14px; }
+.hlw-box ~ .hlw-controls, .hlw-controls:not(.hlw-controls-page) { position: absolute; left: 10px; bottom: 10px; }
+.hlw-btn { display: inline-flex; align-items: center; gap: 8px; min-height: var(--hl-touch, 44px); min-width: var(--hl-touch, 44px);
+  padding: 0 14px; border: 1.5px solid var(--hl-ink, #15212B); border-radius: var(--hl-radius, 2px);
+  background: var(--hl-panel, #FBF9F4); color: var(--hl-ink, #15212B); font: 500 .82rem/1 var(--hl-font-body, system-ui, sans-serif); cursor: pointer; }
+.hlw-btn svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
+.hlw-btn:hover { background: var(--hl-ink, #15212B); color: var(--hl-panel, #FBF9F4); }
+.hlw-btn:focus-visible { outline: var(--hl-focus-width, 3px) solid var(--hl-focus, #0F5E6B); outline-offset: 2px; }
+.hlw-btn:disabled { cursor: default; color: var(--hl-muted, #5B6670); border-color: var(--hl-line, #D8D1C2); background: var(--hl-panel, #FBF9F4); }
+.hlw-btn[hidden] { display: none; }
+@media (max-width: 767.98px) {   /* icon-only on phones; the name stays for screen readers */
+  .hlw-btn { padding: 0; justify-content: center; }
+  .hlw-btn span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .hlw-controls-page { left: 8px; bottom: 8px; }
+}
+
+@media (forced-colors: active) { .hlw { display: none; } .hlw-btn { border-color: ButtonText; } }
+@media print { .hlw, .hlw-controls { display: none !important; } }
+/* below 1500 px the page control shrinks to an icon in the left gutter so it covers less of the content */
+@media (max-width: 1499.98px) {
+  .hlw-controls-page .hlw-btn { padding: 0; justify-content: center; }
+  .hlw-controls-page .hlw-btn span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}

@@ -69,11 +69,13 @@ with ui.page("Success metric and guardrails", QUESTION) as con:
 
     st.markdown("#### Primary metric: recall of affected formulary items surfaced in the queue")
     c = st.columns(4)
-    ui.kpi(c[0], "Console recall", _f(p["matcher_recall"]),
+    ui.kpi(c[0], "Console recall", _f(p["matcher_recall"]), lead=True, tone="bad" if p["status"] == "FAIL" else "",
+           sub=
            f"{p['matcher_tp']} of {p['matcher_tp'] + p['matcher_fn']} found; {p['run']}")
     ui.kpi(c[1], "Fairer baseline recall", _f(p["baseline_recall"]), "base-name search (simulated manual)")
     ui.kpi(c[2], "Target", f">= {p['target']}", "EM decision E2")
-    ui.kpi(c[3], "Status", p["status"], "recall below target" if p["status"] == "FAIL" else "meets target")
+    ui.kpi(c[3], "Status", p["status"], "recall below target" if p["status"] == "FAIL" else "meets target",
+           tone="bad" if p["status"] == "FAIL" else "ok")
     if p["status"] == "FAIL":
         st.markdown(f'<div class="dsc-strip dsc-stale"><b>Primary metric misses its target.</b> Headline: '
                     f'{ui.esc(p["run"])}, recall {_f(p["matcher_recall"])} vs {p["target"]}.</div>',
@@ -85,7 +87,7 @@ with ui.page("Success metric and guardrails", QUESTION) as con:
         hist["Label"] = hist["seen"].map({True: "seen, optimistic", False: "unseen"})
         st.dataframe(hist[["run", "Label", "precision", "recall", "f1"]]
                      .rename(columns={"run": "History", "precision": "Precision", "recall": "Recall", "f1": "F1"})
-                     .style.map(lambda v: "color:#FBB360;font-weight:700" if v == "seen, optimistic" else "",
+                     .style.map(lambda v: ui.CELL["warn_text"] if v == "seen, optimistic" else "",
                                 subset=["Label"]),
                      hide_index=True, width="stretch",
                      column_config={k: st.column_config.NumberColumn(format="%.3f")
@@ -97,9 +99,8 @@ with ui.page("Success metric and guardrails", QUESTION) as con:
     g_view = pd.DataFrame({"": "(" + g["id"] + ")", "Guardrail": g["name"], "Protects against": g["protects"],
                            "Value": g["value"].map(_f), "Threshold": g["threshold"], "Status": g["status"],
                            "Detail": g["detail"]})
-    st.dataframe(g_view.style.map(lambda v: {"PASS": "background-color:#238551;color:#fff;font-weight:700",
-                                             "FAIL": "background-color:#CD4246;color:#fff;font-weight:700",
-                                             "N/A": "background-color:#383E47;color:#ABB3BF;font-weight:700"}
+    st.dataframe(g_view.style.map(lambda v: {"PASS": ui.CELL["ok"], "FAIL": ui.CELL["bad"],
+                                             "N/A": ui.CELL["muted"]}
                                   .get(v, ""), subset=["Status"]),
                  hide_index=True, width="stretch")
     b = next(x for x in m["guardrails"] if x["id"] == "b")
@@ -123,12 +124,12 @@ with ui.page("Success metric and guardrails", QUESTION) as con:
         chart = (alt.Chart(d, title=alt.Title("Minutes from detection to first action (SIMULATED)",
                                               subtitle="One bar per affected shortage event; detection = "
                                                        "snapshot time that put it in the queue",
-                                              color="#F6F7F9", subtitleColor="#ABB3BF"))
-                 .mark_bar(color="#4C90F0", cornerRadiusEnd=4, height=14)
+                                              color=ui.INK, subtitleColor=ui.MUTED, anchor="start"))
+                 .mark_bar(color="#2563EB")
                  .encode(x=alt.X("minutes:Q", title="Minutes (detection to first SUCCESS action)"),
-                         y=alt.Y("drug:N", sort="x", title=None),
+                         y=alt.Y("drug:N", sort="x", title=None, axis=alt.Axis(labelLimit=260)),
                          tooltip=["drug", "event_key", "detected_utc", "first_action_utc", "minutes"])
-                 .properties(height=36 * len(d)))
+                 .properties(height=alt.Step(30)))  # one 30 px row per event, whatever the font size
         st.altair_chart(chart, width="stretch")
     if s.get("detail"):
         st.info(s["detail"])

@@ -21,20 +21,21 @@ with ui.page("Audit log", QUESTION) as con:
     status = "OK" if r.ok else f"BROKEN at seq {r.first_broken_seq}"
     cls = "dsc-fresh" if r.ok else "dsc-stale"
     st.markdown(
-        f'<div class="dsc-strip {cls}" style="font-size:14px"><b>Chain verify: {ui.esc(status)}</b> &nbsp; '
+        f'<div class="dsc-strip {cls}">{ui.badge("OK" if r.ok else "BROKEN")}<div>'
+        f'<b>Chain verify: {ui.esc(status)}</b> &nbsp; '
         f'{r.rows_checked} rows recomputed at {ui.esc(r.checked_at_utc.strftime("%Y-%m-%d %H:%M:%S"))} UTC'
         f'{" against the external anchor" if anchor.exists() else " (checkpoints; no external anchor file)"}'
-        f'{" &nbsp; Reason: " + ui.esc(r.reason) if r.reason else ""}</div>', unsafe_allow_html=True)
+        f'{" &nbsp; Reason: " + ui.esc(r.reason) if r.reason else ""}</div></div>', unsafe_allow_html=True)
     st.caption("row_hash = sha256(prev_hash + '|' + canonical_json(row)), genesis '0'*64. There is no update or "
                "delete path; editing row k makes verify report seq k, and deleting the newest row is caught by "
                "the checkpoint table.")
 
     all_rows = queries.audit_entries(con)
     c = st.columns(4)
-    ui.kpi(c[0], "Rows", len(all_rows))
+    ui.kpi(c[0], "Rows", len(all_rows), "every action, allowed or not", lead=True)
     ui.kpi(c[1], "Success", int((all_rows["outcome"] == "SUCCESS").sum()) if len(all_rows) else 0)
     ui.kpi(c[2], "Refused", int((all_rows["outcome"] == "REFUSED").sum()) if len(all_rows) else 0,
-           "logged, nothing changed")
+           "logged, nothing changed", tone="bad")
     ui.kpi(c[3], "Simulated rows", int(all_rows["reason"].fillna("").str.startswith("[SIMULATED]").sum())
            if len(all_rows) else 0, "SIMULATED demo usage, not real users")
     st.write("")
@@ -57,7 +58,6 @@ with ui.page("Audit log", QUESTION) as con:
         st.dataframe(
             view[["seq", "ts_utc", "outcome", "action_type", "object_key", "actor", "role", "failed_criterion",
                   "reason", "old_value", "new_value", "prev_hash", "row_hash"]]
-            .style.map(lambda v: "background-color:#238551;color:#fff;font-weight:700" if v == "SUCCESS" else
-                       ("background-color:#CD4246;color:#fff;font-weight:700" if v == "REFUSED" else ""),
+            .style.map(lambda v: ui.CELL["ok"] if v == "SUCCESS" else (ui.CELL["bad"] if v == "REFUSED" else ""),
                        subset=["outcome"]),
             hide_index=True, width="stretch", height=560)

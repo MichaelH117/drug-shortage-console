@@ -145,3 +145,20 @@ def test_quality_and_metrics_pages_render(app_db, page):
         assert "BELOW TARGET" in html or "meets both targets" in html
     else:
         assert "SIMULATED demo usage, not real users" in html
+
+
+def test_wallpaper_is_off_by_default_and_home_only(app_db):
+    """Design rule (BRAND.md audience rule): the moving background is OFF by default, lives only on the Home
+    overview behind a toggle, and is never sent on a working screen (object view, audit, action forms)."""
+    at = _run("Home.py")
+    assert not at.exception
+    assert at.toggle(key="wallpaper").value is False
+    assert not at.get("html")
+    at.toggle(key="wallpaper").set_value(True).run()
+    assert not at.exception
+    assert any("HansonWallpaper" in str(h.proto) for h in at.get("html"))
+    assert "SYNTHETIC hospital data" in _html(at)
+    for page in ("pages/1_Drug.py", "pages/2_Audit.py"):
+        work = _run(page, bg="1")
+        assert not work.exception
+        assert not work.get("html") and not work.toggle

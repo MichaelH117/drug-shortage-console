@@ -23,54 +23,43 @@ from console.freshness import is_stale, snapshot_age_days  # noqa: E402
 from pipeline.config import DatabaseInUse, connect, load_settings, paths_for  # noqa: E402
 from pipeline.snapshots import local_today  # noqa: E402
 
-CSS = """
-<style>
-.block-container {padding-top: 3.4rem; padding-bottom: 2rem; max-width: 1500px;}
-h1, h2, h3 {letter-spacing: .01em;}
-.dsc-top {display:flex; justify-content:space-between; align-items:flex-end; gap:16px; flex-wrap:wrap;
-  border-bottom:1px solid #383E47; padding-bottom:10px; margin-bottom:10px;}
-.dsc-title {font-size:22px; font-weight:700; color:#F6F7F9;}
-.dsc-title small {display:block; font-size:12px; font-weight:500; color:#ABB3BF; letter-spacing:.08em;
-  text-transform:uppercase; margin-bottom:2px;}
-.dsc-meta {display:flex; gap:18px; flex-wrap:wrap; font-size:12px; color:#ABB3BF;}
-.dsc-meta b {color:#F6F7F9; font-family:ui-monospace,Consolas,monospace; font-weight:600;}
-.dsc-strip {border-radius:3px; padding:7px 12px; font-size:13px; margin:6px 0;}
-.dsc-synth {background:rgba(200,118,25,.15); border:1px solid #C87619; color:#FBB360;}
-.dsc-stale {background:rgba(205,66,70,.18); border:1px solid #CD4246; color:#FA999C;}
-.dsc-fresh {background:rgba(35,133,81,.14); border:1px solid #238551; color:#72CA9B;}
-.badge {display:inline-block; padding:1px 8px; border-radius:3px; font-size:11px; font-weight:700;
-  letter-spacing:.05em; text-transform:uppercase; line-height:18px; white-space:nowrap;}
-.b-NEW {background:#2D72D2; color:#fff;} .b-WORSENED {background:#CD4246; color:#fff;}
-.b-IMPROVED {background:#238551; color:#fff;} .b-RESOLVED {background:#238551; color:#fff;}
-.b-DROPPED {background:#5F6B7C; color:#fff;} .b-UNCHANGED {background:#383E47; color:#ABB3BF;}
-.b-Unavailable {background:rgba(205,66,70,.25); color:#FA999C; border:1px solid #CD4246;}
-.b-Limited {background:rgba(200,118,25,.25); color:#FBB360; border:1px solid #C87619;}
-.b-Available {background:rgba(35,133,81,.25); color:#72CA9B; border:1px solid #238551;}
-.b-Unknown {background:#383E47; color:#ABB3BF; border:1px solid #5F6B7C;}
-.b-PASS, .b-SUCCESS, .b-OK, .b-approved {background:#238551; color:#fff;}
-.b-FAIL, .b-REFUSED, .b-rejected {background:#CD4246; color:#fff;}
-.b-NA, .b-candidate, .b-closed {background:#383E47; color:#ABB3BF;}
-.b-proposed, .b-open {background:#2D72D2; color:#fff;}
-.b-role {background:#383E47; color:#F6F7F9; border:1px solid #5F6B7C;}
-.kpi {background:#252A31; border:1px solid #383E47; border-radius:4px; padding:10px 14px; height:100%;}
-.kpi .k {font-size:11px; color:#ABB3BF; text-transform:uppercase; letter-spacing:.08em;}
-.kpi .v {font-size:26px; font-weight:700; color:#F6F7F9; font-variant-numeric:tabular-nums; line-height:1.25;}
-.kpi .s {font-size:12px; color:#ABB3BF;}
-.objcard {background:#252A31; border:1px solid #383E47; border-left:3px solid #4C90F0; border-radius:4px;
-  padding:12px 16px; margin-bottom:8px;}
-.objcard .type {font-size:11px; color:#8ABBFF; letter-spacing:.1em; text-transform:uppercase;}
-.objcard .name {font-size:21px; font-weight:700; color:#F6F7F9; margin:2px 0 6px 0;}
-.props {display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:6px 18px; font-size:12px;}
-.props div span {display:block; color:#ABB3BF; font-size:11px; text-transform:uppercase; letter-spacing:.06em;}
-.props div b {color:#F6F7F9; font-weight:600; font-family:ui-monospace,Consolas,monospace; font-size:12.5px;}
-.links {font-size:12px; color:#ABB3BF; margin-top:8px;}
-.links b {color:#8ABBFF;}
-.lockmsg {font-size:12px; color:#FBB360; margin:-4px 0 8px 0;}
-.feed {font-size:12.5px; border-left:2px solid #383E47; padding:2px 0 6px 10px; margin-bottom:4px;}
-.feed .t {color:#ABB3BF; font-family:ui-monospace,Consolas,monospace; font-size:11px;}
-.q {font-size:13px; color:#ABB3BF; margin:-6px 0 10px 0;}
-</style>
-"""
+ASSETS = Path(__file__).resolve().parent / "assets"
+CSS = "<style>\n" + (ASSETS / "formulary.css").read_text(encoding="utf-8") + "\n</style>"
+
+# Light FORMULARY palette for places CSS cannot reach (pandas Styler cells in st.dataframe, Altair).
+# Same hex values as app/assets/formulary.css; every text colour is >= 4.5:1 on its tint and on white.
+INK, MUTED, ACCENT, OK, WARN, BAD = "#1B1B1B", "#5F6670", "#1D4ED8", "#14532D", "#A14A07", "#9A3412"
+CELL = {
+    "accent": f"color:{ACCENT};background-color:#EDF2FD;font-weight:700",
+    "ok": f"color:{OK};background-color:#EAF3EE;font-weight:700",
+    "warn": f"color:{WARN};background-color:#FCF1E6;font-weight:700",
+    "bad": f"color:{BAD};background-color:#FBEDE7;font-weight:700",
+    "muted": f"color:{MUTED}",
+    "bad_text": f"color:{BAD};font-weight:700", "warn_text": f"color:{WARN};font-weight:700",
+    "ok_text": f"color:{OK};font-weight:700", "ok_plain": f"color:{OK}",
+}
+
+# Icons: simple hand-drawn 24 px stroke geometry (no icon font, no emoji). The shape carries the status with the
+# word, so nothing depends on colour alone.
+_PATHS = {
+    "plus": "M12 5v14M5 12h14",
+    "down": "M3 7l6 6 4-4 8 8M21 11v6h-6",
+    "stop": "M8 3h8l5 5v8l-5 5H8l-5-5V8zM9 9l6 6M15 9l-6 6",
+    "warn": "M12 3l10 18H2zM12 10v5M12 18v.5",
+    "check": "M5 12.5l4.5 4.5L19 7.5",
+    "dash": "M6 12h12",
+    "user": "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21c1.5-5 14.5-5 16 0",
+    "lock": "M6 11h12v10H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3",
+    "clock": "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2",
+}
+_ICON_FOR = {
+    "NEW": "plus", "proposed": "plus", "open": "clock",
+    "WORSENED": "down", "Limited": "warn", "SYNTHETIC": "warn",
+    "Unavailable": "stop", "FAIL": "stop", "REFUSED": "stop", "rejected": "stop", "BROKEN": "stop",
+    "RESOLVED": "check", "IMPROVED": "check", "Available": "check", "PASS": "check", "SUCCESS": "check",
+    "OK": "check", "approved": "check",
+    "role": "user",
+}
 
 CRITERION_TEXT = {
     "role": "your role is not allowed to run this action",
@@ -97,15 +86,50 @@ def esc(v) -> str:
     return html.escape("" if v is None else str(v))
 
 
+def icon(name: str) -> str:
+    d = _PATHS.get(name, _PATHS["dash"])
+    return (f'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" '
+            f'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="{d}"/></svg>')
+
+
 def badge(value, cls: str | None = None) -> str:
+    """A status sticker: an icon band (the shape) plus the word. Colour is the third cue, never the only one."""
     v = "n/a" if value is None or value == "" else str(value)
     c = cls or v.replace(" ", "").replace("/", "")
-    return f'<span class="badge b-{esc(c)}">{esc(v)}</span>'
+    band = "" if c == "date" else f'<span class="ic">{icon(_ICON_FOR.get(c, "dash"))}</span>'
+    return f'<span class="badge b-{esc(c)}">{band}<span class="tx">{esc(v)}</span></span>'
 
 
-def kpi(col, label: str, value, sub: str = "") -> None:
-    col.markdown(f'<div class="kpi"><div class="k">{esc(label)}</div><div class="v">{esc(value)}</div>'
+def aux_label(value, instruction: str) -> str:
+    """The big pharmacy auxiliary label for the object view: a bold band with icon + word, the instruction below."""
+    v = "n/a" if value is None or value == "" else str(value)
+    c = v.replace(" ", "").replace("/", "")
+    return (f'<span class="aux b-{esc(c)}"><span class="band">{icon(_ICON_FOR.get(c, "dash"))}{esc(v)}</span>'
+            f'<span class="body">{esc(instruction)}</span></span>')
+
+
+def kpi(col, label: str, value, sub: str = "", tone: str = "", lead: bool = False) -> None:
+    """One figure. ``lead`` = the one big number per page; ``tone`` (bad/warn/ok) only when the number is a status."""
+    cls = " ".join(x for x in ("kpi", "lead" if lead else "", tone) if x)
+    col.markdown(f'<div class="{cls}"><div class="k">{esc(label)}</div><div class="v">{esc(value)}</div>'
                  f'<div class="s">{esc(sub)}</div></div>', unsafe_allow_html=True)
+
+
+def lock_html(msg: str) -> str:
+    return f'<div class="lockmsg">{icon("lock")}<span>Locked: {esc(msg)}</span></div>'
+
+
+LOCKUP = ('<span class="hl-lockup"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">'
+          '<path d="M4 12V4H12M52 4H60V12M60 52V60H52M12 60H4V52" fill="none" stroke="currentColor" stroke-width="2"/>'
+          '<path d="M16 16V48M16 32H36M36 16V48H47" fill="none" stroke="currentColor" stroke-width="6.5" '
+          'stroke-linecap="square"/><circle class="hl-dot" cx="47" cy="21" r="4.6"/></svg>'
+          '<span>A <b>Hanson Labs</b> project</span></span>')
+
+
+def footer() -> None:
+    st.markdown(f'<div class="dsc-foot">{LOCKUP}<span>Shortage records: public openFDA data. Riverbend Health and '
+                f'everything about it: SYNTHETIC. Not for medical-care decisions.</span></div>',
+                unsafe_allow_html=True)
 
 
 def d10(v) -> str:
@@ -142,8 +166,9 @@ def show_flash() -> None:
 def page(title: str, question: str):
     """Page chrome + one connection for this rerun. ``question`` is the business question the page answers."""
     st.set_page_config(page_title=f"{title} | Drug Shortage Console", layout="wide",
-                       initial_sidebar_state="expanded")
+                       initial_sidebar_state="auto", page_icon=str(ASSETS / "favicon.svg"))
     st.markdown(CSS, unsafe_allow_html=True)
+    st.logo(str(ASSETS / "wordmark-light.svg"), size="large", icon_image=str(ASSETS / "monogram-light.svg"))
     mode = db_mode()
     path = Path(os.environ["DSC_DB_PATH"]) if os.environ.get("DSC_DB_PATH") else paths_for(mode).db  # test hook
     if not path.exists():
@@ -157,9 +182,11 @@ def page(title: str, question: str):
     try:
         _header(con, title, mode)
         sidebar_identity(con)
-        st.markdown(f'<div class="q">Business question: {esc(question)}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="q"><b>Question this page answers:</b> {esc(question)}</div>',
+                    unsafe_allow_html=True)
         show_flash()
         yield con
+        footer()
     finally:
         con.close()
 
@@ -168,24 +195,24 @@ def _header(con, title: str, mode: str) -> None:
     info = queries.snapshot_info(con)
     today = local_today()
     stale = is_stale(info["latest"], today, int(load_settings().get("stale_days", 1)))
+    meta = [("Snapshot", info["latest"]), ("vs previous", info["previous"]),
+            ("openFDA meta.last_updated", info["meta_last_updated"]), ("DB", mode), ("Snapshots", info["snapshots"])]
     st.markdown(
-        f'<div class="dsc-top"><div class="dsc-title"><small>Drug Shortage Console / Riverbend Health '
-        f'(SYNTHETIC)</small>{esc(title)}</div><div class="dsc-meta">'
-        f'<span>Snapshot <b>{esc(info["latest"])}</b></span>'
-        f'<span>vs previous <b>{esc(info["previous"])}</b></span>'
-        f'<span>openFDA meta.last_updated <b>{esc(info["meta_last_updated"])}</b></span>'
-        f'<span>DB <b>{esc(mode)}</b></span>'
-        f'<span>Snapshots <b>{esc(info["snapshots"])}</b></span></div></div>', unsafe_allow_html=True)
+        f'<div class="dsc-top"><div><div class="dsc-eyebrow">Drug Shortage Console &middot; Riverbend Health '
+        f'(SYNTHETIC)</div><div class="dsc-title">{esc(title)}</div></div><div class="dsc-meta">'
+        + "".join(f'<span>{esc(k)}<b>{esc(v)}</b></span>' for k, v in meta) + '</div></div>',
+        unsafe_allow_html=True)
     synth = ("SYNTHETIC hospital data. Riverbend Health, its 3 sites, formulary, stock, users and tasks are "
              "fictional. Shortage records are public openFDA data and are not for medical-care decisions.")
     if info.get("synthetic_history"):
         synth += " Demo history days are SYNTHETIC fixture snapshots, not real FDA history."
-    st.markdown(f'<div class="dsc-strip dsc-synth">{esc(synth)}</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="dsc-strip dsc-synth">{badge("SYNTHETIC")}<div>{esc(synth)}</div></div>',
+                unsafe_allow_html=True)
     if stale:
         age = "no snapshot" if info["latest"] is None else f"{snapshot_age_days(info['latest'], today)} days old"
-        st.markdown(f'<div class="dsc-strip dsc-stale">STALE DATA: the newest snapshot is {esc(age)} '
-                    f'(today {today}). Showing the last cached snapshot; run the daily pull.</div>',
-                    unsafe_allow_html=True)
+        st.markdown(f'<div class="dsc-strip dsc-stale">{badge("STALE", "FAIL")}<div>STALE DATA: the newest '
+                    f'snapshot is {esc(age)} (today {today}). Showing the last cached snapshot; run the daily '
+                    f'pull.</div></div>', unsafe_allow_html=True)
 
 
 def sidebar_identity(con) -> str:
@@ -203,10 +230,18 @@ def sidebar_identity(con) -> str:
                               index=ids.index(st.session_state["acting_user"]),
                               format_func=lambda u: labels.get(u, u), key="_user_picker")
         st.session_state["acting_user"] = choice
+        st.query_params["as"] = choice  # a reload or a bookmarked tab keeps the same demo identity
         role = users.set_index("user_id").loc[choice, "role"]
         st.markdown(f"Role {badge(role, 'role')}", unsafe_allow_html=True)
         st.caption("Demo identity, not authentication. The role comes from seed.app_user inside the action "
                    "layer; the UI cannot pass a role in.")
+        last = st.session_state.get("event_key")
+        if last:  # "where was I": one click back to the last shortage opened, after any interruption
+            st.divider()
+            st.markdown("**Where you were**")
+            if st.button(st.session_state.get("event_name") or last, key="where_was_i", width="stretch",
+                         help="Reopen the last shortage you looked at"):
+                open_object(last)
         st.divider()
         st.caption("All hospital data is SYNTHETIC.")
     return choice
