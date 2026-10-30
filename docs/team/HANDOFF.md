@@ -365,3 +365,10 @@
 - reports/match_quality.json now has a set_label saying it is the SEEN gold set.
 - AC-9.2: the Foundry concept map now says it is a stand-in and links to palantir.com/docs/foundry.
 - AC-4.5 (recall 0.605 against 0.95) stays NOT MET on purpose; v4 is on the roadmap.
+
+## 2026-10-30, Data Engineer: pytest run must fail loudly when it did not run cleanly
+- Did: run_pytest now records `ok` and `returncode`. ok is False on any error (e.g. a collection error), an exit code other than 0/1 (2 interrupted, 5 no tests ran), or no summary line. New check_tests() makes main() return 1 with "error: pytest did not run cleanly (N errors, exit code X: ...)", and the README row says DID NOT RUN CLEANLY instead of "0 passed, 0 failed".
+- Files: pipeline/run.py, tests/test_run_pytest.py (new).
+- Checks: new test file against the old run.py: 4 failed (e.g. "a suite that never ran was recorded as ok: {... 'error': 1 ...}"); with the fix: 4 passed. Quick subset `pytest -x -q` on test_run_pytest, test_run, test_ndc, test_match, test_dq: 70 passed. Full suite not run (RAM brief).
+- Open: pre-existing uncommitted edits to README.md, docs/impact.md, reports/impact_metrics.json, reports/match_quality.json were left untouched and NOT committed (not mine).
+- Next: QA Engineer.

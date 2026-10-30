@@ -247,10 +247,25 @@ def run_pytest() -> dict:
     tail = lines[-1] if lines else ""
     counts = {k: int(m.group(1)) if (m := re.search(rf"(\d+) {k}", tail)) else 0
               for k in ("passed", "failed", "skipped", "error")}
-    if proc.returncode not in (0, 1):
+    # ok is False when the suite did not run cleanly: any error (e.g. a collection error), an exit code other than
+    # 0 (all passed) or 1 (some failed), or no summary line. Otherwise a suite that never ran reads "0 failed".
+    ok = bool(tail) and counts["error"] == 0 and proc.returncode in (0, 1)
+    if not ok:
         print(proc.stdout[-3000:], proc.stderr[-2000:])
-    print("pytest:", tail)
-    return {**counts, "summary": tail, "date": time.strftime("%Y-%m-%d")}
+    print("pytest:", tail or "no pytest summary line")
+    return {**counts, "returncode": proc.returncode, "ok": ok, "summary": tail or "no pytest summary line",
+            "date": time.strftime("%Y-%m-%d")}
+
+
+def check_tests(tests: dict | None) -> int:
+    """Exit code for the recorded pytest run: 1, with a clear message, when it failed or did not run cleanly."""
+    if tests and tests.get("ok") is False:
+        print(f"error: pytest did not run cleanly ({tests['error']} errors, exit code {tests['returncode']}: "
+              f"{tests['summary']}); README marks the result as not valid")
+        return 1
+    if tests and (tests["failed"] or tests["error"]):
+        return 1
+    return 0
 
 
 def _fmt(v) -> str:
@@ -279,7 +294,10 @@ def write_readme_results(r: dict) -> None:
                          f"{_fmt(h['baseline']['precision'])} / {_fmt(h['baseline']['recall'])} ({h['file']}) |")
         lines.append(f"| Gold set (seen, optimistic; regression check only) | {g['matcher']['precision']} / "
                      f"{g['matcher']['recall']} |")
-    if t:
+    if t and t.get("ok") is False:
+        lines.append(f"| pytest | **DID NOT RUN CLEANLY**: {t['error']} errors, exit code {t.get('returncode', '?')} "
+                     f"({t['summary']}); counts are not valid ({t['date']}) |")
+    elif t:
         lines.append(f"| pytest | **{t['passed']} passed**, {t['failed']} failed, {t['skipped']} skipped "
                      f"({t['date']}) |")
     note = ("\nNumbers from `python -m pipeline.run --fixtures --test`, stored in "
@@ -325,9 +343,7 @@ def main(argv: list[str] | None = None) -> int:
     print(json.dumps(short, indent=1, default=str))
     if summary.get("dq_fail"):
         print("DQ FAIL rows:", json.dumps(summary["dq_fail"], indent=1))
-    if tests and (tests["failed"] or tests["error"]):
-        return 1
-    return 0
+    return check_tests(tests)
 
 
 if __name__ == "__main__":
