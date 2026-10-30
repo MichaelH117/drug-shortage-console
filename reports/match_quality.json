@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-30T09:13:18",
+  "generated_at_utc": "2026-10-30T10:30:23",
   "matcher_version": "v3 (ADR 006 + addendum + TL conditions, round 3)",
   "gold": {
     "file": "tests/fixtures/gold_matches.csv",

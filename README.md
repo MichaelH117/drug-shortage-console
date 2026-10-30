@@ -18,7 +18,7 @@ Every number below comes from a run output: `reports/match_quality_v1.json`, `_v
 | Base-name search (the fair baseline) on v3 / v2 | Recall 0.093 / 0.234; precision 0.571 / 0.579 | same files, `baseline_v2` |
 | Day-one queue on the live snapshot (2026-10-30) | 663 matched events (from 1,614 raw records) reduced to a **73-item** baseline review list (ADR 007) | ADR 007, `docs/impact.md` |
 | Guardrails (demo DB) | Audit chain OK (14 rows); 0 actions by a disallowed role (2 attempts refused and logged); DQ pass rate 0.909, 0 FAIL | `reports/impact_metrics.json` |
-| Tests | **307 passed, 0 failed**, 2 skipped (live API) | `docs/results.json` |
+| Tests | **312 passed, 0 failed**, 2 skipped (live API) | `docs/results.json` |
 | Concurrency race fix | 11 of 15 runs failed before; **0 of 20** after; removing the lock fails 5 of 5 | [postmortem](docs/POSTMORTEM_concurrency_race.md) |
 | Rebuild idempotency | 20 of 21 tables byte-identical on a second build; the 21st differs only by run id and timestamp; edits and audit survive | [FLAW_HUNT](docs/FLAW_HUNT.md) row 1 |
 
@@ -114,7 +114,7 @@ python3 -m venv .venv
 
 Or in one step: `sh run_demo.sh`. (The macOS/Linux commands have not been run by the team yet; only Windows was measured.)
 
-**Tests:** `pip install -r requirements-dev.txt`, then `python -m pipeline.run --fixtures --test` builds and runs the full suite and writes the counts to `docs/results.json` (307 passed, 2 skipped in 76.6 s on 2026-10-30). Live API tests run only with `DSC_LIVE=1`.
+**Tests:** `pip install -r requirements-dev.txt`, then `python -m pipeline.run --fixtures --test` builds and runs the full suite and writes the counts to `docs/results.json` (312 passed, 2 skipped in 39.4 s on 2026-10-30). Live API tests run only with `DSC_LIVE=1`.
 
 **Measured on a fresh clone** (Windows 11, Python 3.13.0, 2026-10-30): create venv 15 s; install pinned dev requirements 3 min 9 s; fixtures build 2.3 s (peak memory 146 MiB); `console.simulate` 1.5 s; Streamlit server answered its health check, idle at 61 MiB. A 50-test subset including the headless app tests passed in 46 s (peak 235 MiB).
 
@@ -163,7 +163,7 @@ Build output, written automatically by `python -m pipeline.run --fixtures --test
 | DQ checks | PASS 26, SKIPPED 2, WARN 5 |
 | **Matcher P / R, unseen holdout v3** (90 pairs, team-labeled) | **0.963 / 0.6047** vs baseline n/a (no matches) / 0.0 (reports/match_quality_v3.json) |
 | Gold set (seen, optimistic; regression check only) | 0.9825 / 0.9825 |
-| pytest | **307 passed**, 0 failed, 2 skipped (2026-10-30) |
+| pytest | **312 passed**, 0 failed, 2 skipped (2026-10-30) |
 
 Numbers from `python -m pipeline.run --fixtures --test`, stored in [docs/results.json](docs/results.json). Shortage records are public openFDA data; the demo history days and the hospital are SYNTHETIC.
 <!-- results:end -->
