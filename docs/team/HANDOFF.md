@@ -379,3 +379,10 @@
 - **Checks:** test_app 11 passed; full pytest **312 passed, 2 skipped**; ruff clean on app/. Screenshots were taken with headless Chrome on a scratch DB copy; the server and Chrome are stopped.
 - **Open:** The brand Streamlit snippet's multi-family font URL is rejected by Streamlit 1.66 (brand owner to fix build_tokens.py). Not tested on a real phone. Backlog count shows 39 (old shot: 40); that comes from the demo DB, not this change.
 - **Next:** qa-engineer (spot-check the screens). Bigger idea, not built: the allocation/backorder board (VoC #1), see DESIGN_REVIEW.md NEXT.
+
+## 2026-10-30 principal-engineer (overnight step 7: cross-project consistency review)
+- Did: added KI-20 (results.json records 307 passed; later full pytest run was 312 passed, 2 skipped) and KI-21 (backlog 39 vs 40).
+- Files: docs/KNOWN_ISSUES.md
+- Checks: README headline numbers compared with docs/results.json by hand; no code or numbers changed.
+- Open: README baseline row cites baseline_v2 (recall 0.093) while the generated block shows the exact-match baseline (0.0): pick one.
+- Full review: dev-team/brand/portfolio/CONSISTENCY_REVIEW.md. Next: qa-engineer: re-run pipeline.run --fixtures --test; confirm backlog count.
